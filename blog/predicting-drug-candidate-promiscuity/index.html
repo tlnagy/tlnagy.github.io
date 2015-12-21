@@ -52,9 +52,9 @@
     </header>
 
     <article class="post-content">
-        <p>Last month, I gave a presentation to my chemistry seminar class on predicting the promiscuity of small-molecule drug candidates by comparing their structure to the sets of ligands that bind specific proteins. If a drug candidate strongly matches a set of ligands for a certain protein then there is a high probability that it will show off-target effects with that protein. Thus, if a candidate is compared against enough protein-ligand sets then it is likely that we can predict the side-effects of a drug before it enters clinical trials. Using this technique, Keiser et al. were able to identify potential reasons for side effects seen in commonly available drugs <span class="citation" data-cites="Keiser2009">[<span class="citeproc-no-output"><strong>???</strong></span>]</span>. For example, they noticed that Rescriptor, an HIV reverse transcriptase inhibitor, matched the ligand sets of histamine receptors, which could explain the skin rashes observed in patients who were on the drug. They used a variant of the <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a> known as the Tanimoto coefficient to calculate the similarity between pairs of compounds:</p>
+        <p>Last month, I gave a presentation to my chemistry seminar class on predicting the promiscuity of small-molecule drug candidates by comparing their structure to the sets of ligands that bind specific proteins. If a drug candidate strongly matches a set of ligands for a certain protein then there is a high probability that it will show off-target effects with that protein. Thus, if a candidate is compared against enough protein-ligand sets then it is likely that we can predict the side-effects of a drug before it enters clinical trials. Using this technique, Keiser et al. were able to identify potential reasons for side effects seen in commonly available drugs <span class="citation" data-cites="keiser_predicting_2009">[1]</span>. For example, they noticed that Rescriptor, an HIV reverse transcriptase inhibitor, matched the ligand sets of histamine receptors, which could explain the skin rashes observed in patients who were on the drug. They used a variant of the <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a> known as the Tanimoto coefficient to calculate the similarity between pairs of compounds:</p>
 <p><span class="math display">\[ T_c = \frac{\left| \chi_A \cap \chi_B \right|}{\left| \chi_A \cup \chi_B \right|}\]</span></p>
-<p>where <span class="math inline">\(\chi_A\)</span> and <span class="math inline">\(\chi_B\)</span> are sets of features that describe compound <span class="math inline">\(A\)</span> and compound <span class="math inline">\(B\)</span>, respectively. My understanding is that they compared the set of ligands for the known target of a drug compound to the all other protein-ligands sets. For each of these set comparisons they computed pairwise <span class="math inline">\(T_c\)</span> values for each ligand in the first set with each ligand in the second set. They then summed all the number of ligand pairs with <span class="math inline">\(T_c &gt; 0.57\)</span> yielding what they termed a <em>raw score</em> <span class="citation" data-cites="Hert2008">[<span class="citeproc-no-output"><strong>???</strong></span>]</span>. Now, this raw score is biased by the size of the sets and it does not account for randomness. The authors account for this by transforming the raw scores to Z-scores:</p>
+<p>where <span class="math inline">\(\chi_A\)</span> and <span class="math inline">\(\chi_B\)</span> are sets of features that describe compound <span class="math inline">\(A\)</span> and compound <span class="math inline">\(B\)</span>, respectively. My understanding is that they compared the set of ligands for the known target of a drug compound to the all other protein-ligands sets. For each of these set comparisons they computed pairwise <span class="math inline">\(T_c\)</span> values for each ligand in the first set with each ligand in the second set. They then summed all the number of ligand pairs with <span class="math inline">\(T_c &gt; 0.57\)</span> yielding what they termed a <em>raw score</em> <span class="citation" data-cites="hert_quantifying_2008">[2]</span>. Now, this raw score is biased by the size of the sets and it does not account for randomness. The authors account for this by transforming the raw scores to Z-scores:</p>
 <p><span class="math display">\[ z = \frac{rs(S_1, S_2 - \mu(n(S_1, S_2)}{\sigma(n(S_1, S_2))}\]</span></p>
 <p>where <span class="math inline">\(rs(S_1,S_2)\)</span> is the raw score of set <span class="math inline">\(S_1\)</span> versus. set <span class="math inline">\(S_2\)</span>, <span class="math inline">\(n(S_1,S_2)\)</span> is the product of the sizes of the two sets, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are the expected raw score mean and expected raw score std. dev. Now, they noticed that the background distribution of raw scores for their compound comparisons matched an <a href="http://en.wikipedia.org/wiki/Generalized_extreme_value_distribution">extreme value distribution</a>. Hence, the probability of a same or larger raw score by random chance is given by</p>
 <p><span class="math display">\[ P(Z&gt;z) = 1 - exp(-e^{-z\pi/\sqrt{6} - \gamma}) \]</span></p>
@@ -76,12 +76,39 @@
 src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <h2 id="references" class="unnumbered">References</h2>
 <div id="refs" class="references">
-
+<div id="ref-keiser_predicting_2009">
+<p>1. Keiser MJ, Setola V, Irwin JJ, Laggner C, Abbas AI, Hufeisen SJ, et al. Predicting new molecular targets for known drugs. Nature. 2009;462: 175–181. doi:<a href="http://doi.org/10.1038/nature08506">10.1038/nature08506</a></p>
+</div>
+<div id="ref-hert_quantifying_2008">
+<p>2. Hert J, Keiser MJ, Irwin JJ, Oprea TI, Shoichet BK. Quantifying the relationships among drug classes. J Chem Inf Model. 2008;48: 755–765. doi:<a href="http://doi.org/10.1021/ci8000259">10.1021/ci8000259</a></p>
+</div>
 </div>
 
     </article>
 
     
+<section class="revision">
+  <h3>Revision history</h3>
+  <ul>
+  
+    <li>
+      Commit <a href="https://github.com/tlnagy/tnsite/commit/364dd6b6e911e1804dc281941ec8f04048ace302"><code>364dd6b</code></a> on <span class="rev-date">20 Dec 2015</span> by 
+      <span class="rev-author">Tamas Nagy</span>
+          <pre>fixes bug with citations due to change in format
+</pre>
+    </li>
+  
+    <li>
+      Commit <a href="https://github.com/tlnagy/tnsite/commit/6ddb1b29d82219f1ed3fd83665f019c8b1e112af"><code>6ddb1b2</code></a> on <span class="rev-date">17 Dec 2015</span> by 
+      <span class="rev-author">Tamas Nagy</span>
+          <pre>initial commit</pre>
+    </li>
+  
+    
+  </ul>
+    
+</section>
+
 
 
     <!-- POST NAVIGATION -->
