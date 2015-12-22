@@ -451,6 +451,69 @@ code {
     }
 }
 
+/*==============================
+=           Photos             =
+==============================*/
+
+#photos {
+    /* Prevent vertical gaps */
+    line-height: 0;
+
+    -webkit-column-count: 1;
+    -webkit-column-gap:   0.5em;
+    -moz-column-count:    1;
+    -moz-column-gap:      0.5em;
+    column-count:         1;
+    column-gap:           0.5em;
+    margin-top: 2em;
+}
+
+#photos a{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+#photos a img {
+    /* Just in case there are inline attributes */
+    width: 100% !important;
+    height: auto !important;
+}
+
+#photos a .data {
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    right: 0.5em;
+    bottom: 0.5em;
+    padding: 2em;
+    background: rgba(0, 0, 0, 0.6);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+}
+
+#photos a:hover .data {
+	opacity: 1;
+}
+
+@media (min-width: 34em) {
+    #photos {
+    -webkit-column-count: 2;
+    -moz-column-count:    2;
+    column-count:         2;
+}
+}
+
 /*=================================================
 =            Syntax Styles from GitHub            =
 =================================================*/
