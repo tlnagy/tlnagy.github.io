@@ -83,6 +83,16 @@ a:hover {
 
 img {
     max-width: 100%;
+    margin: 2em 0 0 0;
+}
+
+figure figcaption{
+    padding: 1em;
+    margin: 1em 0 3em;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 0.3em;
+    border: 1px solid #DDD;
 }
 
 .l-img {

@@ -6,9 +6,45 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Dec 2015 15:57:48 -0500</pubDate>
-    <lastBuildDate>Tue, 22 Dec 2015 15:57:48 -0500</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Thu, 07 Jan 2016 20:37:21 -0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 20:37:21 -0800</lastBuildDate>
+    <generator>Jekyll v2.5.1</generator>
+    
+      <item>
+        <title>New year, new site</title>
+        <description>&lt;p&gt;Ever since my (now former) hosting provider, &lt;a href=&quot;https://www.greenqloud.com/&quot;&gt;Greenqloud&lt;/a&gt;, changed directions back last September and shutdown its public cloud offering, my site has been in a state of limbo. My lack of any posts for over a year didn’t help the matter either. So I did what any rational person would(n’t) do. I yanked the cord, brushed up on my Ruby and Liquid, and rebuilt the whole thing from scratch.&lt;/p&gt;
+&lt;p&gt;That’s what you are seeing right now. A new site for a new year. Is it any better? Probably not. It’s different though, I’ll let you decide:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/blog_really_old.png&quot; alt=&quot;One of the earliest versions. Had a nifty time-to-read indicator. Pretty boring otherwise.&quot; /&gt;&lt;figcaption&gt;One of the earliest versions. Had a nifty time-to-read indicator. Pretty boring otherwise.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/blog_old.png&quot; alt=&quot;Previous version. It was heavily inspired by Trevor Bedford’s site. Spot the resemblance?&quot; /&gt;&lt;figcaption&gt;Previous version. It was heavily inspired by Trevor Bedford’s &lt;a href=&quot;http://bedford.io&quot;&gt;site&lt;/a&gt;. Spot the resemblance?&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Best features of the new site? I really like that I now have the following things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A dedicated photos section. I like having everything self-hosted and in one place.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The about page has the version information for the software used to build the site.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Both the HTML and PDF versions of my CV are perfectly synced up thanks to &lt;a href=&quot;http://pandoc.org&quot;&gt;Pandoc&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The revision history of a post is extracted from git and shown under each one. Why? Because I can.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I’m also changing the focus of content on this website. I intend to use it as a running list of interesting software tweaks and solutions that I’ve found useful and I want to keep track of. I would also like to have more exploratory posts where I dive into interesting problems.&lt;/p&gt;
+&lt;p&gt;Most importantly, everyone’s favorite hypotrochoid is still featured on the site. New year, new site, same hypotrochoid.&lt;/p&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2016 00:00:00 -0800</pubDate>
+        <link>http://www.tamasnagy.com/blog/revamp/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/revamp/</guid>
+        
+        <category>blog</category>
+        
+        <category>design</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Predicting Drug Candidate Promiscuity</title>
@@ -44,7 +80,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Sat, 05 Apr 2014 00:00:00 -0400</pubDate>
+        <pubDate>Sat, 05 Apr 2014 00:00:00 -0700</pubDate>
         <link>http://www.tamasnagy.com/blog/predicting-drug-candidate-promiscuity/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/predicting-drug-candidate-promiscuity/</guid>
         
@@ -78,7 +114,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
-        <pubDate>Sat, 18 Jan 2014 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 18 Jan 2014 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/life-sans-facebook/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/life-sans-facebook/</guid>
         
@@ -129,7 +165,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
-        <pubDate>Sat, 11 Jan 2014 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 11 Jan 2014 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/scientific-writing-pandoc/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/scientific-writing-pandoc/</guid>
         
@@ -163,7 +199,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+        <pubDate>Fri, 19 Jul 2013 00:00:00 -0700</pubDate>
         <link>http://www.tamasnagy.com/blog/open/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/open/</guid>
         
