@@ -7,15 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>about</title>
-    <meta name="description" content="Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, photography, and more
-">
+    <title>Building this Jekyll site on Debian 8</title>
+    <meta name="description" content="One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For ...">
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="http://www.tamasnagy.com/favicon.ico">
 
-    <link rel="canonical" href="http://www.tamasnagy.com/about/">
+    <link rel="canonical" href="http://www.tamasnagy.com/blog/building-jekyll-site-debian/">
     <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="http://www.tamasnagy.com/feed.xml" />
 </head>
 
@@ -51,38 +50,50 @@
       <div class="wrapper">
         <div class="post">
 
-  <header class="post-header">
-    <h2 class="post-title">about</h2>
-  </header>
+    <header class="post-header">
+        <h2 class="post-title">Building this Jekyll site on Debian 8</h2>
+        <p class="post-meta"><span class="post-date">Jan 23, 2016</span> by <span class="post-author">Tamas Nagy</span></p>
+    </header>
 
-  <article class="post-content">
-    <p>Hi, I'm Tamas. I'm a graduate student in the <a href="http://bmi.ucsf.edu">Biomedical Informatics</a> Program at UCSF. I graduated with B.S. degrees in Math and Chemistry from the University of Kentucky in May 2015. In my time there I worked in the <a href="http://biochemistry.med.uky.edu/users/rdutc2">Dutch</a> and <a href="http://bioinformatics.cesb.uky.edu/">Moseley</a> groups on determining the structural characteristics of metastable viral fusion proteins. I also worked on a new method for predicting novel protein-protein interactions <em>in silico</em>. I also had two summer internships: one as an AMGEN scholar in <a href="http://doudna.berkeley.edu/">Jennifer Doudna</a>'s group at Berkeley and one with <a href="http://pelkmanslab.org/">Lucas Pelkmans</a> at the University of Zurich.</p>
-
-
-<h4>Contact</h4>
-
-<i class="fa fa-envelope fa-fw"></i> <span style="unicode-bidi:bidi-override; direction: rtl;">moc.ygansamat@samat</span><br>
-<i class="fa fa-lock fa-fw"></i> <a href="/misc/Tamas_Nagy_604EA988.asc">Tamas_Nagy_604EA988.asc</a><br>
-<i class="fa fa-twitter fa-fw"></i> <a href="https://twitter.com/tlngy">@tlngy</a><br>
-<i class="fa fa-github fa-fw"></i> <a href="https://github.com/tlnagy/">@tlnagy</a><br>
-
-
-
-<h4>Site details</h4>
-
-<p>This website was last built on 2016-01-23 15:32:47 using <span class="prog-info">Jekyll 2.5.1 </span>, <span class="prog-info">Pandoc 1.15.1.1</span>, and <span class="prog-info">Ruby 2.2.4p230</span> on a <span class="prog-info">x86_64-darwin15</span> machine.</p>
-
-Additionally, it uses the following gems:
-
-<ul>
-
-    <li>jekyll-pandoc</li>
-
-</ul>
-  </article>
+    <article class="post-content">
+        <p>One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For example, on <a href="https://debian.org">Debian Jessie</a>, install the following packages:</p>
+<pre><code>sudo apt-get install ruby ruby-dev git imagemagick libmagickwand-dev pandoc pandoc-citeproc</code></pre>
+<p>If using an older version of jekyll (&lt;3) then also install a valid Javascript runtime like NodeJS:</p>
+<pre><code>sudo apt-get install nodejs</code></pre>
+<p>then install all the required Ruby gems:</p>
+<pre><code>sudo gem install jekyll -v 2.5.1
+sudo gem install exifr rmagick jekyll-pandoc</code></pre>
+<p>Finally clone the git repo and build the site<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>:</p>
+<pre><code>git clone https://github.com/tlnagy/tnsite.git
+cd tnsite
+jekyll serve</code></pre>
+<p>Voilà</p>
+<div id="refs" class="references">
 
 </div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This might crash due to a missing <code>photos/</code> directory. See <a href="https://github.com/tlnagy/tnsite/issues/1" class="uri">https://github.com/tlnagy/tnsite/issues/1</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
 
+    </article>
+
+    
+
+
+    <!-- POST NAVIGATION -->
+    <div class="postNav clearfix">
+        
+        <a class="prev image" href="/blog/revamp/"><span>&laquo;&nbsp;New year, new site</span>
+       
+        <img src="/assets/images/blog_old_crop.png" alt="">
+      
+    </a>  
+    </div>
+
+</div>
       </div> <!-- .wrapper -->
     </div> <!-- .page-content -->
 
