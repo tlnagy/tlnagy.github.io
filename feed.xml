@@ -6,20 +6,20 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 Jan 2016 15:32:47 -0800</pubDate>
-    <lastBuildDate>Sat, 23 Jan 2016 15:32:47 -0800</lastBuildDate>
+    <pubDate>Wed, 27 Jan 2016 14:20:39 -0800</pubDate>
+    <lastBuildDate>Wed, 27 Jan 2016 14:20:39 -0800</lastBuildDate>
     <generator>Jekyll v2.5.1</generator>
     
       <item>
         <title>Building this Jekyll site on Debian 8</title>
         <description>&lt;p&gt;One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For example, on &lt;a href=&quot;https://debian.org&quot;&gt;Debian Jessie&lt;/a&gt;, install the following packages:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install ruby ruby-dev git imagemagick libmagickwand-dev pandoc pandoc-citeproc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If using an older version of jekyll (&amp;lt;3) then also install a valid Javascript runtime like NodeJS:&lt;/p&gt;
+&lt;p&gt;If using an older version of jekyll (&amp;lt;3) then also install a valid Javascript runtime like NodeJS&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;then install all the required Ruby gems:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo gem install jekyll -v 2.5.1
 sudo gem install exifr rmagick jekyll-pandoc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Finally clone the git repo and build the site&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Finally clone the git repo and build the site&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/tlnagy/tnsite.git
 cd tnsite
 jekyll serve&lt;/code&gt;&lt;/pre&gt;
@@ -30,7 +30,8 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;This might crash due to a missing &lt;code&gt;photos/&lt;/code&gt; directory. See &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/1&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/1&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;This is still required to build this site until I fix &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/3&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/3&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This might crash due to a missing &lt;code&gt;photos/&lt;/code&gt; directory. See &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/1&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/1&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>

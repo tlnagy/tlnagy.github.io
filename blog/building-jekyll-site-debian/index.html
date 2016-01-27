@@ -58,12 +58,12 @@
     <article class="post-content">
         <p>One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For example, on <a href="https://debian.org">Debian Jessie</a>, install the following packages:</p>
 <pre><code>sudo apt-get install ruby ruby-dev git imagemagick libmagickwand-dev pandoc pandoc-citeproc</code></pre>
-<p>If using an older version of jekyll (&lt;3) then also install a valid Javascript runtime like NodeJS:</p>
+<p>If using an older version of jekyll (&lt;3) then also install a valid Javascript runtime like NodeJS<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>:</p>
 <pre><code>sudo apt-get install nodejs</code></pre>
 <p>then install all the required Ruby gems:</p>
 <pre><code>sudo gem install jekyll -v 2.5.1
 sudo gem install exifr rmagick jekyll-pandoc</code></pre>
-<p>Finally clone the git repo and build the site<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>:</p>
+<p>Finally clone the git repo and build the site<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>:</p>
 <pre><code>git clone https://github.com/tlnagy/tnsite.git
 cd tnsite
 jekyll serve</code></pre>
@@ -74,13 +74,28 @@ jekyll serve</code></pre>
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>This might crash due to a missing <code>photos/</code> directory. See <a href="https://github.com/tlnagy/tnsite/issues/1" class="uri">https://github.com/tlnagy/tnsite/issues/1</a><a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>This is still required to build this site until I fix <a href="https://github.com/tlnagy/tnsite/issues/3" class="uri">https://github.com/tlnagy/tnsite/issues/3</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>This might crash due to a missing <code>photos/</code> directory. See <a href="https://github.com/tlnagy/tnsite/issues/1" class="uri">https://github.com/tlnagy/tnsite/issues/1</a><a href="#fnref2">↩</a></p></li>
 </ol>
 </section>
 
     </article>
 
     
+<section class="revision">
+  <h3>Revision history</h3>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">27 Jan 2016</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>update build post with new issue info
+</code><a href="https://github.com/tlnagy/tnsite/commit/c301fe5aff7a2a335eb5f3fc7cb46483e9c004d2" class="rev-hash"><code>c301fe5</code></a></p>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">23 Jan 2016</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>add new post on debian build</code><a href="https://github.com/tlnagy/tnsite/commit/102898eebccfd88db242e15ec8ca313c768b4040" class="rev-hash"><code>102898e</code></a></p>
+  
+    
+    
+</section>
+
 
 
     <!-- POST NAVIGATION -->
