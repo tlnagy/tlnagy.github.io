@@ -6,8 +6,8 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Feb 2016 12:32:08 -0800</pubDate>
-    <lastBuildDate>Wed, 10 Feb 2016 12:32:08 -0800</lastBuildDate>
+    <pubDate>Sun, 14 Feb 2016 17:09:33 -0800</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 17:09:33 -0800</lastBuildDate>
     <generator>Jekyll v2.5.1</generator>
     
       <item>
@@ -19,7 +19,7 @@
 &lt;p&gt;then install all the required Ruby gems:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo gem install jekyll -v 2.5.1
 sudo gem install exifr rmagick jekyll-pandoc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Finally clone the git repo and build the site&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Finally clone the git repo and build the site:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/tlnagy/tnsite.git
 cd tnsite
 jekyll serve&lt;/code&gt;&lt;/pre&gt;
@@ -31,7 +31,6 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;This is still required to build this site until I fix &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/3&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/3&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This might crash due to a missing &lt;code&gt;photos/&lt;/code&gt; directory. See &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/1&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/1&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
