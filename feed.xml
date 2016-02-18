@@ -6,9 +6,53 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Feb 2016 17:09:33 -0800</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 17:09:33 -0800</lastBuildDate>
+    <pubDate>Wed, 17 Feb 2016 21:14:34 -0800</pubDate>
+    <lastBuildDate>Wed, 17 Feb 2016 21:14:34 -0800</lastBuildDate>
     <generator>Jekyll v2.5.1</generator>
+    
+      <item>
+        <title>Native MTP interconnect on Mac/Linux</title>
+        <description>&lt;p&gt;Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here’s how I got it working.&lt;/p&gt;
+&lt;h2 id=&quot;linux-setup&quot;&gt;Linux setup&lt;/h2&gt;
+&lt;p&gt;On Debian (or Debian derivatives like Ubuntu):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libfuse-dev android-tools-adb&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;mac-setup&quot;&gt;Mac setup&lt;/h2&gt;
+&lt;p&gt;Install Homebrew (&lt;a href=&quot;http://brew.sh&quot; class=&quot;uri&quot;&gt;http://brew.sh&lt;/a&gt;) and OSXFuse (&lt;a href=&quot;https://osxfuse.github.io/&quot; class=&quot;uri&quot;&gt;https://osxfuse.github.io/&lt;/a&gt;) then run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew update
+brew install android-platform-tools&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;clone-build-and-setup-adbfs&quot;&gt;Clone, build, and setup &lt;code&gt;adbfs&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;We’ll be using &lt;a href=&quot;https://github.com/spion/adbfs-rootless&quot;&gt;&lt;code&gt;adbfs&lt;/code&gt;&lt;/a&gt; to mount our Android phone:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git://github.com/spion/adbfs-rootless.git
+cd adbfs-rootless    
+make&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Create a mount point&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir ~/phone&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mount device as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./adbfs ~/phone&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).&lt;/p&gt;
+&lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;Try reseting and restarting &lt;code&gt;adb&lt;/code&gt; and the mount point&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;killall -9 adb; sudo umount -f ~/phone&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 17 Feb 2016 00:00:00 -0800</pubDate>
+        <link>http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</guid>
+        
+        <category>linux</category>
+        
+        <category>mac</category>
+        
+        <category>android</category>
+        
+        <category>diy</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Building this Jekyll site on Debian 8</title>
@@ -37,6 +81,10 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
         <pubDate>Sat, 23 Jan 2016 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/building-jekyll-site-debian/</guid>
+        
+        <category>meta</category>
+        
+        <category>linux</category>
         
         
         <category>blog</category>
@@ -70,9 +118,7 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
         <link>http://www.tamasnagy.com/blog/revamp/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/revamp/</guid>
         
-        <category>blog</category>
-        
-        <category>design</category>
+        <category>meta</category>
         
         
         <category>blog</category>
