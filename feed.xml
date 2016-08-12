@@ -6,8 +6,8 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Aug 2016 14:18:41 -0700</pubDate>
-    <lastBuildDate>Fri, 12 Aug 2016 14:18:41 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Aug 2016 14:19:32 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Aug 2016 14:19:32 -0700</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -253,6 +253,10 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
         <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/building-jekyll-site-debian/</guid>
         
+        <category>meta</category>
+        
+        <category>linux</category>
+        
         
         <category>blog</category>
         
@@ -285,9 +289,7 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
         <link>http://www.tamasnagy.com/blog/revamp/</link>
         <guid isPermaLink="true">http://www.tamasnagy.com/blog/revamp/</guid>
         
-        <category>blog</category>
-        
-        <category>design</category>
+        <category>meta</category>
         
         
         <category>blog</category>
