@@ -305,20 +305,6 @@ code {
     margin-bottom: 3em;
 }
 
-.taglistpage{
-list-style: none
-}
-
-.tagname{
-    text-decoration: none;
-}
-
-#hometaglink {
-    margin: 1em 0 -2em 0;
-    text-align: center;
-    float: none;
-}
-
 @media (min-width: 38em) {
     .post-list time {
         float: right;
