@@ -6,8 +6,8 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Aug 2016 14:19:32 -0700</pubDate>
-    <lastBuildDate>Fri, 12 Aug 2016 14:19:32 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Aug 2016 14:33:01 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Aug 2016 14:33:01 -0700</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -204,9 +204,6 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
 &lt;p&gt;Try reseting and restarting &lt;code&gt;adb&lt;/code&gt; and the mount point&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;killall -9 adb; sudo umount -f ~/phone&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
@@ -239,9 +236,6 @@ sudo gem install exifr rmagick jekyll-pandoc&lt;/code&gt;&lt;/pre&gt;
 cd tnsite
 jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -281,9 +275,6 @@ jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;I’m also changing the focus of content on this website. I intend to use it as a running list of interesting software tweaks and solutions that I’ve found useful and I want to keep track of. I would also like to have more exploratory posts where I dive into interesting problems.&lt;/p&gt;
 &lt;p&gt;Most importantly, everyone’s favorite hypotrochoid is still featured on the site. New year, new site, same hypotrochoid.&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/revamp/</link>
@@ -354,9 +345,6 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;There are idealogical reasons as well. I dislike Facebook’s attitude towards privacy. It’s very difficult to &lt;a href=&quot;http://www.forbes.com/sites/kashmirhill/2012/12/26/oops-mark-zuckerbergs-sister-has-a-private-facebook-photo-go-public/&quot;&gt;control who can see your posts&lt;/a&gt; and deleting isn’t &lt;a href=&quot;http://wellpreparedmind.wordpress.com/2012/10/24/dont-be-fooled-facebook-is-forever/&quot;&gt;actually deleting&lt;/a&gt;. Also, it is very difficult to get a picture of yours—or of you—removed from Facebook. The untagging feature is simply inadequate. I understand that they need to run a business, but I disagree that it is only sustainable through intrusive data-mining and advertising.&lt;/p&gt;
 &lt;p&gt;Last but not least, Facebook has a dangerous monopoly on our online social lives. People automatically assume that you have one and when you don’t, they’re often stunned. I could not and would not support that because it hurts innovation and it could have &lt;a href=&quot;http://en.wikipedia.org/wiki/Criticism_of_Facebook#Accusation_of_politically_biased_granting_of_group_upgrades&quot;&gt;unwanted side effects&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;These were just some of the thoughts racing through my head that November night when I yanked the plug on Facebook. It wasn’t an easy decision&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I feel like it was the right one.&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -401,9 +389,6 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;Now, should you start using Pandoc for your writing? My answer is yes, but with several caveats. Pandoc is a very young project so it is still missing certain features&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; and I’ve run into several bugs. Another issue with Pandoc is loss of fine-grained control over the final output, but this is a mainly a problem for short documents because you can invest the time to write a specific template for longer ones. Nevertheless, it is under &lt;a href=&quot;https://github.com/jgm/pandoc/commits/master&quot;&gt;heavy development&lt;/a&gt; and I expect it to rapidly improve.&lt;/p&gt;
 &lt;p&gt;I believe that scholarly markdown, e.g. Pandoc and Multimarkdown, as a whole has a bright future, especially if combined with a solid GUI editor&lt;a href=&quot;#fn5&quot; class=&quot;footnoteRef&quot; id=&quot;fnref5&quot;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;. A good GUI would help promote markdown with non-programmers and would help us focus on our writing instead of the specifics of Markdown syntax. Ideally, such an editor would have two views—one for the source and one for the output—but you could write in either one. Such a dual interface would allow for the benefits of GUI’s, e.g. easy table creation, and the precision editing of a plain-text editor. It would be especially nice if scientific journals accepted markdown as a viable submission format, using Pandoc with custom templates behind-the-scenes to generate a beautiful end-result.&lt;/p&gt;
 &lt;p&gt;In conclusion, if scholarly markdown can be standardized to a suitable degree, combined with a solid GUI editor, and accepted by journals then it could provide a simple, but powerful alternative to Word and LaTeX for scientific writing.&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -445,9 +430,6 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;- &lt;a href=&quot;http://www.jwz.org/gruntle/nomo.html&quot;&gt;Jamie Zawinski&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;It suffers from many of the same difficulties that beset academia: the clashing of strong personalities working on the same project, lack of focus/direction (especially &lt;a href=&quot;https://help.github.com/articles/fork-a-repo&quot;&gt;forking&lt;/a&gt;), focus on power users, among other things. That being said, open source is oft superior to closed-source solutions. It is with good reason that most supercomputers and mission-critical appliances run OSS. It is not a magic bullet and it will not lead to a free software “utopia.” It is software development that mirrors applied scientific research that offers a real solution to many real problems.&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
 </description>
         <pubDate>Fri, 19 Jul 2013 00:00:00 -0700</pubDate>
         <link>http://www.tamasnagy.com/blog/open/</link>
