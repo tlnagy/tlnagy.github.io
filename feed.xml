@@ -6,9 +6,37 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Aug 2016 14:47:12 -0700</pubDate>
-    <lastBuildDate>Fri, 12 Aug 2016 14:47:12 -0700</lastBuildDate>
+    <pubDate>Mon, 15 Aug 2016 18:47:45 -0700</pubDate>
+    <lastBuildDate>Mon, 15 Aug 2016 18:47:45 -0700</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Embedding videos in Google Slides as GIFs</title>
+        <description>&lt;p&gt;In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on &lt;a href=&quot;https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality&quot;&gt;Stackoverflow&lt;/a&gt;). First, make sure to install &lt;code&gt;libav&lt;/code&gt; and &lt;code&gt;imagemagick&lt;/code&gt;. On Debian-based systems, you can run&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libav-tools imagemagick&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;some_movie.m4v&lt;/code&gt; is the video file. This creates an optimized GIF version called &lt;code&gt;output.gif&lt;/code&gt;, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/&quot;&gt;Toggle Animated Gifs&lt;/a&gt; extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.&lt;/p&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+        <pubDate>Mon, 15 Aug 2016 00:00:00 -0700</pubDate>
+        <link>http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</guid>
+        
+        <category>science</category>
+        
+        <category>productivity</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Precision-Recall curves in Julia</title>

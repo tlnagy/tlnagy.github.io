@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<div id="container">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Embedding videos in Google Slides as GIFs</title>
+    <meta name="description" content="In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This ...">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="http://www.tamasnagy.com/favicon.ico">
+
+    <link rel="canonical" href="http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/">
+    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="http://www.tamasnagy.com/feed.xml" />
+</head>
+
+
+  <div id="body">
+
+    <header class="site-header">
+
+    <div class="wrapper">
+
+        <object data="/assets/images/logo.svg" class="logo" type="image/svg+xml"></object>
+        <div class="header-text">
+        <h1><a class="site-title" href="/">Tamas Nagy</a></h1>
+        <h2 class="site-tagline">Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, etc</h2>
+        </div>
+
+        <nav class="site-nav">
+            <a href="/">blog</a>
+            <a href="/cv/">cv</a>
+            <a href="/photos/">photos</a>
+            <a href="/about/">about</a>
+            <div class="nav-source">
+            <i class="fa fa-github gh-icon"></i><a href="http://github.com/tlnagy/tnsite/">source</a>
+            </div>
+        </nav>
+
+    </div> <!-- .wrapper -->
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+    <header class="post-header">
+        <h2 class="post-title">Embedding videos in Google Slides as GIFs</h2>
+        <p class="post-meta"><span class="post-date">Aug 15, 2016</span> by <span class="post-author">Tamas Nagy</span></p>
+    </header>
+
+    <article class="post-content">
+        <p>In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on <a href="https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality">Stackoverflow</a>). First, make sure to install <code>libav</code> and <code>imagemagick</code>. On Debian-based systems, you can run</p>
+<pre><code>sudo apt-get install libav-tools imagemagick</code></pre>
+<p>and on MacOS<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> the easiest way to install them is via <a href="http://brew.sh">homebrew</a>. Then I use the following command to create the GIF:</p>
+<pre><code>cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif</code></pre>
+<p>where <code>some_movie.m4v</code> is the video file. This creates an optimized GIF version called <code>output.gif</code>, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the <a href="https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/">Toggle Animated Gifs</a> extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>OS X dammit<a href="#fnref2">↩</a></p></li>
+</ol>
+</section>
+
+    </article>
+    
+    <li id="taglist">
+    
+        <a href='/tags/#science'>science</a>
+    
+        <a href='/tags/#productivity'>productivity</a>
+    
+    </li>
+
+    
+
+
+    <!-- POST NAVIGATION -->
+    <div class="postNav clearfix">
+        
+        <a class="prev" href="/blog/precision-recall-julia/"><span>&laquo;&nbsp;Precision-Recall curves in Julia</span>
+      
+    </a>  
+    </div>
+
+</div>
+      </div> <!-- .wrapper -->
+    </div> <!-- .page-content -->
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <p class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></p>
+      
+    <p>Powered by <a href="http://jekyllrb.com">Jekyll</a>. Theme based on <a href="http://daryl.andrewlee.name">Daryl</a>.</p>
+      
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="http://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
+
+  </div> <!-- .wrapper -->
+
+</footer>
+
+
+  </div>
+</div>
+
+</html>
