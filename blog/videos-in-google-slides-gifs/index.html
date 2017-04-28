@@ -61,11 +61,54 @@
 <p>and on MacOS<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> the easiest way to install them is via <a href="http://brew.sh">homebrew</a>. Then I use the following command to create the GIF:</p>
 <pre><code>cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif</code></pre>
 <p>where <code>some_movie.m4v</code> is the video file. This creates an optimized GIF version called <code>output.gif</code>, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the <a href="https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/">Toggle Animated Gifs</a> extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.</p>
+<h2 id="addendum-17-04-28">Addendum 17-04-28</h2>
+<p>If you get an error that looks like the following with some weirdly formatted <code>.mov</code> files:</p>
+<pre><code>avconv version 12, Copyright (c) 2000-2016 the Libav developers
+  built on Mar  6 2017 22:35:59 with Apple LLVM version 8.0.0 (clang-800.0.42.1)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7fc78b000000] stream 0, offset 0x30: partial file
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7fc78b000000] Could not find codec parameters (Video: mpeg4 (Simple Profile) [mp4v / 0x7634706D]
+      none, 1958 kb/s)
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;pipe:&#39;:
+  Metadata:
+    major_brand     : qt
+    minor_version   : 537199360
+    compatible_brands: qt
+    creation_time   : 2015-05-26 19:04:15
+  Duration: 00:00:10.00, bitrate: N/A
+    Stream #0:0(eng): Video: mpeg4 (Simple Profile) [mp4v / 0x7634706D]
+      none, 1958 kb/s
+      600 tbn (default)
+    Metadata:
+      creation_time   : 2015-05-26 19:04:15
+      handler_name    : Apple Alias Data Handler
+      encoder         : MPEG-4 Video
+Output #0, image2pipe, to &#39;pipe:&#39;:
+Output file #0 does not contain any stream
+convert: no decode delegate for this image format `&#39; @ error/constitute.c/ReadImage/509.
+convert: no images defined `gif:-&#39; @ error/convert.c/ConvertImageCommand/3254.
+convert: no decode delegate for this image format `&#39; @ error/constitute.c/ReadImage/509.
+convert: no images defined `output.gif&#39; @
+error/convert.c/ConvertImageCommand/3254. </code></pre>
+<p>Then installing the <code>qtfaststart</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> Python package via <code>pip install qtfaststart</code> and then running</p>
+<pre><code>qtfaststart bad_movie.mov good_movie.mov</code></pre>
+<p>should fix the problem and now you can use <code>good_movie.mov</code> with the previous commands to create all the gifs. So <a href="https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064">apparently</a> what is happening is that some recording software puts the <code>mdat</code> block prior to the <code>moov</code> block (the structural metadata). This is more convenient for recording since the structure isn’t known till the recording is finished, however for playback it isn’t as nice. <code>qtfaststart</code> fixes this by swapping the two blocks:</p>
+<pre><code>$ qtfaststart -l bad_movie.mov
+ftyp (32 bytes)
+wide (8 bytes)
+mdat (2448358 bytes)
+moov (998 bytes)</code></pre>
+<p>while</p>
+<pre><code>qtfaststart -l good_movie.mov
+ftyp (32 bytes)
+moov (998 bytes)
+wide (8 bytes)
+mdat (2448358 bytes)</code></pre>
 <section class="footnotes">
 <hr />
 <ol>
 <li id="fn1"><p>I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>OS X dammit<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.<a href="#fnref3">↩</a></p></li>
 </ol>
 </section>
 
@@ -80,6 +123,19 @@
     </li>
 
     
+<section class="revision">
+  <h3>Revision history</h3>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">28 Apr 2017</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>add information about badly formatted .mov files</code><a href="https://github.com/tlnagy/tnsite/commit/a95c3909f32e3ad984a5f0b863344500e11d7721" class="rev-hash"><code>a95c390</code></a></p>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">15 Aug 2016</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>new post</code><a href="https://github.com/tlnagy/tnsite/commit/f2a98fbb4192d92fef00d668772484d41c348b5e" class="rev-hash"><code>f2a98fb</code></a></p>
+  
+    
+    
+</section>
+
 
 
     <!-- POST NAVIGATION -->

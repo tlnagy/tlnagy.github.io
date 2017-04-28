@@ -6,9 +6,9 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 Aug 2016 18:47:45 -0700</pubDate>
-    <lastBuildDate>Mon, 15 Aug 2016 18:47:45 -0700</lastBuildDate>
-    <generator>Jekyll v3.2.1</generator>
+    <pubDate>Fri, 28 Apr 2017 11:45:26 -0700</pubDate>
+    <lastBuildDate>Fri, 28 Apr 2017 11:45:26 -0700</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>Embedding videos in Google Slides as GIFs</title>
@@ -17,11 +17,54 @@
 &lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;where &lt;code&gt;some_movie.m4v&lt;/code&gt; is the video file. This creates an optimized GIF version called &lt;code&gt;output.gif&lt;/code&gt;, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/&quot;&gt;Toggle Animated Gifs&lt;/a&gt; extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.&lt;/p&gt;
+&lt;h2 id=&quot;addendum-17-04-28&quot;&gt;Addendum 17-04-28&lt;/h2&gt;
+&lt;p&gt;If you get an error that looks like the following with some weirdly formatted &lt;code&gt;.mov&lt;/code&gt; files:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;avconv version 12, Copyright (c) 2000-2016 the Libav developers
+  built on Mar  6 2017 22:35:59 with Apple LLVM version 8.0.0 (clang-800.0.42.1)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7fc78b000000] stream 0, offset 0x30: partial file
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7fc78b000000] Could not find codec parameters (Video: mpeg4 (Simple Profile) [mp4v / 0x7634706D]
+      none, 1958 kb/s)
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &amp;#39;pipe:&amp;#39;:
+  Metadata:
+    major_brand     : qt
+    minor_version   : 537199360
+    compatible_brands: qt
+    creation_time   : 2015-05-26 19:04:15
+  Duration: 00:00:10.00, bitrate: N/A
+    Stream #0:0(eng): Video: mpeg4 (Simple Profile) [mp4v / 0x7634706D]
+      none, 1958 kb/s
+      600 tbn (default)
+    Metadata:
+      creation_time   : 2015-05-26 19:04:15
+      handler_name    : Apple Alias Data Handler
+      encoder         : MPEG-4 Video
+Output #0, image2pipe, to &amp;#39;pipe:&amp;#39;:
+Output file #0 does not contain any stream
+convert: no decode delegate for this image format `&amp;#39; @ error/constitute.c/ReadImage/509.
+convert: no images defined `gif:-&amp;#39; @ error/convert.c/ConvertImageCommand/3254.
+convert: no decode delegate for this image format `&amp;#39; @ error/constitute.c/ReadImage/509.
+convert: no images defined `output.gif&amp;#39; @
+error/convert.c/ConvertImageCommand/3254. &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then installing the &lt;code&gt;qtfaststart&lt;/code&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Python package via &lt;code&gt;pip install qtfaststart&lt;/code&gt; and then running&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;qtfaststart bad_movie.mov good_movie.mov&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;should fix the problem and now you can use &lt;code&gt;good_movie.mov&lt;/code&gt; with the previous commands to create all the gifs. So &lt;a href=&quot;https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064&quot;&gt;apparently&lt;/a&gt; what is happening is that some recording software puts the &lt;code&gt;mdat&lt;/code&gt; block prior to the &lt;code&gt;moov&lt;/code&gt; block (the structural metadata). This is more convenient for recording since the structure isn’t known till the recording is finished, however for playback it isn’t as nice. &lt;code&gt;qtfaststart&lt;/code&gt; fixes this by swapping the two blocks:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ qtfaststart -l bad_movie.mov
+ftyp (32 bytes)
+wide (8 bytes)
+mdat (2448358 bytes)
+moov (998 bytes)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;while&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;qtfaststart -l good_movie.mov
+ftyp (32 bytes)
+moov (998 bytes)
+wide (8 bytes)
+mdat (2448358 bytes)&lt;/code&gt;&lt;/pre&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
