@@ -6,8 +6,8 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Jun 2017 12:18:37 -0700</pubDate>
-    <lastBuildDate>Thu, 01 Jun 2017 12:18:37 -0700</lastBuildDate>
+    <pubDate>Thu, 01 Jun 2017 12:33:31 -0700</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2017 12:33:31 -0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -21,9 +21,13 @@
 &lt;h3 id=&quot;how-do-i-e-file-for-free&quot;&gt;How do I e-file for free?&lt;/h3&gt;
 &lt;p&gt;There is no need to pay for e-filing since we make less than the limit for &lt;a href=&quot;https://apps.irs.gov/app/freeFile/jsp/wizard.jsp?&quot;&gt;IRS FreeFile&lt;/a&gt;. Just fill out the form and select one of the free filing options. I have had good luck with TaxAct.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-withhold-taxes-so-that-april-isnt-such-a-bummer&quot;&gt;Can we withhold taxes so that April isn’t such a bummer?&lt;/h3&gt;
-&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California’s Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-contribute-to-a-roth-ira&quot;&gt;Can we contribute to a Roth IRA?&lt;/h3&gt;
-&lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098t is considered taxable, unearned income it does not qualify for IRA. However, the moment you are switched to a W2, you can contribute up to your earned income amount or $5500, which ever is smaller.&lt;/p&gt;
+&lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098t is considered taxable, unearned income it does not qualify for IRA. According to &lt;a href=&quot;https://www.irs.gov/pub/irs-pdf/p590a.pdf&quot;&gt;IRS Pub 590-A&lt;/a&gt; (Page 6):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Scholarship and fellowship payments are compensation for IRA purposes only if shown in box 1 of Form W-2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;However, the moment you are switched to a W-2, you can contribute up to your earned income amount or $5500, which ever is smaller.&lt;/p&gt;
 &lt;h3 id=&quot;what-is-a-roth-ira&quot;&gt;What is a Roth IRA?&lt;/h3&gt;
 &lt;p&gt;They are super cool, read more about them &lt;a href=&quot;https://www.bogleheads.org/wiki/Roth_IRA&quot;&gt;here&lt;/a&gt;. Basically, they are a great way to save for retirement as a graduate student. Since we are in a very low tax bracket, you pay our low marginal tax rate now for the money you put in and all future earnings are tax-free for retirement.&lt;/p&gt;
 &lt;h3 id=&quot;but-what-if-i-want-to-save-for-more-immediate-things-than-retirement&quot;&gt;But what if I want to save for more immediate things than retirement?&lt;/h3&gt;
@@ -32,7 +36,7 @@
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;So YMMV on all this depending on your specific circumstances&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle!&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle! Update: After I wrote this piece, I found out that Kyle also had a blog post about this a couple years ago: &lt;a href=&quot;https://www.kylebarlow.com/dearth-and-taxes.html&quot; class=&quot;uri&quot;&gt;https://www.kylebarlow.com/dearth-and-taxes.html&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Naturally, this value will increase if the UCSF graduate student stipend increases. For reference, in my first two years, we made 34K (TY2015) and then 36K (TY2016).&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;This penalty was pretty small for me as a 1st and 2nd year because it is based on the previous tax year. It will be quite large in your 3rd year if you don’t set up an estimated tax payment.&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
