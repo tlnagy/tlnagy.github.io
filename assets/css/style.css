@@ -36,7 +36,7 @@ body {
 
 
 html {
-    font-family: 'open_sansregular', sans-serif;
+    font-family: 'opensans_regular', sans-serif;
     font-size: 14px;
     background: #fafafa;
     color: #333;
@@ -222,11 +222,11 @@ h1 {
     margin-bottom: 0;
 }
 
-.post-link {
+.post-list a {
     text-decoration: none;
 }
 
-.post-link:hover {
+.post-list a:hover {
     text-decoration: underline;
 }
 
@@ -305,16 +305,26 @@ code {
     margin-bottom: 3em;
 }
 
+.cv strong{
+    font-family: 'opensans_bold', 'opensans_regular';
+}
+
+.cv em{
+    font-family: 'opensans_italic', 'opensans_regular';
+    margin-right: 0.25em;
+}
+
 .taglistpage{
-list-style: none
+    list-style: none
 }
 
 .tagname{
     text-decoration: none;
+    font-weight: bold;
 }
 
 #hometaglink {
-    margin: 1em 0 -2em 0;
+    margin: 2em 0 -2em 0;
     text-align: center;
     float: none;
 }
@@ -324,12 +334,12 @@ list-style: none
         float: right;
         clear: none;
     }
-    
+
     .post-list ver {
         float: right;
         clear: none;
     }
-    
+
     .postNav .prev,
     .postNav .next {
         width: 50%
@@ -457,7 +467,7 @@ list-style: none
 
 .revision{
     padding-top: 2em;
-    font-size: .75em;  
+    font-size: .75em;
     font-weight: 300;
 }
 
@@ -607,7 +617,7 @@ list-style: none
 
 
 @font-face {
-    font-family: 'open_sansregular';
+    font-family: 'opensans_regular';
     src: url('../fonts/opensans-regular-webfont.eot');
     src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
@@ -616,5 +626,16 @@ list-style: none
          url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'opensans_bold';
+    src: url("../fonts/opensans-bold-webfont.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'opensans_italic';
+    src: url("../fonts/opensans-italic-webfont.ttf");
+    font-style: italic;
 }
