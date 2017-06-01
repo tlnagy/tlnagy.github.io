@@ -6,24 +6,26 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Jun 2017 12:33:31 -0700</pubDate>
-    <lastBuildDate>Thu, 01 Jun 2017 12:33:31 -0700</lastBuildDate>
+    <pubDate>Thu, 01 Jun 2017 12:57:55 -0700</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2017 12:57:55 -0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>UCSF Graduate Student Taxes FAQ</title>
         <description>&lt;p&gt;I’m currently a 2nd year graduate student in the quantitative biology program at UCSF. I am certainly no tax professional&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I thought I would write a bit about what you can expect to pay in taxes at UCSF. These are some questions that I think I would have appreciated knowing the answers to in my first two years&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;do-we-have-to-pay-taxes&quot;&gt;Do we have to pay taxes?&lt;/h3&gt;
-&lt;p&gt;Yes, both state and federal. The tricky part is that while you are paid by UCSF on a 1098t nothing is withheld so you have pay the full amount come April.&lt;/p&gt;
+&lt;p&gt;Yes, both state and federal. The tricky part is that while you are paid by UCSF on a 1098-T form (normally for your first two years) nothing is withheld for taxes so you have pay the full amount come April.&lt;/p&gt;
 &lt;h3 id=&quot;how-much-should-i-set-aside-each-month-for-taxes&quot;&gt;How much should I set aside each month for taxes?&lt;/h3&gt;
 &lt;p&gt;Most estimates are between $400-500 a month depending on your specific situation. I would probably aim for $425.&lt;/p&gt;
-&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $5000. It’s a lot if you’re not ready for it.&lt;/p&gt;
+&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $4800. It’s a lot if you’re not ready for it.&lt;/p&gt;
+&lt;h3 id=&quot;how-much-do-i-actually-owe&quot;&gt;How much do I actually owe?&lt;/h3&gt;
+&lt;p&gt;In the simplest case, your “taxable income” is simply the difference between box 5 and box 1 on your 1098-T form. This value will be higher than your stipend since it includes the “taxable” contributions to our health insurance, UC SHIP. You can find your 1098-T at &lt;a href=&quot;https://1098t.com&quot; class=&quot;uri&quot;&gt;https://1098t.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;how-do-i-e-file-for-free&quot;&gt;How do I e-file for free?&lt;/h3&gt;
 &lt;p&gt;There is no need to pay for e-filing since we make less than the limit for &lt;a href=&quot;https://apps.irs.gov/app/freeFile/jsp/wizard.jsp?&quot;&gt;IRS FreeFile&lt;/a&gt;. Just fill out the form and select one of the free filing options. I have had good luck with TaxAct.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-withhold-taxes-so-that-april-isnt-such-a-bummer&quot;&gt;Can we withhold taxes so that April isn’t such a bummer?&lt;/h3&gt;
 &lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California’s Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-contribute-to-a-roth-ira&quot;&gt;Can we contribute to a Roth IRA?&lt;/h3&gt;
-&lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098t is considered taxable, unearned income it does not qualify for IRA. According to &lt;a href=&quot;https://www.irs.gov/pub/irs-pdf/p590a.pdf&quot;&gt;IRS Pub 590-A&lt;/a&gt; (Page 6):&lt;/p&gt;
+&lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098-T is considered taxable, unearned income it does not qualify for IRA. According to &lt;a href=&quot;https://www.irs.gov/pub/irs-pdf/p590a.pdf&quot;&gt;IRS Pub 590-A&lt;/a&gt; (Page 6):&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Scholarship and fellowship payments are compensation for IRA purposes only if shown in box 1 of Form W-2&lt;/p&gt;
 &lt;/blockquote&gt;
