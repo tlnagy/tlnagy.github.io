@@ -6,9 +6,57 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Aug 2017 16:39:46 -0700</pubDate>
-    <lastBuildDate>Tue, 29 Aug 2017 16:39:46 -0700</lastBuildDate>
+    <pubDate>Thu, 07 Sep 2017 12:59:02 -0700</pubDate>
+    <lastBuildDate>Thu, 07 Sep 2017 12:59:02 -0700</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>Active matter modeling</title>
+        <description>&lt;p&gt;Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from &lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt; since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose “unifying characteristic is that they are &lt;strong&gt;composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement&lt;/strong&gt;” &lt;span class=&quot;citation&quot; data-cites=&quot;Marchetti2013&quot;&gt;(Marchetti et al. 2013)&lt;/span&gt;. An &lt;em&gt;in vitro&lt;/em&gt; microtubule and dynein system, like the one we’re investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/0de43a55.png&quot; alt=&quot;Figure 1A-B from Sumino et al. (2012). Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP&quot; /&gt;&lt;figcaption&gt;Figure 1A-B from &lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt;. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The authors proposed a relatively simple model that could recapitulate this phenomenon. They modeled the behavior of the microtubules as a biased Ornstein–Uhlenbeck process where the microtubules moved at a constant velocity in a direction, &lt;span class=&quot;math inline&quot;&gt;\(\theta_i\)&lt;/span&gt;, that was updated by an angular velocity, &lt;span class=&quot;math inline&quot;&gt;\(\omega_i\)&lt;/span&gt;, at each time step. They added some normal brownian noise to &lt;span class=&quot;math inline&quot;&gt;\(\omega_i\)&lt;/span&gt; with mean &lt;span class=&quot;math inline&quot;&gt;\(\xi_{\mu}\)&lt;/span&gt; and standard deviation &lt;span class=&quot;math inline&quot;&gt;\(\xi_{\sigma}\)&lt;/span&gt;. They noticed that the microtubules had a slight clockwise curvature preference and that after relaxation time &lt;span class=&quot;math inline&quot;&gt;\(\lambda\)&lt;/span&gt;, the angular velocity &lt;span class=&quot;math inline&quot;&gt;\(\omega_i\)&lt;/span&gt; would approach the preferred angular velocity, &lt;span class=&quot;math inline&quot;&gt;\(\omega_0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt; also noted that microtubules would almost always align or anti-align after collisions (they would sometimes stall or cross). They modeled this by taking the aggregate angle of all neighbors of a microtubule that are within a certain distance from the microtubule. This was then weighted by a parameter &lt;span class=&quot;math inline&quot;&gt;\(A\)&lt;/span&gt; that controls the relative influence of other microtubules.&lt;/p&gt;
+&lt;p&gt;Mathematically, this can be expressed in the following non-dimensionalized form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[
+\begin{align}
+\frac{d\Omega_i}{dT} &amp;amp;= - \frac{1}{\lambda}\left(\Omega_i - \Omega_0\right) + \textrm{Normal}(\xi_{\mu}, \xi_{\sigma})\\
+\frac{d\theta_i}{dT} &amp;amp;= \Omega_i + \frac{A}{N_i(T)} \sum_{j \sim i} \sin\left(2(\theta_j - \theta_i)\right) \\
+\frac{d\mathbf{X_i}}{dT} &amp;amp;= \mathbf{e_x}\cos \theta_i + \mathbf{e_y} \sin \theta_i
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: &lt;a href=&quot;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&quot; class=&quot;uri&quot;&gt;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&lt;/a&gt;. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower “concentration” of microtubules that we used in our simulation to achieve interactivity, &lt;span class=&quot;math inline&quot;&gt;\(N=1500\)&lt;/span&gt; instead of &lt;span class=&quot;math inline&quot;&gt;\(N=2621440\)&lt;/span&gt;. We were still able to get vortices to form:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/mt_initial.gif&quot; alt=&quot;Initially, microtubule movement looks pretty random.&quot; /&gt;&lt;figcaption&gt;Initially, microtubule movement looks pretty random.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/mt_vortices.gif&quot; alt=&quot;However, they start to coalesce into a grid of vortices&quot; /&gt;&lt;figcaption&gt;However, they start to coalesce into a grid of vortices&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;script type=&quot;text/javascript&quot;
+src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+&lt;h2 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h2&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-Marchetti2013&quot;&gt;
+&lt;p&gt;Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” &lt;em&gt;Rev. Mod. Phys.&lt;/em&gt; 85 (3). American Physical Society: 1143–89. doi:&lt;a href=&quot;https://doi.org/10.1103/RevModPhys.85.1143&quot;&gt;10.1103/RevModPhys.85.1143&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-Sumino2012-dc&quot;&gt;
+&lt;p&gt;Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” &lt;em&gt;Nature&lt;/em&gt; 483 (7390): 448–52.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 07 Sep 2017 00:00:00 -0700</pubDate>
+        <link>http://www.tamasnagy.com/blog/microtubule-vortices/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/microtubule-vortices/</guid>
+        
+        <category>science</category>
+        
+        <category>math</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Copper Creek and Lower Paradise Valley Trip Report</title>
@@ -529,54 +577,6 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
         <category>minimalism</category>
         
         <category>social media</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Scholarly Markdown for Scientific Writing </title>
-        <description>&lt;p&gt;Scientific writing has come a long way since typewriters and stacks of handwritten reference cards. Robust reference managers, automatically generated bibliographies, and editable files are significant improvements. However, we’re saddled with a myriad of incompatible file formats that are ill-suited for scientific articles. If you’re unlucky then your journal of choice only takes binary blobs with a .docx extension, but otherwise you essentially have two choices: MS Word and LaTeX. Both of which have their respective advantages. The former is better for collaboration, has a lower initial learning curve, and is widely adopted. The latter has superior typography, superior math support, a better file format, and it plays nicely with version control&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;That said, both are dreadful for scientific writing. I could spill a novel-worth of ink on the fallibilities of MS Word, but I’ll be brief. Binary files have a limited shelf-life, science does not. Try to open an article written in Word (or an Excel file full of critical data) from the 90s. It’s probably a garbled mess. Word also suffers from its &lt;a href=&quot;http://fluff.info/terrible/&quot;&gt;lackadaisical support for semantic markup&lt;/a&gt;, its WYSIWYG nature, its &lt;a href=&quot;http://stevenpoole.net/blog/goodbye-cruel-word/&quot;&gt;printed-page focused design&lt;/a&gt;, its inconsistency, its &lt;a href=&quot;http://www.antipope.org/charlie/blog-static/2013/10/why-microsoft-word-must-die.html&quot;&gt;primitive outlining and tagging features&lt;/a&gt;, its lack of interoperability. The other option, LaTeX, isn’t much better:&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;It’s saddled with an exceedingly obtuse syntax&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;It uses hundreds of slightly different, inconsistently documented packages&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;It’s impossible to read raw tex (see 1)&lt;/li&gt;
-&lt;li&gt;It will completely break from one misplaced character&lt;/li&gt;
-&lt;li&gt;It generates somewhere between 5 to 10,000 different files during the compilation process&lt;/li&gt;
-&lt;li&gt;Much of its documentation is out of date due to its age.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Lest I forget, debugging LaTeX is impossible. Even its advocates concede that it produces&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;. . . error messages that are mystical, opaque, and vaguely frightening. Experience soon teaches you that the best thing is to ignore the messages . . .&lt;/p&gt;
-&lt;p&gt;- TeX Unbound (Alan Hoenig, p. 447)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This is the sad state of scientific writing in which we find ourselves. Typesetting is hard, but it shouldn’t be &lt;em&gt;this&lt;/em&gt; hard.&lt;/p&gt;
-&lt;p&gt;Enter &lt;a href=&quot;http://johnmacfarlane.net/pandoc/&quot;&gt;Pandoc&lt;/a&gt;, a universal markup converter and extension of the Markdown language, which intends to ameliorate this problem. In direct contrast to LaTeX, &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;’s philosophy is to be “publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.” The original Markdown language is fairly limited, intending only to produce basic HTML, but &lt;a href=&quot;http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown&quot;&gt;Pandoc’s Markdown&lt;/a&gt; goes a step further by allowing tables, footnotes, equations, and internal references that are necessary for scientific writing. Its citation abilities are particularly simple and robust, just add &lt;code&gt;[@Smith2012]&lt;/code&gt; to cite the document with the ID Smith2012 in your BibTex library. It’s nice to have another format to markup our articles, but the nice thing with Pandoc is that you can later convert it to a more “accepted” format. Pandoc’s command line tool has the ability to take your Markdown text and convert it to LaTeX or Word or HTML or any other of the dozens of available formats. It works remarkably well, even with complex LaTeX equations embedded in the document.&lt;/p&gt;
-&lt;p&gt;Now, should you start using Pandoc for your writing? My answer is yes, but with several caveats. Pandoc is a very young project so it is still missing certain features&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; and I’ve run into several bugs. Another issue with Pandoc is loss of fine-grained control over the final output, but this is a mainly a problem for short documents because you can invest the time to write a specific template for longer ones. Nevertheless, it is under &lt;a href=&quot;https://github.com/jgm/pandoc/commits/master&quot;&gt;heavy development&lt;/a&gt; and I expect it to rapidly improve.&lt;/p&gt;
-&lt;p&gt;I believe that scholarly markdown, e.g. Pandoc and Multimarkdown, as a whole has a bright future, especially if combined with a solid GUI editor&lt;a href=&quot;#fn5&quot; class=&quot;footnoteRef&quot; id=&quot;fnref5&quot;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;. A good GUI would help promote markdown with non-programmers and would help us focus on our writing instead of the specifics of Markdown syntax. Ideally, such an editor would have two views—one for the source and one for the output—but you could write in either one. Such a dual interface would allow for the benefits of GUI’s, e.g. easy table creation, and the precision editing of a plain-text editor. It would be especially nice if scientific journals accepted markdown as a viable submission format, using Pandoc with custom templates behind-the-scenes to generate a beautiful end-result.&lt;/p&gt;
-&lt;p&gt;In conclusion, if scholarly markdown can be standardized to a suitable degree, combined with a solid GUI editor, and accepted by journals then it could provide a simple, but powerful alternative to Word and LaTeX for scientific writing.&lt;/p&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;You’ll find out here shortly that the situation is not as one-sided as I make it seem, despite my opinion that MS Word needs to remain in the enterprise world of disposable documents.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;&lt;code&gt;\textbf{}&lt;/code&gt; for bold? &lt;code&gt;\begin{enumerate} \item \end{enumerate}&lt;/code&gt; for lists? &lt;em&gt;Sigh&lt;/em&gt;.&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;In this day and age, why do I have to manually import &lt;code&gt;graphicx&lt;/code&gt;? Or use &lt;code&gt;hyperref&lt;/code&gt; so that a single URL doesn’t break everything.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;For example, I am unaware of a way to reference figures that works in both Word and LaTeX. Apparently, there’s a &lt;a href=&quot;http://stackoverflow.com/questions/9434536/how-do-i-make-a-reference-to-a-figure-in-markdown-using-pandoc&quot;&gt;method&lt;/a&gt; that works if you’re exporting to PDF via LaTeX.&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn5&quot;&gt;&lt;p&gt;&lt;a href=&quot;http://texts.io&quot;&gt;Texts.io&lt;/a&gt; is good start.&lt;a href=&quot;#fnref5&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</description>
-        <pubDate>Sat, 11 Jan 2014 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/scientific-writing-pandoc/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/scientific-writing-pandoc/</guid>
-        
-        <category>science</category>
-        
-        <category>writing</category>
-        
-        <category>markdown</category>
         
         
         <category>blog</category>

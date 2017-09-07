@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<div id="container">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Active matter modeling</title>
+    <meta name="description" content="Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students ...">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="http://www.tamasnagy.com/favicon.ico">
+
+    <link rel="canonical" href="http://www.tamasnagy.com/blog/microtubule-vortices/">
+    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="http://www.tamasnagy.com/feed.xml" />
+</head>
+
+
+  <div id="body">
+
+    <header class="site-header">
+
+    <div class="wrapper">
+
+        <object data="/assets/images/logo.svg" class="logo" type="image/svg+xml"></object>
+        <div class="header-text">
+        <h1><a class="site-title" href="/">Tamas Nagy</a></h1>
+        <h2 class="site-tagline">Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, etc</h2>
+        </div>
+
+        <nav class="site-nav">
+            <a href="/">blog</a>
+            <a href="/cv/">cv</a>
+            <a href="/photos/">photos</a>
+            <a href="/about/">about</a>
+            <div class="nav-source">
+            <i class="fa fa-github gh-icon"></i><a href="http://github.com/tlnagy/tnsite/">source</a>
+            </div>
+        </nav>
+
+    </div> <!-- .wrapper -->
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+    <header class="post-header">
+        <h2 class="post-title">Active matter modeling</h2>
+        <p class="post-meta"><span class="post-date">Sep 7, 2017</span> by <span class="post-author">Tamas Nagy</span></p>
+    </header>
+
+    <article class="post-content">
+        <p>Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from <span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span> since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose “unifying characteristic is that they are <strong>composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement</strong>” <span class="citation" data-cites="Marchetti2013">(Marchetti et al. 2013)</span>. An <em>in vitro</em> microtubule and dynein system, like the one we’re investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.</p>
+<figure>
+<img src="/assets/images/2017-09-07-microtubule-vortices/0de43a55.png" alt="Figure 1A-B from Sumino et al. (2012). Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP" /><figcaption>Figure 1A-B from <span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span>. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP</figcaption>
+</figure>
+<p>The authors proposed a relatively simple model that could recapitulate this phenomenon. They modeled the behavior of the microtubules as a biased Ornstein–Uhlenbeck process where the microtubules moved at a constant velocity in a direction, <span class="math inline">\(\theta_i\)</span>, that was updated by an angular velocity, <span class="math inline">\(\omega_i\)</span>, at each time step. They added some normal brownian noise to <span class="math inline">\(\omega_i\)</span> with mean <span class="math inline">\(\xi_{\mu}\)</span> and standard deviation <span class="math inline">\(\xi_{\sigma}\)</span>. They noticed that the microtubules had a slight clockwise curvature preference and that after relaxation time <span class="math inline">\(\lambda\)</span>, the angular velocity <span class="math inline">\(\omega_i\)</span> would approach the preferred angular velocity, <span class="math inline">\(\omega_0\)</span>.</p>
+<p><span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span> also noted that microtubules would almost always align or anti-align after collisions (they would sometimes stall or cross). They modeled this by taking the aggregate angle of all neighbors of a microtubule that are within a certain distance from the microtubule. This was then weighted by a parameter <span class="math inline">\(A\)</span> that controls the relative influence of other microtubules.</p>
+<p>Mathematically, this can be expressed in the following non-dimensionalized form:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{d\Omega_i}{dT} &amp;= - \frac{1}{\lambda}\left(\Omega_i - \Omega_0\right) + \textrm{Normal}(\xi_{\mu}, \xi_{\sigma})\\
+\frac{d\theta_i}{dT} &amp;= \Omega_i + \frac{A}{N_i(T)} \sum_{j \sim i} \sin\left(2(\theta_j - \theta_i)\right) \\
+\frac{d\mathbf{X_i}}{dT} &amp;= \mathbf{e_x}\cos \theta_i + \mathbf{e_y} \sin \theta_i
+\end{align}
+\]</span></p>
+<p>I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: <a href="https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11" class="uri">https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11</a>. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower “concentration” of microtubules that we used in our simulation to achieve interactivity, <span class="math inline">\(N=1500\)</span> instead of <span class="math inline">\(N=2621440\)</span>. We were still able to get vortices to form:</p>
+<figure>
+<img src="/assets/images/2017-09-07-microtubule-vortices/mt_initial.gif" alt="Initially, microtubule movement looks pretty random." /><figcaption>Initially, microtubule movement looks pretty random.</figcaption>
+</figure>
+<figure>
+<img src="/assets/images/2017-09-07-microtubule-vortices/mt_vortices.gif" alt="However, they start to coalesce into a grid of vortices" /><figcaption>However, they start to coalesce into a grid of vortices</figcaption>
+</figure>
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<h2 id="references" class="unnumbered">References</h2>
+<div id="refs" class="references">
+<div id="ref-Marchetti2013">
+<p>Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” <em>Rev. Mod. Phys.</em> 85 (3). American Physical Society: 1143–89. doi:<a href="https://doi.org/10.1103/RevModPhys.85.1143">10.1103/RevModPhys.85.1143</a>.</p>
+</div>
+<div id="ref-Sumino2012-dc">
+<p>Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” <em>Nature</em> 483 (7390): 448–52.</p>
+</div>
+</div>
+
+    </article>
+    
+    <li id="taglist">
+    
+        <a href='/tags/#science'>science</a>
+    
+        <a href='/tags/#math'>math</a>
+    
+    </li>
+
+    
+
+
+    <!-- POST NAVIGATION -->
+    <div class="postNav clearfix">
+        
+        <a class="prev image" href="/blog/kings-canyon-trip-report/"><span>&laquo;&nbsp;Copper Creek and Lower Paradise Valley Trip Report</span>
+       
+        <img src="/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134939.jpg" alt="">
+      
+    </a>  
+    </div>
+
+</div>
+      </div> <!-- .wrapper -->
+    </div> <!-- .page-content -->
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <p class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></p>
+      
+    <p>Powered by <a href="http://jekyllrb.com">Jekyll</a>. Theme based on <a href="http://daryl.andrewlee.name">Daryl</a>.</p>
+      
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="http://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
+
+  </div> <!-- .wrapper -->
+
+</footer>
+
+
+  </div>
+</div>
+
+</html>
