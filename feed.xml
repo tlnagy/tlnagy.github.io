@@ -6,8 +6,8 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Sep 2017 12:59:02 -0700</pubDate>
-    <lastBuildDate>Thu, 07 Sep 2017 12:59:02 -0700</lastBuildDate>
+    <pubDate>Fri, 08 Sep 2017 16:28:12 -0700</pubDate>
+    <lastBuildDate>Fri, 08 Sep 2017 16:28:12 -0700</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
@@ -442,22 +442,16 @@ make&lt;/code&gt;&lt;/pre&gt;
         <title>Building this Jekyll site on Debian 8</title>
         <description>&lt;p&gt;One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For example, on &lt;a href=&quot;https://debian.org&quot;&gt;Debian Jessie&lt;/a&gt;, install the following packages:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install ruby ruby-dev git imagemagick libmagickwand-dev pandoc pandoc-citeproc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If using an older version of jekyll (&amp;lt;3) then also install a valid Javascript runtime like NodeJS&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;then install all the required Ruby gems:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo gem install jekyll -v 2.5.1
-sudo gem install exifr rmagick jekyll-pandoc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Finally clone the git repo and build the site:&lt;/p&gt;
+&lt;p&gt;then install &lt;a href=&quot;http://bundler.io/&quot;&gt;bundler&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo gem install bundler&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, clone the git repo and navigate into the directory&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/tlnagy/tnsite.git
-cd tnsite
-jekyll serve&lt;/code&gt;&lt;/pre&gt;
+cd tnsite&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and run bundler to install all ruby dependencies&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bundle&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, build and serve the website with Jekyll:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jekyll serve -wi&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà&lt;/p&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;This is still required to build this site until I fix &lt;a href=&quot;https://github.com/tlnagy/tnsite/issues/3&quot; class=&quot;uri&quot;&gt;https://github.com/tlnagy/tnsite/issues/3&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
 </description>
         <pubDate>Sat, 23 Jan 2016 00:00:00 -0800</pubDate>
         <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
