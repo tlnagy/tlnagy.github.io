@@ -6,9 +6,41 @@
 </description>
     <link>http://www.tamasnagy.com/</link>
     <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Nov 2017 11:25:12 -0800</pubDate>
-    <lastBuildDate>Tue, 28 Nov 2017 11:25:12 -0800</lastBuildDate>
+    <pubDate>Sun, 17 Dec 2017 19:50:41 -0800</pubDate>
+    <lastBuildDate>Sun, 17 Dec 2017 19:50:41 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>UCSF should match employee donations to SFBike</title>
+        <description>&lt;p&gt;Cycling is a great way to commute to work and to stay healthy. It is associated with reduced risk for cardiovascular disease, cancer, and all cause mortality &lt;span class=&quot;citation&quot; data-cites=&quot;Celis-Morales2017&quot;&gt;(Celis-Morales et al. 2017)&lt;/span&gt;. UCSF already recognizes this and &lt;a href=&quot;http://campuslifeservices.ucsf.edu/transportation/services/biking&quot;&gt;promotes biking&lt;/a&gt; as a transportation mode. Citywide, bikes make up about &lt;a href=&quot;https://www.sfmta.com/blog/san-francisco%E2%80%99s-surge-biking-continues&quot;&gt;4.4% of all commute trips&lt;/a&gt; (as of 2014).&lt;/p&gt;
+&lt;p&gt;Unfortunately, the cycling infrastructure in San Francisco still needs a lot of work to be a viable option for students and staff. Too many people are &lt;a href=&quot;http://sfgov.org/scorecards/traffic-fatalities&quot;&gt;injured or killed&lt;/a&gt; each year on our streets. We only have &lt;a href=&quot;https://www.sfmta.com/blog/san-francisco%E2%80%99s-surge-biking-continues&quot;&gt;13 miles of protected bike lanes&lt;/a&gt; and a single protected intersection in the entire city. Researchers in Montreal have found that such infrastructure is used 2.5x times more often than the unprotected bike lanes common in San Francisco &lt;span class=&quot;citation&quot; data-cites=&quot;Lusk2011&quot;&gt;(Lusk et al. 2011)&lt;/span&gt;. Thus, in order to grow the cycling mode-share among UCSF employees, university officials should also focus on advocating in City Hall to get better infrastructure built. As the second biggest employer within the city limits, UCSF’s desires carry a lot of weight and pushing for better, safer infrastructure would benefit the health of the city’s population.&lt;/p&gt;
+&lt;p&gt;It is especially pressing now that we have our first Ford GoBike station at Mission Bay and we’re slated to get three more in 2018, plus the first one at Parnassus soon after. It would be a mistake to not ramp up advocacy at the same time to ensure that students and staff feel comfortable and safe while using bike share around our campuses.&lt;/p&gt;
+&lt;p&gt;There is already a group dedicated to promoting cycling as a transportation mode within San Francisco, the San Francisco Bike Coalition. They &lt;a href=&quot;http://www.sfbike.org/our-work/&quot;&gt;advocate&lt;/a&gt; for better infrastructure and help train people in urban biking. They have a great presence at City Hall. UCSF already offers a small &lt;a href=&quot;http://campuslifeservices.ucsf.edu/transportation/services/biking&quot;&gt;discount&lt;/a&gt; to join the SF Bike Coalition. I believe UCSF should go further and offer to match student and staff donations to SF Bike. A $35 donation plus a $35 match would go further than than a discount on the $35 membership.&lt;/p&gt;
+&lt;p&gt;Our tagline is&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UCSF: Advancing Health Worldwide&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Matching employee donations would help advance health here in San Francisco among UCSF’s own personnel by making bike commuting more attractive and more common.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h2&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-Celis-Morales2017&quot;&gt;
+&lt;p&gt;Celis-Morales, Carlos A, Donald M Lyall, Paul Welsh, Jana Anderson, Lewis Steell, Yibing Guo, Reno Maldonado, et al. 2017. “Association Between Active Commuting and Incident Cardiovascular Disease, Cancer, and Mortality: Prospective Cohort Study.” &lt;em&gt;BMJ&lt;/em&gt; 357 (April): j1456.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-Lusk2011&quot;&gt;
+&lt;p&gt;Lusk, Anne C, Peter G Furth, Patrick Morency, Luis F Miranda-Moreno, Walter C Willett, and Jack T Dennerlein. 2011. “Risk of Injury for Bicycling on Cycle Tracks Versus in the Street.” &lt;em&gt;Inj. Prev.&lt;/em&gt;, January. BMJ Publishing Group Ltd, ip.2010.028696.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 17 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://www.tamasnagy.com/blog/ucsf-sfbike-match/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/ucsf-sfbike-match/</guid>
+        
+        <category>random</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Active matter modeling</title>
@@ -538,39 +570,6 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
         <category>science</category>
         
         <category>math</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Life, Sans Facebook</title>
-        <description>&lt;p&gt;It has been around three months since, after much back and forth in my head, I decided to permanently delete my Facebook account. In that time, I’ve been asked several times why I left, so I opted to write this short post to spell out my thoughts in a more succinct and thorough manner.&lt;/p&gt;
-&lt;p&gt;I had originally joined Facebook back in 2008 when it was the newest fad among my friends and I. As I remember, it was cool and a lot of fun. The omnipresent social network played an important part in my high-school social life and helped me keep in contact with my friends once we were unleashed onto the world after graduation. My friends were a decent group on the internet and I mostly enjoyed my interactions with them, so I do not have any horror stories to relate. Facebook helped facilitate my long distance relationships by allowing me to keep up with my friends’ new jobs, how they were doing, what classes they were taking, what day their birthday was, etc. Also, seeing something on Facebook served as a conversation springboard when offline.&lt;/p&gt;
-&lt;p&gt;So, why did I leave?&lt;/p&gt;
-&lt;p&gt;I believe there’s a need to forget, to move on. Both for me and for my friends. People naturally drift apart; Facebook undermines that and ends up creating superficial, passive connections. I also like the mysteriousness of new relationships, the process of discovering things about another person. Facebook ruins that completely by giving you immediate access to their entire social history once you “friend” them. I have no desire to see that, or for others to see mine.&lt;/p&gt;
-&lt;p&gt;I tailor myself—as almost everyone does—to the people I’m with. I do that, not because I’m disingenuous, but because I have a wide variety of passions and my friends may not share specific interests. Facebook makes the tailoring process more difficult than other social media platforms because people expect you to only have one account. On a similar note, I prefer private correspondence with friends, which contrasts with Facebook’s “share everything with everyone” attitude. That’s a big cup of no.&lt;/p&gt;
-&lt;p&gt;Futhermore, I’m somewhat a minimalist by nature. Facebook is the antithesis of minimalism; more is always more in Facebook land. I disliked having to micromanage my account, which had become almost expected of everyone. I’m also less sentimental and nostalgic than most, so Facebook’s forced persistence of my past did little to benefit me.&lt;/p&gt;
-&lt;p&gt;There are idealogical reasons as well. I dislike Facebook’s attitude towards privacy. It’s very difficult to &lt;a href=&quot;http://www.forbes.com/sites/kashmirhill/2012/12/26/oops-mark-zuckerbergs-sister-has-a-private-facebook-photo-go-public/&quot;&gt;control who can see your posts&lt;/a&gt; and deleting isn’t &lt;a href=&quot;http://wellpreparedmind.wordpress.com/2012/10/24/dont-be-fooled-facebook-is-forever/&quot;&gt;actually deleting&lt;/a&gt;. Also, it is very difficult to get a picture of yours—or of you—removed from Facebook. The untagging feature is simply inadequate. I understand that they need to run a business, but I disagree that it is only sustainable through intrusive data-mining and advertising.&lt;/p&gt;
-&lt;p&gt;Last but not least, Facebook has a dangerous monopoly on our online social lives. People automatically assume that you have one and when you don’t, they’re often stunned. I could not and would not support that because it hurts innovation and it could have &lt;a href=&quot;http://en.wikipedia.org/wiki/Criticism_of_Facebook#Accusation_of_politically_biased_granting_of_group_upgrades&quot;&gt;unwanted side effects&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;These were just some of the thoughts racing through my head that November night when I yanked the plug on Facebook. It wasn’t an easy decision&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I feel like it was the right one.&lt;/p&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or task. Getting pictures, contacts, birthdays, etc. off of Facebook is a major pain.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</description>
-        <pubDate>Sat, 18 Jan 2014 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/life-sans-facebook/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/life-sans-facebook/</guid>
-        
-        <category>productivity</category>
-        
-        <category>minimalism</category>
-        
-        <category>social media</category>
         
         
         <category>blog</category>
