@@ -315,7 +315,12 @@ code {
 }
 
 .taglistpage{
-    list-style: none
+    list-style: none;
+}
+
+.taglist{
+    margin: 2em 0 0 0;
+    list-style: none;
 }
 
 .tagname{

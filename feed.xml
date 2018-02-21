@@ -4,25 +4,23 @@
     <title>Tamas Nagy</title>
     <description>Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, photography, and more
 </description>
-    <link>http://www.tamasnagy.com/</link>
-    <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Jan 2018 19:42:51 -0800</pubDate>
-    <lastBuildDate>Mon, 29 Jan 2018 19:42:51 -0800</lastBuildDate>
+    <link>http://localhost:4001/</link>
+    <atom:link href="http://localhost:4001/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 21 Feb 2018 12:52:48 -0800</pubDate>
+    <lastBuildDate>Wed, 21 Feb 2018 12:52:48 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
         <title>Keeping a reading list</title>
-        <description>&lt;figure&gt;
-&lt;img src=&quot;/assets/images/IMG_20180129_192927.jpg&quot; /&gt;
-&lt;/figure&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/images/IMG_20180129_192927.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;I recently received as a gift a replacement for my long deceased third- generation Kindle. As I restart my reading habit with my new friend, I thought it would be nice to begin keeping a reading list. One that would include, not only what I have read, but also what I’m planning to read. And as I move items to the “Have Read” section, I plan to write a few sentences to jog my memory about each book in the future. This way I might be able to stave off some of the fogginess that comes with time.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;My target audience with this endeavor is myself, but perhaps you can find something interesting in it as well. Take a &lt;a href=&quot;/reading/&quot;&gt;look&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Mon, 29 Jan 2018 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/reading-list/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/reading-list/</guid>
+        <link>http://localhost:4001/blog/reading-list/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/reading-list/</guid>
         
         <category>meta</category>
         
@@ -53,8 +51,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 17 Dec 2017 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/ucsf-sfbike-match/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/ucsf-sfbike-match/</guid>
+        <link>http://localhost:4001/blog/ucsf-sfbike-match/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/ucsf-sfbike-match/</guid>
         
         <category>random</category>
         
@@ -99,8 +97,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Sep 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/microtubule-vortices/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/microtubule-vortices/</guid>
+        <link>http://localhost:4001/blog/microtubule-vortices/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/microtubule-vortices/</guid>
         
         <category>science</category>
         
@@ -153,8 +151,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;We had to brave the bogs and mosquitoes on the way back too, but we were mentally prepared for it this time. We slogged through it again and made it back to car with only couple more bites to our name.&lt;/p&gt;
 </description>
         <pubDate>Sun, 02 Jul 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/kings-canyon-trip-report/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/kings-canyon-trip-report/</guid>
+        <link>http://localhost:4001/blog/kings-canyon-trip-report/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/kings-canyon-trip-report/</guid>
         
         <category>trip report</category>
         
@@ -165,18 +163,18 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
     
       <item>
         <title>UCSF Graduate Student Taxes FAQ</title>
-        <description>&lt;p&gt;I’m currently a 2nd year graduate student in the quantitative biology program at UCSF. I am certainly no tax professional&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I thought I would write a bit about what you can expect to pay in taxes at UCSF. These are some questions that I think I would have appreciated knowing the answers to in my first two years&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;I’m currently a 2nd year graduate student in the quantitative biology program at UCSF. I am certainly no tax professional&lt;a href=&quot;#fn1&quot; class=&quot;footnote-ref&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I thought I would write a bit about what you can expect to pay in taxes at UCSF. These are some questions that I think I would have appreciated knowing the answers to in my first two years&lt;a href=&quot;#fn2&quot; class=&quot;footnote-ref&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;do-we-have-to-pay-taxes&quot;&gt;Do we have to pay taxes?&lt;/h3&gt;
 &lt;p&gt;Yes, both state and federal. The tricky part is that while you are paid by UCSF on a 1098-T form (normally for your first two years) nothing is withheld for taxes so you have pay the full amount come April.&lt;/p&gt;
 &lt;h3 id=&quot;how-much-should-i-set-aside-each-month-for-taxes&quot;&gt;How much should I set aside each month for taxes?&lt;/h3&gt;
 &lt;p&gt;Most estimates are between $400-500 a month depending on your specific situation. I would probably aim for $425.&lt;/p&gt;
-&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $4800. It’s a lot if you’re not ready for it.&lt;/p&gt;
+&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnote-ref&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $4800. It’s a lot if you’re not ready for it.&lt;/p&gt;
 &lt;h3 id=&quot;how-much-do-i-actually-owe&quot;&gt;How much do I actually owe?&lt;/h3&gt;
 &lt;p&gt;In the simplest case, your “taxable income” is simply the difference between box 5 and box 1 on your 1098-T form. This value will be higher than your stipend since it includes the “taxable” contributions to our health insurance, UC SHIP. You can find your 1098-T at &lt;a href=&quot;https://1098t.com&quot; class=&quot;uri&quot;&gt;https://1098t.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;how-do-i-e-file-for-free&quot;&gt;How do I e-file for free?&lt;/h3&gt;
 &lt;p&gt;There is no need to pay for e-filing since we make less than the limit for &lt;a href=&quot;https://apps.irs.gov/app/freeFile/jsp/wizard.jsp?&quot;&gt;IRS FreeFile&lt;/a&gt;. Just fill out the form and select one of the free filing options. I have had good luck with TaxAct.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-withhold-taxes-so-that-april-isnt-such-a-bummer&quot;&gt;Can we withhold taxes so that April isn’t such a bummer?&lt;/h3&gt;
-&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California’s Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
+&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnote-ref&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California’s Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-contribute-to-a-roth-ira&quot;&gt;Can we contribute to a Roth IRA?&lt;/h3&gt;
 &lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098-T is considered taxable, unearned income it does not qualify for IRA. According to &lt;a href=&quot;https://www.irs.gov/pub/irs-pdf/p590a.pdf&quot;&gt;IRS Pub 590-A&lt;/a&gt; (Page 6):&lt;/p&gt;
 &lt;blockquote&gt;
@@ -190,16 +188,16 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;So YMMV on all this depending on your specific circumstances&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle! Update: After I wrote this piece, I found out that Kyle also had a blog post about this a couple years ago: &lt;a href=&quot;https://www.kylebarlow.com/dearth-and-taxes.html&quot; class=&quot;uri&quot;&gt;https://www.kylebarlow.com/dearth-and-taxes.html&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Naturally, this value will increase if the UCSF graduate student stipend increases. For reference, in my first two years, we made 34K (TY2015) and then 36K (TY2016).&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;This penalty was pretty small for me as a 1st and 2nd year because it is based on the previous tax year. It will be quite large in your 3rd year if you don’t set up an estimated tax payment.&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;So YMMV on all this depending on your specific circumstances&lt;a href=&quot;#fnref1&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle! Update: After I wrote this piece, I found out that Kyle also had a blog post about this a couple years ago: &lt;a href=&quot;https://www.kylebarlow.com/dearth-and-taxes.html&quot; class=&quot;uri&quot;&gt;https://www.kylebarlow.com/dearth-and-taxes.html&lt;/a&gt;&lt;a href=&quot;#fnref2&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Naturally, this value will increase if the UCSF graduate student stipend increases. For reference, in my first two years, we made 34K (TY2015) and then 36K (TY2016).&lt;a href=&quot;#fnref3&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;This penalty was pretty small for me as a 1st and 2nd year because it is based on the previous tax year. It will be quite large in your 3rd year if you don’t set up an estimated tax payment.&lt;a href=&quot;#fnref4&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Wed, 31 May 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/grad-student-taxes/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/grad-student-taxes/</guid>
+        <link>http://localhost:4001/blog/grad-student-taxes/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/grad-student-taxes/</guid>
         
         <category>random</category>
         
@@ -210,9 +208,9 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
     
       <item>
         <title>Embedding videos in Google Slides as GIFs</title>
-        <description>&lt;p&gt;In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on &lt;a href=&quot;https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality&quot;&gt;Stackoverflow&lt;/a&gt;). First, make sure to install &lt;code&gt;libav&lt;/code&gt; and &lt;code&gt;imagemagick&lt;/code&gt;. On Debian-based systems, you can run&lt;/p&gt;
+        <description>&lt;p&gt;In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides&lt;a href=&quot;#fn1&quot; class=&quot;footnote-ref&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on &lt;a href=&quot;https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality&quot;&gt;Stackoverflow&lt;/a&gt;). First, make sure to install &lt;code&gt;libav&lt;/code&gt; and &lt;code&gt;imagemagick&lt;/code&gt;. On Debian-based systems, you can run&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libav-tools imagemagick&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
+&lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnote-ref&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;where &lt;code&gt;some_movie.m4v&lt;/code&gt; is the video file. This creates an optimized GIF version called &lt;code&gt;output.gif&lt;/code&gt;, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/&quot;&gt;Toggle Animated Gifs&lt;/a&gt; extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.&lt;/p&gt;
 &lt;h2 id=&quot;addendum-17-04-28&quot;&gt;Addendum 17-04-28&lt;/h2&gt;
@@ -243,7 +241,7 @@ convert: no images defined `gif:-&amp;#39; @ error/convert.c/ConvertImageCommand
 convert: no decode delegate for this image format `&amp;#39; @ error/constitute.c/ReadImage/509.
 convert: no images defined `output.gif&amp;#39; @
 error/convert.c/ConvertImageCommand/3254. &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then installing the &lt;code&gt;qtfaststart&lt;/code&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Python package via &lt;code&gt;pip install qtfaststart&lt;/code&gt; and then running&lt;/p&gt;
+&lt;p&gt;Then installing the &lt;code&gt;qtfaststart&lt;/code&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnote-ref&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Python package via &lt;code&gt;pip install qtfaststart&lt;/code&gt; and then running&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;qtfaststart bad_movie.mov good_movie.mov&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;should fix the problem and now you can use &lt;code&gt;good_movie.mov&lt;/code&gt; with the previous commands to create all the gifs. So &lt;a href=&quot;https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064&quot;&gt;apparently&lt;/a&gt; what is happening is that some recording software puts the &lt;code&gt;mdat&lt;/code&gt; block prior to the &lt;code&gt;moov&lt;/code&gt; block (the structural metadata). This is more convenient for recording since the structure isn’t known till the recording is finished, however for playback it isn’t as nice. &lt;code&gt;qtfaststart&lt;/code&gt; fixes this by swapping the two blocks:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ qtfaststart -l bad_movie.mov
@@ -260,15 +258,15 @@ mdat (2448358 bytes)&lt;/code&gt;&lt;/pre&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.&lt;a href=&quot;#fnref3&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Mon, 15 Aug 2016 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</guid>
+        <link>http://localhost:4001/blog/videos-in-google-slides-gifs/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/videos-in-google-slides-gifs/</guid>
         
         <category>science</category>
         
@@ -359,7 +357,7 @@ trapezoidal estimator, which is more accurate for skewed datasets.
     &lt;span class=&quot;n&quot;&gt;auprc&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
-&lt;h2 id=&quot;plotting&quot;&gt;Plotting&lt;/h2&gt;
+&lt;p&gt;##Plotting&lt;/p&gt;
 &lt;p&gt;Then to recreate Figure 2:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;
 &lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Distributions&lt;/span&gt;
@@ -438,8 +436,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/precision-recall-julia/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/precision-recall-julia/</guid>
+        <link>http://localhost:4001/blog/precision-recall-julia/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/precision-recall-julia/</guid>
         
         <category>julia</category>
         
@@ -475,8 +473,8 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;killall -9 adb; sudo umount -f ~/phone&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</guid>
+        <link>http://localhost:4001/blog/mtp-interconnect-mac-linux/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/mtp-interconnect-mac-linux/</guid>
         
         <category>linux</category>
         
@@ -507,8 +505,8 @@ cd tnsite&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 Jan 2016 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/building-jekyll-site-debian/</guid>
+        <link>http://localhost:4001/blog/building-jekyll-site-debian/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/building-jekyll-site-debian/</guid>
         
         <category>meta</category>
         
@@ -540,8 +538,8 @@ cd tnsite&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Most importantly, everyone’s favorite hypotrochoid is still featured on the site. New year, new site, same hypotrochoid.&lt;/p&gt;
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/revamp/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/revamp/</guid>
+        <link>http://localhost:4001/blog/revamp/</link>
+        <guid isPermaLink="true">http://localhost:4001/blog/revamp/</guid>
         
         <category>meta</category>
         
