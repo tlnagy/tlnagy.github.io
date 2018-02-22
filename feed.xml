@@ -4,10 +4,10 @@
     <title>Tamas Nagy</title>
     <description>Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, photography, and more
 </description>
-    <link>http://localhost:4001/</link>
-    <atom:link href="http://localhost:4001/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Feb 2018 12:52:48 -0800</pubDate>
-    <lastBuildDate>Wed, 21 Feb 2018 12:52:48 -0800</lastBuildDate>
+    <link>http://www.tamasnagy.com/</link>
+    <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 21 Feb 2018 16:43:46 -0800</pubDate>
+    <lastBuildDate>Wed, 21 Feb 2018 16:43:46 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -19,8 +19,8 @@
 &lt;p&gt;My target audience with this endeavor is myself, but perhaps you can find something interesting in it as well. Take a &lt;a href=&quot;/reading/&quot;&gt;look&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Mon, 29 Jan 2018 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/reading-list/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/reading-list/</guid>
+        <link>http://www.tamasnagy.com/blog/reading-list/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/reading-list/</guid>
         
         <category>meta</category>
         
@@ -51,8 +51,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 17 Dec 2017 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/ucsf-sfbike-match/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/ucsf-sfbike-match/</guid>
+        <link>http://www.tamasnagy.com/blog/ucsf-sfbike-match/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/ucsf-sfbike-match/</guid>
         
         <category>random</category>
         
@@ -97,8 +97,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Sep 2017 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/microtubule-vortices/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/microtubule-vortices/</guid>
+        <link>http://www.tamasnagy.com/blog/microtubule-vortices/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/microtubule-vortices/</guid>
         
         <category>science</category>
         
@@ -151,8 +151,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;We had to brave the bogs and mosquitoes on the way back too, but we were mentally prepared for it this time. We slogged through it again and made it back to car with only couple more bites to our name.&lt;/p&gt;
 </description>
         <pubDate>Sun, 02 Jul 2017 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/kings-canyon-trip-report/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/kings-canyon-trip-report/</guid>
+        <link>http://www.tamasnagy.com/blog/kings-canyon-trip-report/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/kings-canyon-trip-report/</guid>
         
         <category>trip report</category>
         
@@ -196,8 +196,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/section&gt;
 </description>
         <pubDate>Wed, 31 May 2017 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/grad-student-taxes/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/grad-student-taxes/</guid>
+        <link>http://www.tamasnagy.com/blog/grad-student-taxes/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/grad-student-taxes/</guid>
         
         <category>random</category>
         
@@ -265,8 +265,8 @@ mdat (2448358 bytes)&lt;/code&gt;&lt;/pre&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Mon, 15 Aug 2016 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/videos-in-google-slides-gifs/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/videos-in-google-slides-gifs/</guid>
+        <link>http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</guid>
         
         <category>science</category>
         
@@ -436,8 +436,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/precision-recall-julia/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/precision-recall-julia/</guid>
+        <link>http://www.tamasnagy.com/blog/precision-recall-julia/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/precision-recall-julia/</guid>
         
         <category>julia</category>
         
@@ -473,8 +473,8 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;killall -9 adb; sudo umount -f ~/phone&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/mtp-interconnect-mac-linux/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/mtp-interconnect-mac-linux/</guid>
+        <link>http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</guid>
         
         <category>linux</category>
         
@@ -505,8 +505,8 @@ cd tnsite&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 Jan 2016 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/building-jekyll-site-debian/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/building-jekyll-site-debian/</guid>
+        <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/building-jekyll-site-debian/</guid>
         
         <category>meta</category>
         
@@ -538,8 +538,8 @@ cd tnsite&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Most importantly, everyone’s favorite hypotrochoid is still featured on the site. New year, new site, same hypotrochoid.&lt;/p&gt;
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/revamp/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/revamp/</guid>
+        <link>http://www.tamasnagy.com/blog/revamp/</link>
+        <guid isPermaLink="true">http://www.tamasnagy.com/blog/revamp/</guid>
         
         <category>meta</category>
         

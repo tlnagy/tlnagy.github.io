@@ -323,6 +323,10 @@ code {
     list-style: none;
 }
 
+.taglist a{
+    margin-right: 1em;
+}
+
 .tagname{
     text-decoration: none;
     font-weight: bold;
@@ -650,4 +654,8 @@ img.avatar {
     display: block;
     margin: 0 auto 2em auto;
     border-radius: 50%;
+}
+
+.fa-tag {
+    margin-right: 0.25em;
 }
