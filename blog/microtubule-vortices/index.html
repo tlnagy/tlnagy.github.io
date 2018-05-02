@@ -13,10 +13,10 @@
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="http://www.tamasnagy.com/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://tamasnagy.com/favicon.ico">
 
-    <link rel="canonical" href="http://www.tamasnagy.com/blog/microtubule-vortices/">
-    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="http://www.tamasnagy.com/feed.xml" />
+    <link rel="canonical" href="https://tamasnagy.com/blog/microtubule-vortices/">
+    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="https://tamasnagy.com/feed.xml" />
 </head>
 
 
@@ -39,7 +39,7 @@
             <a href="/reading/">reading</a>
             <a href="/about/">about</a>
             <div class="nav-source">
-            <i class="fa fa-github gh-icon"></i><a href="http://github.com/tlnagy/tnsite/blob/master/blog/_posts/2017-09-07-microtubule-vortices.md">source</a>
+            <i class="fa fa-github gh-icon"></i><a href="https://github.com/tlnagy/tnsite/blob/master/blog/_posts/2017-09-07-microtubule-vortices.md">source</a>
             </div>
         </nav>
 
@@ -58,7 +58,7 @@
     </header>
 
     <article class="post-content">
-        <p>Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from <span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span> since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose “unifying characteristic is that they are <strong>composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement</strong>” <span class="citation" data-cites="Marchetti2013">(Marchetti et al. 2013)</span>. An <em>in vitro</em> microtubule and dynein system, like the one we’re investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.</p>
+        <p>Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from <span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span> since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose &quot;unifying characteristic is that they are <strong>composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement</strong>&quot; <span class="citation" data-cites="Marchetti2013">(Marchetti et al. 2013)</span>. An <em>in vitro</em> microtubule and dynein system, like the one we're investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.</p>
 <figure>
 <img src="/assets/images/2017-09-07-microtubule-vortices/0de43a55.png" alt="Figure 1A-B from Sumino et al. (2012). Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP" /><figcaption>Figure 1A-B from <span class="citation" data-cites="Sumino2012-dc">Sumino et al. (2012)</span>. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP</figcaption>
 </figure>
@@ -72,7 +72,7 @@
 \frac{d\mathbf{X_i}}{dT} &amp;= \mathbf{e_x}\cos \theta_i + \mathbf{e_y} \sin \theta_i
 \end{align}
 \]</span></p>
-<p>I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: <a href="https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11" class="uri">https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11</a>. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower “concentration” of microtubules that we used in our simulation to achieve interactivity, <span class="math inline">\(N=1500\)</span> instead of <span class="math inline">\(N=2621440\)</span>. We were still able to get vortices to form:</p>
+<p>I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: <a href="https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11" class="uri">https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11</a>. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower &quot;concentration&quot; of microtubules that we used in our simulation to achieve interactivity, <span class="math inline">\(N=1500\)</span> instead of <span class="math inline">\(N=2621440\)</span>. We were still able to get vortices to form:</p>
 <figure>
 <img src="/assets/images/2017-09-07-microtubule-vortices/mt_initial.gif" alt="Initially, microtubule movement looks pretty random." /><figcaption>Initially, microtubule movement looks pretty random.</figcaption>
 </figure>
@@ -80,14 +80,14 @@
 <img src="/assets/images/2017-09-07-microtubule-vortices/mt_vortices.gif" alt="However, they start to coalesce into a grid of vortices" /><figcaption>However, they start to coalesce into a grid of vortices</figcaption>
 </figure>
 <script type="text/javascript"
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <h2 id="references" class="unnumbered">References</h2>
 <div id="refs" class="references">
 <div id="ref-Marchetti2013">
-<p>Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” <em>Rev. Mod. Phys.</em> 85 (3). American Physical Society:1143–89. <a href="https://doi.org/10.1103/RevModPhys.85.1143" class="uri">https://doi.org/10.1103/RevModPhys.85.1143</a>.</p>
+<p>Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” <em>Rev. Mod. Phys.</em> 85 (3). American Physical Society: 1143–89. doi:<a href="https://doi.org/10.1103/RevModPhys.85.1143">10.1103/RevModPhys.85.1143</a>.</p>
 </div>
 <div id="ref-Sumino2012-dc">
-<p>Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” <em>Nature</em> 483 (7390):448–52.</p>
+<p>Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” <em>Nature</em> 483 (7390): 448–52.</p>
 </div>
 </div>
 
@@ -102,6 +102,19 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </li>
 
     
+<section class="revision">
+  <h3>Revision history</h3>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">02 May 2018</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>update links to use https to i can close #7</code><a href="https://github.com/tlnagy/tnsite/commit/dc3b21c628604d7756a8c02c76ab26d2199f9156" class="rev-hash"><code>dc3b21c</code></a></p>
+  
+      <span class="rev-author">Tamas Nagy</span> edited this post on <span class="rev-date">07 Sep 2017</span>
+        <p><i class="fa fa-angle-right rev-icon fa-lg"></i><code>new post on active modeling</code><a href="https://github.com/tlnagy/tnsite/commit/45ce9b5ce0ab261388d5dcdcac8af8a1dd702817" class="rev-hash"><code>45ce9b5</code></a></p>
+  
+    
+    
+</section>
+
 
 
     <!-- POST NAVIGATION -->
@@ -126,10 +139,10 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
   <div class="wrapper">
     <p class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></p>
-      
+
     <p>Powered by <a href="http://jekyllrb.com">Jekyll</a>. Theme based on <a href="http://daryl.andrewlee.name">Daryl</a>.</p>
-      
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="http://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
+
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="https://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
 
   </div> <!-- .wrapper -->
 

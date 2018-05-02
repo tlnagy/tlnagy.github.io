@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Native MTP interconnect on Mac/Linux</title>
-    <meta name="description" content="Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native fi...">
+    <meta name="description" content="Connecting your phone to your computer via MTP isn't as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native fi...">
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="http://www.tamasnagy.com/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://tamasnagy.com/favicon.ico">
 
-    <link rel="canonical" href="http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/">
-    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="http://www.tamasnagy.com/feed.xml" />
+    <link rel="canonical" href="https://tamasnagy.com/blog/mtp-interconnect-mac-linux/">
+    <link rel="alternate" type="application/rss+xml" title="Tamas Nagy" href="https://tamasnagy.com/feed.xml" />
 </head>
 
 
@@ -39,7 +39,7 @@
             <a href="/reading/">reading</a>
             <a href="/about/">about</a>
             <div class="nav-source">
-            <i class="fa fa-github gh-icon"></i><a href="http://github.com/tlnagy/tnsite/blob/master/blog/_posts/2016-02-17-mtp-interconnect-mac-linux.md">source</a>
+            <i class="fa fa-github gh-icon"></i><a href="https://github.com/tlnagy/tnsite/blob/master/blog/_posts/2016-02-17-mtp-interconnect-mac-linux.md">source</a>
             </div>
         </nav>
 
@@ -58,7 +58,7 @@
     </header>
 
     <article class="post-content">
-        <p>Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here’s how I got it working.</p>
+        <p>Connecting your phone to your computer via MTP isn't as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here's how I got it working.</p>
 <h2 id="linux-setup">Linux setup</h2>
 <p>On Debian (or Debian derivatives like Ubuntu):</p>
 <pre><code>sudo apt-get install libfuse-dev android-tools-adb</code></pre>
@@ -67,7 +67,7 @@
 <pre><code>brew update
 brew install android-platform-tools</code></pre>
 <h2 id="clone-build-and-setup-adbfs">Clone, build, and setup <code>adbfs</code></h2>
-<p>We’ll be using <a href="https://github.com/spion/adbfs-rootless"><code>adbfs</code></a> to mount our Android phone:</p>
+<p>We'll be using <a href="https://github.com/spion/adbfs-rootless"><code>adbfs</code></a> to mount our Android phone:</p>
 <pre><code>git clone git://github.com/spion/adbfs-rootless.git
 cd adbfs-rootless    
 make</code></pre>
@@ -75,7 +75,7 @@ make</code></pre>
 <pre><code>mkdir ~/phone</code></pre>
 <p>Mount device as follows:</p>
 <pre><code>./adbfs ~/phone</code></pre>
-<p>And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).</p>
+<p>And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Try reseting and restarting <code>adb</code> and the mount point</p>
 <pre><code>killall -9 adb; sudo umount -f ~/phone</code></pre>
@@ -117,10 +117,10 @@ make</code></pre>
 
   <div class="wrapper">
     <p class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></p>
-      
+
     <p>Powered by <a href="http://jekyllrb.com">Jekyll</a>. Theme based on <a href="http://daryl.andrewlee.name">Daryl</a>.</p>
-      
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="http://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
+
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All content on this website</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://tamasnagy.com" property="cc:attributionName" rel="cc:attributionURL">Tamas Nagy</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, unless otherwise noted. The <a href="https://github.com/tlnagy/tnsite/">code</a> itself is MIT licensed.
 
   </div> <!-- .wrapper -->
 

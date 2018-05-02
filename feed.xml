@@ -4,35 +4,35 @@
     <title>Tamas Nagy</title>
     <description>Bioinformatics graduate student at UCSF. Interested in systems biology, image analysis, math, mountains, photography, and more
 </description>
-    <link>http://www.tamasnagy.com/</link>
-    <atom:link href="http://www.tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Mar 2018 00:07:25 -0700</pubDate>
-    <lastBuildDate>Mon, 19 Mar 2018 00:07:25 -0700</lastBuildDate>
+    <link>https://tamasnagy.com/</link>
+    <atom:link href="https://tamasnagy.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 02 May 2018 12:05:21 -0700</pubDate>
+    <lastBuildDate>Wed, 02 May 2018 12:05:21 -0700</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
         <title>A deep dive into the Stellar public network (Part 1)</title>
-        <description>&lt;p&gt;One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I’m pretty certain that most cryptocurrencies will eventually adopt some type of zero-knowledge cryptography (e.g. &lt;a href=&quot;https://z.cash/technology/zksnarks.html&quot;&gt;zk-snarks&lt;/a&gt;) that would make this sort of analysis impossible or much more difficult, many still have everything recorded in the clear, e.g. the &lt;a href=&quot;https://stellar.org&quot;&gt;Stellar network&lt;/a&gt; and its corresponding currency, Lumens (XLM).&lt;/p&gt;
-&lt;p&gt;Stellar is an interesting project because it does not rely on the extremely wasteful proof-of-work consensus method (used by Bitcoin and Ethereum). It instead uses the Stellar Consensus Protocol (SCP), which is a form of a federated Byzantine agreement. There’s a &lt;a href=&quot;https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949&quot;&gt;technical summary&lt;/a&gt; and a &lt;a href=&quot;https://www.stellar.org/papers/stellar-consensus-protocol.pdf&quot;&gt;white paper&lt;/a&gt; that both explain how SCP works&lt;a href=&quot;#fn1&quot; class=&quot;footnote-ref&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. Its key benefits are that it is both fast (1000+ transactions per second) and environmentally friendly (extremely low energy costs).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Okay, so Stellar is cool, but how are people using it?&lt;/strong&gt; This was the question that spawned this analysis. I wanted to see what I could find out from the Stellar’s public blockchain about how people (and bots) were using it. This is part 1 of what I hope is a multipart dive into the Stellar network&lt;a href=&quot;#fn2&quot; class=&quot;footnote-ref&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. Some questions I hope to answer:&lt;/p&gt;
+        <description>&lt;p&gt;One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I'm pretty certain that most cryptocurrencies will eventually adopt some type of zero-knowledge cryptography (e.g. &lt;a href=&quot;https://z.cash/technology/zksnarks.html&quot;&gt;zk-snarks&lt;/a&gt;) that would make this sort of analysis impossible or much more difficult, many still have everything recorded in the clear, e.g. the &lt;a href=&quot;https://stellar.org&quot;&gt;Stellar network&lt;/a&gt; and its corresponding currency, Lumens (XLM).&lt;/p&gt;
+&lt;p&gt;Stellar is an interesting project because it does not rely on the extremely wasteful proof-of-work consensus method (used by Bitcoin and Ethereum). It instead uses the Stellar Consensus Protocol (SCP), which is a form of a federated Byzantine agreement. There's a &lt;a href=&quot;https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949&quot;&gt;technical summary&lt;/a&gt; and a &lt;a href=&quot;https://www.stellar.org/papers/stellar-consensus-protocol.pdf&quot;&gt;white paper&lt;/a&gt; that both explain how SCP works&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. Its key benefits are that it is both fast (1000+ transactions per second) and environmentally friendly (extremely low energy costs).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Okay, so Stellar is cool, but how are people using it?&lt;/strong&gt; This was the question that spawned this analysis. I wanted to see what I could find out from the Stellar's public blockchain about how people (and bots) were using it. This is part 1 of what I hope is a multipart dive into the Stellar network&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. Some questions I hope to answer:&lt;/p&gt;
 &lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;#account-inflation-destination-distribution&quot;&gt;What is the inflation destination distribution across accounts?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#correlation-between-account-balance-and-age&quot;&gt;Is there a correlation between account balance and age?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Are most accounts just holding&lt;a href=&quot;#fn3&quot; class=&quot;footnote-ref&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; lumens or are they actually moving around?&lt;/li&gt;
+&lt;li&gt;Are most accounts just holding&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; lumens or are they actually moving around?&lt;/li&gt;
 &lt;li&gt;What is the topology of the transaction graph? Is it more hub-and-spoke or more Erdős-Rényi like?&lt;/li&gt;
 &lt;li&gt;Can I detect when major giveaways and changes to the protocol happened?&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;getting-the-data&quot;&gt;Getting the data&lt;/h2&gt;
-&lt;p&gt;While Stellar’s documentation is surprisingly good compared to other cryptoprojects, it took a bit of finagling to get everything to work, but that might be more indicative of my newness to the whole scene.&lt;/p&gt;
-&lt;p&gt;The first step was actually getting the data. Stellar has a convenient RESTful API for many things via &lt;a href=&quot;https://github.com/stellar/horizon&quot;&gt;Horizon&lt;/a&gt;, but that isn’t &lt;a href=&quot;https://stellar.stackexchange.com/questions/729/possible-to-get-a-list-of-account-holders-satisfying-certain-criteria-using-hori?noredirect=1#comment597_729&quot;&gt;sufficient&lt;/a&gt; for my needs so I needed to set up a full node locally.&lt;/p&gt;
+&lt;p&gt;While Stellar's documentation is surprisingly good compared to other cryptoprojects, it took a bit of finagling to get everything to work, but that might be more indicative of my newness to the whole scene.&lt;/p&gt;
+&lt;p&gt;The first step was actually getting the data. Stellar has a convenient RESTful API for many things via &lt;a href=&quot;https://github.com/stellar/horizon&quot;&gt;Horizon&lt;/a&gt;, but that isn't &lt;a href=&quot;https://stellar.stackexchange.com/questions/729/possible-to-get-a-list-of-account-holders-satisfying-certain-criteria-using-hori?noredirect=1#comment597_729&quot;&gt;sufficient&lt;/a&gt; for my needs so I needed to set up a full node locally.&lt;/p&gt;
 &lt;h3 id=&quot;setting-up-a-local-node&quot;&gt;Setting up a local node&lt;/h3&gt;
-&lt;p&gt;The easiest way to do this is via &lt;a href=&quot;https://www.docker.com/&quot;&gt;&lt;code&gt;Docker&lt;/code&gt;&lt;/a&gt; and once you install it, provisioning a Stellar node is a easy&lt;a href=&quot;#fn4&quot; class=&quot;footnote-ref&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; as running the following command in your terminal (don’t type the preceding &lt;code&gt;$&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;The easiest way to do this is via &lt;a href=&quot;https://www.docker.com/&quot;&gt;&lt;code&gt;Docker&lt;/code&gt;&lt;/a&gt; and once you install it, provisioning a Stellar node is a easy&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; as running the following command in your terminal (don't type the preceding &lt;code&gt;$&lt;/code&gt;):&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ docker run --rm -it -p &amp;quot;8000:8000&amp;quot; -p &amp;quot;5432:5432&amp;quot; -v ~/Documents/stellar:/opt/stellar --name stellar stellar/quickstart --pubnet&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Make sure to enter a password in for the PostgreSQL database and that you write it down. You’ll need it to connect to the database later.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The above command tells Docker to download the &lt;a href=&quot;https://github.com/stellar/docker-stellar-core-horizon&quot;&gt;&lt;code&gt;stellar/quickstart&lt;/code&gt;&lt;/a&gt; Docker image and create a volume at &lt;code&gt;~/Documents/stellar&lt;/code&gt; where the Stellar node will store all of its data. It will also expose the HTML and PostgreSQL ports locally too. We’ll need the latter one to actually access the data. Finally, the &lt;code&gt;--pubnet&lt;/code&gt; flag tells the node to use the public network (i.e. real lumens).&lt;/p&gt;
-&lt;p&gt;Once you run this command you’ll need to wait till the node is synchronized with the network. You can check its progress by connecting to the Docker container&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Make sure to enter a password in for the PostgreSQL database and that you write it down. You'll need it to connect to the database later.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The above command tells Docker to download the &lt;a href=&quot;https://github.com/stellar/docker-stellar-core-horizon&quot;&gt;&lt;code&gt;stellar/quickstart&lt;/code&gt;&lt;/a&gt; Docker image and create a volume at &lt;code&gt;~/Documents/stellar&lt;/code&gt; where the Stellar node will store all of its data. It will also expose the HTML and PostgreSQL ports locally too. We'll need the latter one to actually access the data. Finally, the &lt;code&gt;--pubnet&lt;/code&gt; flag tells the node to use the public network (i.e. real lumens).&lt;/p&gt;
+&lt;p&gt;Once you run this command you'll need to wait till the node is synchronized with the network. You can check its progress by connecting to the Docker container&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ docker exec -it stellar /bin/bash&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;which opens a connection to the container’s shell. You can then run&lt;/p&gt;
+&lt;p&gt;which opens a connection to the container's shell. You can then run&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ stellar-core --c &amp;#39;info&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;to ask query the state of your node. The key thing is to look at the &lt;code&gt;&amp;quot;state&amp;quot;&lt;/code&gt; value below, it should eventually read &lt;code&gt;&amp;quot;Synced!&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Content-Length: 761
@@ -70,8 +70,10 @@ Content-Type: application/json
 &lt;p&gt;The last ledger was &lt;a href=&quot;https://stellarchain.io/ledger/16874860&quot;&gt;16874860&lt;/a&gt; when I shutdown my node to prevent the data from mutating during my analysis.&lt;/p&gt;
 &lt;h3 id=&quot;querying-the-data&quot;&gt;Querying the data&lt;/h3&gt;
 &lt;p&gt;I used &lt;a href=&quot;https://eggerapps.at/postico/&quot;&gt;Postico&lt;/a&gt; to actually query the data, but any PostgreSQL client will work.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/f6930827.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;You’ll need to tell it to connect to the PostgreSQL instance by telling it to connect to localhost on port 5432, with &lt;code&gt;stellar&lt;/code&gt; as the username and the password you entered from above. The main database we’ll be interacting with is &lt;code&gt;core&lt;/code&gt;. You can then execute any SQL query against the database.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/f6930827.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;You'll need to tell it to connect to the PostgreSQL instance by telling it to connect to localhost on port 5432, with &lt;code&gt;stellar&lt;/code&gt; as the username and the password you entered from above. The main database we'll be interacting with is &lt;code&gt;core&lt;/code&gt;. You can then execute any SQL query against the database.&lt;/p&gt;
 &lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
 &lt;p&gt;Now to the fun part, actually answering some questions! All my analysis was done in &lt;a href=&quot;https://julialang.org&quot;&gt;Julia&lt;/a&gt; and my jupyter notebook is available &lt;a href=&quot;https://gist.github.com/tlnagy/13c88fb4987ab4081cbc043b31a5e018&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;account-inflation-destination-distribution&quot;&gt;Account inflation destination distribution&lt;/h3&gt;
@@ -79,30 +81,34 @@ Content-Type: application/json
 &lt;blockquote&gt;
 &lt;p&gt;The Stellar distributed network has a built-in, fixed, nominal inflation mechanism. New lumens are added to the network at the rate of 1% each year. Each week, the protocol distributes these lumens to any account that gets over .05% of the “votes” from other accounts in the network.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;My understanding is that lumens that are distributed are both new lumens that are added (at the rate of 1% of each year) and the lumens collected from transaction fees&lt;a href=&quot;#fn5&quot; class=&quot;footnote-ref&quot; id=&quot;fnref5&quot;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;. But…lumens are only distributed if an inflation destination is set. I wanted to look at the inflation destinations ordered by the total amount of XLM in the accounts pointed at each destination (on left) and the number of accounts pointed at each destination (on right).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/inflationdest.svg&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;First thing, there are a lot of accounts without a set inflation destination (i.e. a NULL destination). 6.7 billion lumens are not earning inflation, which works out to 37% of all distributed lumens. It’s even worse if you look at the level of accounts. 76% percent of all accounts aren’t earning any inflation! The biggest community pool (balance-wise) is &lt;a href=&quot;https://lumenaut.net/&quot;&gt;GCCD..NAUT&lt;/a&gt;, which is one of the newer pools that has no fees. Pretty cool that it caught on so quick.&lt;/p&gt;
-&lt;p&gt;I don’t understand why manual setting of the inflation destination is necessary. Why can’t the lumens be distributed to every account equally? I just find it unfortunate that the majority of accounts aren’t taking advantage of the inflation payouts.&lt;/p&gt;
+&lt;p&gt;My understanding is that lumens that are distributed are both new lumens that are added (at the rate of 1% of each year) and the lumens collected from transaction fees&lt;a href=&quot;#fn5&quot; class=&quot;footnoteRef&quot; id=&quot;fnref5&quot;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;. But...lumens are only distributed if an inflation destination is set. I wanted to look at the inflation destinations ordered by the total amount of XLM in the accounts pointed at each destination (on left) and the number of accounts pointed at each destination (on right).&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/inflationdest.svg&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;First thing, there are a lot of accounts without a set inflation destination (i.e. a NULL destination). 6.7 billion lumens are not earning inflation, which works out to 37% of all distributed lumens. It's even worse if you look at the level of accounts. 76% percent of all accounts aren't earning any inflation! The biggest community pool (balance-wise) is &lt;a href=&quot;https://lumenaut.net/&quot;&gt;GCCD..NAUT&lt;/a&gt;, which is one of the newer pools that has no fees. Pretty cool that it caught on so quick.&lt;/p&gt;
+&lt;p&gt;I don't understand why manual setting of the inflation destination is necessary. Why can't the lumens be distributed to every account equally? I just find it unfortunate that the majority of accounts aren't taking advantage of the inflation payouts.&lt;/p&gt;
 &lt;h3 id=&quot;correlation-between-account-balance-and-age&quot;&gt;Correlation between account balance and age&lt;/h3&gt;
 &lt;p&gt;Another thing I wanted to look at is if there was any correlation between the age of an account and the size of the balance. The account creation time is not stored, but there is a last modified time. Plotting the 2D histogram of the last modified time versus balance size gives this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/balanceage.svg&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/assets/images/2018-03-18-stellar-network-analysis/balanceage.svg&quot; /&gt;
+&lt;/figure&gt;
 &lt;p&gt;Couple interesting points. You can clearly see when the minimum account balance was lowered from 10 XLM to 0.5 XLM in &lt;a href=&quot;https://github.com/stellar/docs/commit/9c0100d80d32dfff9d9d071b77def6bf8599b151#diff-fe29f1f4bf5e6ceed24a2a27a5d241c6&quot;&gt;January&lt;/a&gt;. There is also a strip around 5000 XLM, which are probably old accounts that received free lumens, but were forgotten.&lt;/p&gt;
-&lt;p&gt;In the next part, I’ll map transactions to each account so then I’ll be able to find the oldest transaction for each account to determine its age instead of using the last modified time. I also hope to answer the rest of the questions outlined above.&lt;/p&gt;
+&lt;p&gt;In the next part, I'll map transactions to each account so then I'll be able to find the oldest transaction for each account to determine its age instead of using the last modified time. I also hope to answer the rest of the questions outlined above.&lt;/p&gt;
 &lt;p&gt;If you made it this far and have any more ideas for what I could look into, tweet at me (&lt;a href=&quot;https://twitter.com/tlngy&quot;&gt;@tlngy&lt;/a&gt;).&lt;/p&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I plan to write an intuitive description of how SCP works on this blog some time in the future. Hopefully, it will help me a better understanding of the limitations and weaknesses of the protocol design.&lt;a href=&quot;#fnref1&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;That depends heavily on the amount of free time I have, heh.&lt;a href=&quot;#fnref2&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;hodling&lt;a href=&quot;#fnref3&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;I originally tried setting up an instance by compiling stellar-core locally on my MacOS machine, but ran into issues with the &lt;a href=&quot;https://stellar.stackexchange.com/questions/731/running-into-an-invalid-quorum-set-error-when-running-stellar-core?noredirect=1#comment594_731&quot;&gt;config file&lt;/a&gt;. Apparently, the default config file ships with a non-functional quorum-set (probably a good thing to make sure people actually think about which nodes they list here, heh).&lt;a href=&quot;#fnref4&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn5&quot;&gt;&lt;p&gt;In proof-of-work currencies, the transaction fees are much higher and paid to the miners.&lt;a href=&quot;#fnref5&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I plan to write an intuitive description of how SCP works on this blog some time in the future. Hopefully, it will help me a better understanding of the limitations and weaknesses of the protocol design.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;That depends heavily on the amount of free time I have, heh.&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;hodling&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;I originally tried setting up an instance by compiling stellar-core locally on my MacOS machine, but ran into issues with the &lt;a href=&quot;https://stellar.stackexchange.com/questions/731/running-into-an-invalid-quorum-set-error-when-running-stellar-core?noredirect=1#comment594_731&quot;&gt;config file&lt;/a&gt;. Apparently, the default config file ships with a non-functional quorum-set (probably a good thing to make sure people actually think about which nodes they list here, heh).&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn5&quot;&gt;&lt;p&gt;In proof-of-work currencies, the transaction fees are much higher and paid to the miners.&lt;a href=&quot;#fnref5&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Sun, 18 Mar 2018 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/stellar-network-analysis/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/stellar-network-analysis/</guid>
+        <link>https://tamasnagy.com/blog/stellar-network-analysis/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/stellar-network-analysis/</guid>
         
         <category>crypto</category>
         
@@ -113,15 +119,17 @@ Content-Type: application/json
     
       <item>
         <title>Keeping a reading list</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/assets/images/IMG_20180129_192927.jpg&quot; /&gt;&lt;/p&gt;
+        <description>&lt;figure&gt;
+&lt;img src=&quot;/assets/images/IMG_20180129_192927.jpg&quot; /&gt;
+&lt;/figure&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;I recently received as a gift a replacement for my long deceased third- generation Kindle. As I restart my reading habit with my new friend, I thought it would be nice to begin keeping a reading list. One that would include, not only what I have read, but also what I’m planning to read. And as I move items to the “Have Read” section, I plan to write a few sentences to jog my memory about each book in the future. This way I might be able to stave off some of the fogginess that comes with time.&lt;/p&gt;
+&lt;p&gt;I recently received as a gift a replacement for my long deceased third- generation Kindle. As I restart my reading habit with my new friend, I thought it would be nice to begin keeping a reading list. One that would include, not only what I have read, but also what I'm planning to read. And as I move items to the &amp;quot;Have Read&amp;quot; section, I plan to write a few sentences to jog my memory about each book in the future. This way I might be able to stave off some of the fogginess that comes with time.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;My target audience with this endeavor is myself, but perhaps you can find something interesting in it as well. Take a &lt;a href=&quot;/reading/&quot;&gt;look&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Mon, 29 Jan 2018 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/reading-list/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/reading-list/</guid>
+        <link>https://tamasnagy.com/blog/reading-list/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/reading-list/</guid>
         
         <category>meta</category>
         
@@ -133,18 +141,18 @@ Content-Type: application/json
       <item>
         <title>UCSF should match employee donations to SFBike</title>
         <description>&lt;p&gt;Cycling is a great way to commute to work and to stay healthy. It is associated with reduced risk for cardiovascular disease, cancer, and all cause mortality &lt;span class=&quot;citation&quot; data-cites=&quot;Celis-Morales2017&quot;&gt;(Celis-Morales et al. 2017)&lt;/span&gt;. UCSF already recognizes this and &lt;a href=&quot;http://campuslifeservices.ucsf.edu/transportation/services/biking&quot;&gt;promotes biking&lt;/a&gt; as a transportation mode. Citywide, bikes make up about &lt;a href=&quot;https://www.sfmta.com/blog/san-francisco%E2%80%99s-surge-biking-continues&quot;&gt;4.4% of all commute trips&lt;/a&gt; (as of 2014).&lt;/p&gt;
-&lt;p&gt;Unfortunately, the cycling infrastructure in San Francisco still needs a lot of work to be a viable option for students and staff. Too many people are &lt;a href=&quot;http://sfgov.org/scorecards/traffic-fatalities&quot;&gt;injured or killed&lt;/a&gt; each year on our streets. We only have &lt;a href=&quot;https://www.sfmta.com/blog/san-francisco%E2%80%99s-surge-biking-continues&quot;&gt;13 miles of protected bike lanes&lt;/a&gt; and a single protected intersection in the entire city. Researchers in Montreal have found that such infrastructure is used 2.5x times more often than the unprotected bike lanes common in San Francisco &lt;span class=&quot;citation&quot; data-cites=&quot;Lusk2011&quot;&gt;(Lusk et al. 2011)&lt;/span&gt;. Thus, in order to grow the cycling mode-share among UCSF employees, university officials should also focus on advocating in City Hall to get better infrastructure built. As the second biggest employer within the city limits, UCSF’s desires carry a lot of weight and pushing for better, safer infrastructure would benefit the health of the city’s population.&lt;/p&gt;
-&lt;p&gt;It is especially pressing now that we have our first Ford GoBike station at Mission Bay and we’re slated to get three more in 2018, plus the first one at Parnassus soon after. It would be a mistake to not ramp up advocacy at the same time to ensure that students and staff feel comfortable and safe while using bike share around our campuses.&lt;/p&gt;
+&lt;p&gt;Unfortunately, the cycling infrastructure in San Francisco still needs a lot of work to be a viable option for students and staff. Too many people are &lt;a href=&quot;http://sfgov.org/scorecards/traffic-fatalities&quot;&gt;injured or killed&lt;/a&gt; each year on our streets. We only have &lt;a href=&quot;https://www.sfmta.com/blog/san-francisco%E2%80%99s-surge-biking-continues&quot;&gt;13 miles of protected bike lanes&lt;/a&gt; and a single protected intersection in the entire city. Researchers in Montreal have found that such infrastructure is used 2.5x times more often than the unprotected bike lanes common in San Francisco &lt;span class=&quot;citation&quot; data-cites=&quot;Lusk2011&quot;&gt;(Lusk et al. 2011)&lt;/span&gt;. Thus, in order to grow the cycling mode-share among UCSF employees, university officials should also focus on advocating in City Hall to get better infrastructure built. As the second biggest employer within the city limits, UCSF's desires carry a lot of weight and pushing for better, safer infrastructure would benefit the health of the city's population.&lt;/p&gt;
+&lt;p&gt;It is especially pressing now that we have our first Ford GoBike station at Mission Bay and we're slated to get three more in 2018, plus the first one at Parnassus soon after. It would be a mistake to not ramp up advocacy at the same time to ensure that students and staff feel comfortable and safe while using bike share around our campuses.&lt;/p&gt;
 &lt;p&gt;There is already a group dedicated to promoting cycling as a transportation mode within San Francisco, the San Francisco Bike Coalition. They &lt;a href=&quot;http://www.sfbike.org/our-work/&quot;&gt;advocate&lt;/a&gt; for better infrastructure and help train people in urban biking. They have a great presence at City Hall. UCSF already offers a small &lt;a href=&quot;http://campuslifeservices.ucsf.edu/transportation/services/biking&quot;&gt;discount&lt;/a&gt; to join the SF Bike Coalition. I believe UCSF should go further and offer to match student and staff donations to SF Bike. A $35 donation plus a $35 match would go further than than a discount on the $35 membership.&lt;/p&gt;
 &lt;p&gt;Our tagline is&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;UCSF: Advancing Health Worldwide&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Matching employee donations would help advance health here in San Francisco among UCSF’s own personnel by making bike commuting more attractive and more common.&lt;/p&gt;
+&lt;p&gt;Matching employee donations would help advance health here in San Francisco among UCSF's own personnel by making bike commuting more attractive and more common.&lt;/p&gt;
 &lt;h2 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h2&gt;
 &lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
 &lt;div id=&quot;ref-Celis-Morales2017&quot;&gt;
-&lt;p&gt;Celis-Morales, Carlos A, Donald M Lyall, Paul Welsh, Jana Anderson, Lewis Steell, Yibing Guo, Reno Maldonado, et al. 2017. “Association Between Active Commuting and Incident Cardiovascular Disease, Cancer, and Mortality: Prospective Cohort Study.” &lt;em&gt;BMJ&lt;/em&gt; 357 (April):j1456.&lt;/p&gt;
+&lt;p&gt;Celis-Morales, Carlos A, Donald M Lyall, Paul Welsh, Jana Anderson, Lewis Steell, Yibing Guo, Reno Maldonado, et al. 2017. “Association Between Active Commuting and Incident Cardiovascular Disease, Cancer, and Mortality: Prospective Cohort Study.” &lt;em&gt;BMJ&lt;/em&gt; 357 (April): j1456.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&quot;ref-Lusk2011&quot;&gt;
 &lt;p&gt;Lusk, Anne C, Peter G Furth, Patrick Morency, Luis F Miranda-Moreno, Walter C Willett, and Jack T Dennerlein. 2011. “Risk of Injury for Bicycling on Cycle Tracks Versus in the Street.” &lt;em&gt;Inj. Prev.&lt;/em&gt;, January. BMJ Publishing Group Ltd, ip.2010.028696.&lt;/p&gt;
@@ -152,8 +160,8 @@ Content-Type: application/json
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 17 Dec 2017 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/ucsf-sfbike-match/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/ucsf-sfbike-match/</guid>
+        <link>https://tamasnagy.com/blog/ucsf-sfbike-match/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/ucsf-sfbike-match/</guid>
         
         <category>random</category>
         
@@ -164,7 +172,7 @@ Content-Type: application/json
     
       <item>
         <title>Active matter modeling</title>
-        <description>&lt;p&gt;Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from &lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt; since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose “unifying characteristic is that they are &lt;strong&gt;composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement&lt;/strong&gt;” &lt;span class=&quot;citation&quot; data-cites=&quot;Marchetti2013&quot;&gt;(Marchetti et al. 2013)&lt;/span&gt;. An &lt;em&gt;in vitro&lt;/em&gt; microtubule and dynein system, like the one we’re investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.&lt;/p&gt;
+        <description>&lt;p&gt;Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from &lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt; since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose &amp;quot;unifying characteristic is that they are &lt;strong&gt;composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement&lt;/strong&gt;&amp;quot; &lt;span class=&quot;citation&quot; data-cites=&quot;Marchetti2013&quot;&gt;(Marchetti et al. 2013)&lt;/span&gt;. An &lt;em&gt;in vitro&lt;/em&gt; microtubule and dynein system, like the one we're investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/0de43a55.png&quot; alt=&quot;Figure 1A-B from Sumino et al. (2012). Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP&quot; /&gt;&lt;figcaption&gt;Figure 1A-B from &lt;span class=&quot;citation&quot; data-cites=&quot;Sumino2012-dc&quot;&gt;Sumino et al. (2012)&lt;/span&gt;. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -178,7 +186,7 @@ Content-Type: application/json
 \frac{d\mathbf{X_i}}{dT} &amp;amp;= \mathbf{e_x}\cos \theta_i + \mathbf{e_y} \sin \theta_i
 \end{align}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: &lt;a href=&quot;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&quot; class=&quot;uri&quot;&gt;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&lt;/a&gt;. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower “concentration” of microtubules that we used in our simulation to achieve interactivity, &lt;span class=&quot;math inline&quot;&gt;\(N=1500\)&lt;/span&gt; instead of &lt;span class=&quot;math inline&quot;&gt;\(N=2621440\)&lt;/span&gt;. We were still able to get vortices to form:&lt;/p&gt;
+&lt;p&gt;I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: &lt;a href=&quot;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&quot; class=&quot;uri&quot;&gt;https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11&lt;/a&gt;. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower &amp;quot;concentration&amp;quot; of microtubules that we used in our simulation to achieve interactivity, &lt;span class=&quot;math inline&quot;&gt;\(N=1500\)&lt;/span&gt; instead of &lt;span class=&quot;math inline&quot;&gt;\(N=2621440\)&lt;/span&gt;. We were still able to get vortices to form:&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/mt_initial.gif&quot; alt=&quot;Initially, microtubule movement looks pretty random.&quot; /&gt;&lt;figcaption&gt;Initially, microtubule movement looks pretty random.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -186,20 +194,20 @@ Content-Type: application/json
 &lt;img src=&quot;/assets/images/2017-09-07-microtubule-vortices/mt_vortices.gif&quot; alt=&quot;However, they start to coalesce into a grid of vortices&quot; /&gt;&lt;figcaption&gt;However, they start to coalesce into a grid of vortices&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;script type=&quot;text/javascript&quot;
-src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
 &lt;h2 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h2&gt;
 &lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
 &lt;div id=&quot;ref-Marchetti2013&quot;&gt;
-&lt;p&gt;Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” &lt;em&gt;Rev. Mod. Phys.&lt;/em&gt; 85 (3). American Physical Society:1143–89. &lt;a href=&quot;https://doi.org/10.1103/RevModPhys.85.1143&quot; class=&quot;uri&quot;&gt;https://doi.org/10.1103/RevModPhys.85.1143&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Marchetti, M. C., J. F. Joanny, S. Ramaswamy, T. B. Liverpool, J. Prost, Madan Rao, and R. Aditi Simha. 2013. “Hydrodynamics of Soft Active Matter.” &lt;em&gt;Rev. Mod. Phys.&lt;/em&gt; 85 (3). American Physical Society: 1143–89. doi:&lt;a href=&quot;https://doi.org/10.1103/RevModPhys.85.1143&quot;&gt;10.1103/RevModPhys.85.1143&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&quot;ref-Sumino2012-dc&quot;&gt;
-&lt;p&gt;Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” &lt;em&gt;Nature&lt;/em&gt; 483 (7390):448–52.&lt;/p&gt;
+&lt;p&gt;Sumino, Yutaka, Ken H Nagai, Yuji Shitaka, Dan Tanaka, Kenichi Yoshikawa, Hugues Chaté, and Kazuhiro Oiwa. 2012. “Large-Scale Vortex Lattice Emerging from Collectively Moving Microtubules.” &lt;em&gt;Nature&lt;/em&gt; 483 (7390): 448–52.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Sep 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/microtubule-vortices/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/microtubule-vortices/</guid>
+        <link>https://tamasnagy.com/blog/microtubule-vortices/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/microtubule-vortices/</guid>
         
         <category>science</category>
         
@@ -214,18 +222,18 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
         <title>Copper Creek and Lower Paradise Valley Trip Report</title>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Nature is ever at work building and pulling down, creating and destroying, keeping everything whirling and flowing, allowing no rest but in rhythmical motion, chasing everything in endless song out of one beautiful form into another.&lt;/p&gt;
-&lt;p&gt;– John Muir in &lt;a href=&quot;http://vault.sierraclub.org/john_muir_exhibit/writings/our_national_parks/chapter_3.aspx&quot;&gt;Our National Parks, Chapter 3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-- John Muir in &lt;a href=&quot;http://vault.sierraclub.org/john_muir_exhibit/writings/our_national_parks/chapter_3.aspx&quot;&gt;Our National Parks, Chapter 3&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This has been a crazy year in the Sierras. We’ve had record snowfall and now everything is melting and &lt;a href=&quot;http://www.latimes.com/local/lanow/la-me-ln-kings-river-flooding-snowpack-20170626-story.html&quot;&gt;flooding like crazy&lt;/a&gt;. The rivers are swollen and the falls are roaring so we thought we had to get out and experience it.&lt;/p&gt;
+&lt;p&gt;This has been a crazy year in the Sierras. We've had record snowfall and now everything is melting and &lt;a href=&quot;http://www.latimes.com/local/lanow/la-me-ln-kings-river-flooding-snowpack-20170626-story.html&quot;&gt;flooding like crazy&lt;/a&gt;. The rivers are swollen and the falls are roaring so we thought we had to get out and experience it.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134943.jpg&quot; alt=&quot;The view from Lower Paradise Valley, Kings Canyon NP&quot; /&gt;&lt;figcaption&gt;The view from Lower Paradise Valley, Kings Canyon NP&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;We left late last Friday night, June 23rd, at around 7pm from San Francisco. We picked up Alex and Leslie down in Burlingame and aimed the car towards the Sierras. The drive over to Kings Canyon was fairly uneventful. Traffic was light and the weather was good, but very hot in the Central Valley. As we gained altitude, the temps dropped to be a more reasonable 60s-70s, but it was also close to 12:30am at this point. All the campgrounds in Kings Canyon were full so we pitched our tents next to the road in Sequoia National Forest and went to sleep dreaming about the next day.&lt;/p&gt;
 &lt;p&gt;It was slow going the next morning as Andrea and I were pretty tired, but Alex and Leslie were already up and ready to roll out. We still had a bit of driving to do, but what a drive it was. The 180 carves back and forth on the south side of the canyon with imposing granite monoliths on either side and the ferocious Kings River pummeling away at the rocks below. Wildflowers, in stark contrast with this savagery, were in full bloom, all decked out in their royal purples and pinks.&lt;/p&gt;
 &lt;p&gt;We kept going, engine roaring away as we climbed. The road then passed over to the north side of the canyon and it dropped nearly to the level of the river. This is where you could really feel its raw power. The Kings held nothing back. The river was completely white with fury. Trees held on for dear life as the ground beneath them was swept away, but it was only a matter of time. The Kings River will win.&lt;/p&gt;
-&lt;p&gt;The road, as if sensing that it should leave before it too was washed away, then curved away from the river. We passed through some beautiful evergreen forests and enjoyed the gentler incline. We were in the valley proper. We could see massive granite piles peaking out from between the trees and rising thousands of feet vertically from the valley floor. But then, abruptly, we ran out of asphalt. We had reached the road’s end.&lt;/p&gt;
+&lt;p&gt;The road, as if sensing that it should leave before it too was washed away, then curved away from the river. We passed through some beautiful evergreen forests and enjoyed the gentler incline. We were in the valley proper. We could see massive granite piles peaking out from between the trees and rising thousands of feet vertically from the valley floor. But then, abruptly, we ran out of asphalt. We had reached the road's end.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_095843.jpg&quot; alt=&quot;At Road’s End&quot; /&gt;&lt;figcaption&gt;At Road’s End&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_095843.jpg&quot; alt=&quot;At Road&amp;#39;s End&quot; /&gt;&lt;figcaption&gt;At Road's End&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;We had wanted to do part of the Rae Lakes Loop in Kings Canyon National Park, but after talking to the rangers we learned that the recent snowmelt had wrecked havok on that area. Bridges were washed away, trails were flooded, and they had years worth of work to repair everything. We decided that we should hike the Copper Creek trail since it was one of the least affected by the flooding.&lt;/p&gt;
 &lt;p&gt;We started up the trail around 10am. It was already in high 80s and sun was beating down on us. The trail starts off at a breakneck pace upwards climbing 1000+ feet a mile. The flora was very Mediterranean in nature and bone dry. It did not provide us with much cover from the sun, but thankfully the clouds rolled in and cooled us off with some light showers.&lt;/p&gt;
@@ -236,7 +244,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_203101.jpg&quot; alt=&quot;Not the flattest campground&quot; /&gt;&lt;figcaption&gt;Not the flattest campground&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;It was much cooler up here then down below so we slept much better. The next day, we decided to go back down to Road’s End and do a short day hike up to Mist Falls since the rest of the Copper Creek trail past Upper Tent Meadow was not passable yet. The hike down went very quickly and was fairly uneventful. A highlight was seeing a deer very close to the trail and the magnificent views that we would sometimes get between the trails.&lt;/p&gt;
+&lt;p&gt;It was much cooler up here then down below so we slept much better. The next day, we decided to go back down to Road's End and do a short day hike up to Mist Falls since the rest of the Copper Creek trail past Upper Tent Meadow was not passable yet. The hike down went very quickly and was fairly uneventful. A highlight was seeing a deer very close to the trail and the magnificent views that we would sometimes get between the trails.&lt;/p&gt;
 &lt;p&gt;We dropped off some of our gear at the car and then headed out towards Mist Falls. It was about 4.7 miles from the trailhead, but the route was fairly flat. The challenge this time came in the form of flooding of the trail and loads of mosquitoes. The insects were unbearable in the wooded areas. They swarmed behind us and if we stopped, even for a couple seconds, we were quickly coated with them. We tried to keep up the pace the whole time. We also ran into quite a few snakes, including a juvenile rattler, likely ousted from their normal dwellings by the raging river.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_133449.jpg&quot; alt=&quot;The Kings River showed no mercy and neither did the mosquitoes&quot; /&gt;&lt;figcaption&gt;The Kings River showed no mercy and neither did the mosquitoes&lt;/figcaption&gt;
@@ -252,8 +260,8 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;p&gt;We had to brave the bogs and mosquitoes on the way back too, but we were mentally prepared for it this time. We slogged through it again and made it back to car with only couple more bites to our name.&lt;/p&gt;
 </description>
         <pubDate>Sun, 02 Jul 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/kings-canyon-trip-report/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/kings-canyon-trip-report/</guid>
+        <link>https://tamasnagy.com/blog/kings-canyon-trip-report/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/kings-canyon-trip-report/</guid>
         
         <category>trip report</category>
         
@@ -264,18 +272,18 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
     
       <item>
         <title>UCSF Graduate Student Taxes FAQ</title>
-        <description>&lt;p&gt;I’m currently a 2nd year graduate student in the quantitative biology program at UCSF. I am certainly no tax professional&lt;a href=&quot;#fn1&quot; class=&quot;footnote-ref&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I thought I would write a bit about what you can expect to pay in taxes at UCSF. These are some questions that I think I would have appreciated knowing the answers to in my first two years&lt;a href=&quot;#fn2&quot; class=&quot;footnote-ref&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;I'm currently a 2nd year graduate student in the quantitative biology program at UCSF. I am certainly no tax professional&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but I thought I would write a bit about what you can expect to pay in taxes at UCSF. These are some questions that I think I would have appreciated knowing the answers to in my first two years&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;do-we-have-to-pay-taxes&quot;&gt;Do we have to pay taxes?&lt;/h3&gt;
 &lt;p&gt;Yes, both state and federal. The tricky part is that while you are paid by UCSF on a 1098-T form (normally for your first two years) nothing is withheld for taxes so you have pay the full amount come April.&lt;/p&gt;
 &lt;h3 id=&quot;how-much-should-i-set-aside-each-month-for-taxes&quot;&gt;How much should I set aside each month for taxes?&lt;/h3&gt;
 &lt;p&gt;Most estimates are between $400-500 a month depending on your specific situation. I would probably aim for $425.&lt;/p&gt;
-&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnote-ref&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $4800. It’s a lot if you’re not ready for it.&lt;/p&gt;
+&lt;p&gt;Now assuming that you did not have any external income, you should expect to pay roughly $2000&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; in your first year since you are only taxed for October, November, and December. 2nd year you have to pay for the entire year and this works out to being close to $4800. It's a lot if you're not ready for it.&lt;/p&gt;
 &lt;h3 id=&quot;how-much-do-i-actually-owe&quot;&gt;How much do I actually owe?&lt;/h3&gt;
-&lt;p&gt;In the simplest case, your “taxable income” is simply the difference between box 5 and box 1 on your 1098-T form. This value will be higher than your stipend since it includes the “taxable” contributions to our health insurance, UC SHIP. You can find your 1098-T at &lt;a href=&quot;https://1098t.com&quot; class=&quot;uri&quot;&gt;https://1098t.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the simplest case, your &amp;quot;taxable income&amp;quot; is simply the difference between box 5 and box 1 on your 1098-T form. This value will be higher than your stipend since it includes the &amp;quot;taxable&amp;quot; contributions to our health insurance, UC SHIP. You can find your 1098-T at &lt;a href=&quot;https://1098t.com&quot; class=&quot;uri&quot;&gt;https://1098t.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;how-do-i-e-file-for-free&quot;&gt;How do I e-file for free?&lt;/h3&gt;
 &lt;p&gt;There is no need to pay for e-filing since we make less than the limit for &lt;a href=&quot;https://apps.irs.gov/app/freeFile/jsp/wizard.jsp?&quot;&gt;IRS FreeFile&lt;/a&gt;. Just fill out the form and select one of the free filing options. I have had good luck with TaxAct.&lt;/p&gt;
-&lt;h3 id=&quot;can-we-withhold-taxes-so-that-april-isnt-such-a-bummer&quot;&gt;Can we withhold taxes so that April isn’t such a bummer?&lt;/h3&gt;
-&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnote-ref&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California’s Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
+&lt;h3 id=&quot;can-we-withhold-taxes-so-that-april-isnt-such-a-bummer&quot;&gt;Can we withhold taxes so that April isn't such a bummer?&lt;/h3&gt;
+&lt;p&gt;Yes. In my opinion, the easiest and best way to do this to &lt;a href=&quot;https://www.irs.gov/uac/pay-taxes-by-electronic-funds-withdrawal&quot;&gt;set up estimated tax payments&lt;/a&gt; when you e-file. Your bank account is debited according to whatever estimated tax plan you submit. This is also nice because you do not have to pay the penalty for failing to withhold income&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Make sure to set up payments to both the IRS and California's Franchise Tax Board. This should be quite easy if you are setting this up during e-filing.&lt;/p&gt;
 &lt;h3 id=&quot;can-we-contribute-to-a-roth-ira&quot;&gt;Can we contribute to a Roth IRA?&lt;/h3&gt;
 &lt;p&gt;Unfortunately, to the best of my knowledge, we cannot. Since the money we make on a 1098-T is considered taxable, unearned income it does not qualify for IRA. According to &lt;a href=&quot;https://www.irs.gov/pub/irs-pdf/p590a.pdf&quot;&gt;IRS Pub 590-A&lt;/a&gt; (Page 6):&lt;/p&gt;
 &lt;blockquote&gt;
@@ -285,20 +293,20 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;h3 id=&quot;what-is-a-roth-ira&quot;&gt;What is a Roth IRA?&lt;/h3&gt;
 &lt;p&gt;They are super cool, read more about them &lt;a href=&quot;https://www.bogleheads.org/wiki/Roth_IRA&quot;&gt;here&lt;/a&gt;. Basically, they are a great way to save for retirement as a graduate student. Since we are in a very low tax bracket, you pay our low marginal tax rate now for the money you put in and all future earnings are tax-free for retirement.&lt;/p&gt;
 &lt;h3 id=&quot;but-what-if-i-want-to-save-for-more-immediate-things-than-retirement&quot;&gt;But what if I want to save for more immediate things than retirement?&lt;/h3&gt;
-&lt;p&gt;Roths can still help you. You can always take the principal (the original money you contributed, not the earnings) out tax-free since you already paid taxes on it. Now I don’t recommend this since you can’t put that money back later due to the annual cap of $5500. But in an emergency, you can access the principal. Also, there are exceptions for removing earnings from a Roth without paying the penalty like substantial medical bills, first-time home purchase, etc. You have to be more careful with the rules here, see &lt;a href=&quot;http://www.rothira.com/roth-ira-withdrawal-rules&quot;&gt;this&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Roths can still help you. You can always take the principal (the original money you contributed, not the earnings) out tax-free since you already paid taxes on it. Now I don't recommend this since you can't put that money back later due to the annual cap of $5500. But in an emergency, you can access the principal. Also, there are exceptions for removing earnings from a Roth without paying the penalty like substantial medical bills, first-time home purchase, etc. You have to be more careful with the rules here, see &lt;a href=&quot;http://www.rothira.com/roth-ira-withdrawal-rules&quot;&gt;this&lt;/a&gt; for more details.&lt;/p&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;So YMMV on all this depending on your specific circumstances&lt;a href=&quot;#fnref1&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle! Update: After I wrote this piece, I found out that Kyle also had a blog post about this a couple years ago: &lt;a href=&quot;https://www.kylebarlow.com/dearth-and-taxes.html&quot; class=&quot;uri&quot;&gt;https://www.kylebarlow.com/dearth-and-taxes.html&lt;/a&gt;&lt;a href=&quot;#fnref2&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Naturally, this value will increase if the UCSF graduate student stipend increases. For reference, in my first two years, we made 34K (TY2015) and then 36K (TY2016).&lt;a href=&quot;#fnref3&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;This penalty was pretty small for me as a 1st and 2nd year because it is based on the previous tax year. It will be quite large in your 3rd year if you don’t set up an estimated tax payment.&lt;a href=&quot;#fnref4&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;So YMMV on all this depending on your specific circumstances&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;This post was inspired by a presentation by Kyle Barlow at iPQB journal club. Thanks Kyle! Update: After I wrote this piece, I found out that Kyle also had a blog post about this a couple years ago: &lt;a href=&quot;https://www.kylebarlow.com/dearth-and-taxes.html&quot; class=&quot;uri&quot;&gt;https://www.kylebarlow.com/dearth-and-taxes.html&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Naturally, this value will increase if the UCSF graduate student stipend increases. For reference, in my first two years, we made 34K (TY2015) and then 36K (TY2016).&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;This penalty was pretty small for me as a 1st and 2nd year because it is based on the previous tax year. It will be quite large in your 3rd year if you don't set up an estimated tax payment.&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Wed, 31 May 2017 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/grad-student-taxes/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/grad-student-taxes/</guid>
+        <link>https://tamasnagy.com/blog/grad-student-taxes/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/grad-student-taxes/</guid>
         
         <category>random</category>
         
@@ -309,11 +317,11 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
     
       <item>
         <title>Embedding videos in Google Slides as GIFs</title>
-        <description>&lt;p&gt;In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides&lt;a href=&quot;#fn1&quot; class=&quot;footnote-ref&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on &lt;a href=&quot;https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality&quot;&gt;Stackoverflow&lt;/a&gt;). First, make sure to install &lt;code&gt;libav&lt;/code&gt; and &lt;code&gt;imagemagick&lt;/code&gt;. On Debian-based systems, you can run&lt;/p&gt;
+        <description>&lt;p&gt;In my field, systems biology, it's pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible's comment on &lt;a href=&quot;https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality&quot;&gt;Stackoverflow&lt;/a&gt;). First, make sure to install &lt;code&gt;libav&lt;/code&gt; and &lt;code&gt;imagemagick&lt;/code&gt;. On Debian-based systems, you can run&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libav-tools imagemagick&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnote-ref&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
+&lt;p&gt;and on MacOS&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the easiest way to install them is via &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Then I use the following command to create the GIF:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;where &lt;code&gt;some_movie.m4v&lt;/code&gt; is the video file. This creates an optimized GIF version called &lt;code&gt;output.gif&lt;/code&gt;, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/&quot;&gt;Toggle Animated Gifs&lt;/a&gt; extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.&lt;/p&gt;
+&lt;p&gt;where &lt;code&gt;some_movie.m4v&lt;/code&gt; is the video file. This creates an optimized GIF version called &lt;code&gt;output.gif&lt;/code&gt;, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it's helpful to be able to stop/start the playback. Enter the &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/&quot;&gt;Toggle Animated Gifs&lt;/a&gt; extension for Firefox (I'm sure there's something comparable for Chrome), which lets you do just that.&lt;/p&gt;
 &lt;h2 id=&quot;addendum-17-04-28&quot;&gt;Addendum 17-04-28&lt;/h2&gt;
 &lt;p&gt;If you get an error that looks like the following with some weirdly formatted &lt;code&gt;.mov&lt;/code&gt; files:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;avconv version 12, Copyright (c) 2000-2016 the Libav developers
@@ -342,9 +350,9 @@ convert: no images defined `gif:-&amp;#39; @ error/convert.c/ConvertImageCommand
 convert: no decode delegate for this image format `&amp;#39; @ error/constitute.c/ReadImage/509.
 convert: no images defined `output.gif&amp;#39; @
 error/convert.c/ConvertImageCommand/3254. &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then installing the &lt;code&gt;qtfaststart&lt;/code&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnote-ref&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Python package via &lt;code&gt;pip install qtfaststart&lt;/code&gt; and then running&lt;/p&gt;
+&lt;p&gt;Then installing the &lt;code&gt;qtfaststart&lt;/code&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Python package via &lt;code&gt;pip install qtfaststart&lt;/code&gt; and then running&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;qtfaststart bad_movie.mov good_movie.mov&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;should fix the problem and now you can use &lt;code&gt;good_movie.mov&lt;/code&gt; with the previous commands to create all the gifs. So &lt;a href=&quot;https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064&quot;&gt;apparently&lt;/a&gt; what is happening is that some recording software puts the &lt;code&gt;mdat&lt;/code&gt; block prior to the &lt;code&gt;moov&lt;/code&gt; block (the structural metadata). This is more convenient for recording since the structure isn’t known till the recording is finished, however for playback it isn’t as nice. &lt;code&gt;qtfaststart&lt;/code&gt; fixes this by swapping the two blocks:&lt;/p&gt;
+&lt;p&gt;should fix the problem and now you can use &lt;code&gt;good_movie.mov&lt;/code&gt; with the previous commands to create all the gifs. So &lt;a href=&quot;https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064&quot;&gt;apparently&lt;/a&gt; what is happening is that some recording software puts the &lt;code&gt;mdat&lt;/code&gt; block prior to the &lt;code&gt;moov&lt;/code&gt; block (the structural metadata). This is more convenient for recording since the structure isn't known till the recording is finished, however for playback it isn't as nice. &lt;code&gt;qtfaststart&lt;/code&gt; fixes this by swapping the two blocks:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ qtfaststart -l bad_movie.mov
 ftyp (32 bytes)
 wide (8 bytes)
@@ -359,15 +367,15 @@ mdat (2448358 bytes)&lt;/code&gt;&lt;/pre&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.&lt;a href=&quot;#fnref3&quot; class=&quot;footnote-back&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;OS X dammit&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;So apparently this Python package just repackages ffmpeg's own qtfaststart.c file. Why ffmpeg can't do this on its own? Who knows.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
         <pubDate>Mon, 15 Aug 2016 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/videos-in-google-slides-gifs/</guid>
+        <link>https://tamasnagy.com/blog/videos-in-google-slides-gifs/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/videos-in-google-slides-gifs/</guid>
         
         <category>science</category>
         
@@ -381,7 +389,7 @@ mdat (2448358 bytes)&lt;/code&gt;&lt;/pre&gt;
       <item>
         <title>Precision-Recall curves in Julia</title>
         <description>&lt;p&gt;Precision-Recall (PR) curves are useful for evaluating the performance of a binary classifier on highly skewed datasets where one class is much more prevalent than the other. This situation is common in biology where most things have little to no effect and there is a small subset of things that have large effect. In contrast to ROC curves, PR curves do not overestimate performance in these cases &lt;span class=&quot;citation&quot; data-cites=&quot;davis_relationship_2006&quot;&gt;(Davis and Goadrich 2006)&lt;/span&gt;. The reason ROC curves are more sensitive to this issue is due to their reliance on the false positive rate (FPR), defined as &lt;span class=&quot;math inline&quot;&gt;\(\frac{FP}{FP + TN}\)&lt;/span&gt; where &lt;span class=&quot;math inline&quot;&gt;\(FP\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(TN\)&lt;/span&gt; are the number of false positives and true negatives, respectively. Since &lt;span class=&quot;math inline&quot;&gt;\(TN &amp;gt;&amp;gt; FP\)&lt;/span&gt; for skewed datasets, ROC curves are insensitive to the number of false positives, making them overly optimistic.&lt;/p&gt;
-&lt;p&gt;PR curves, on the other hand, do not use &lt;span class=&quot;math inline&quot;&gt;\(TN\)&lt;/span&gt; so they avoid this problem, since precision and recall are defined as &lt;span class=&quot;math inline&quot;&gt;\(\frac{TP}{TP+FP}\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\frac{TP}{TP+FN}\)&lt;/span&gt;, respectively. Intuitively, precision measures what fraction of called positive hits are correct and recall measures how many of the actual positive hits did the algorithm call. Generating the curves is all very nice, but it is desirable to collapse this curve down into a single value when scanning through a large parameter space, which is often the area under the curve (AUC). However, unlike with ROC curves, there isn’t a single accepted way of computing the AUC of a PR curve (AUPRC).&lt;/p&gt;
+&lt;p&gt;PR curves, on the other hand, do not use &lt;span class=&quot;math inline&quot;&gt;\(TN\)&lt;/span&gt; so they avoid this problem, since precision and recall are defined as &lt;span class=&quot;math inline&quot;&gt;\(\frac{TP}{TP+FP}\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\frac{TP}{TP+FN}\)&lt;/span&gt;, respectively. Intuitively, precision measures what fraction of called positive hits are correct and recall measures how many of the actual positive hits did the algorithm call. Generating the curves is all very nice, but it is desirable to collapse this curve down into a single value when scanning through a large parameter space, which is often the area under the curve (AUC). However, unlike with ROC curves, there isn't a single accepted way of computing the AUC of a PR curve (AUPRC).&lt;/p&gt;
 &lt;p&gt;I recently found an interesting paper by &lt;span class=&quot;citation&quot; data-cites=&quot;boyd_area_2013&quot;&gt;Boyd, Eng, and Page (2013)&lt;/span&gt; that explored different ways of computing the AUPRC. They showed that there are some good and some very bad ways of computing this value and they generated some really nice figures in &lt;code&gt;R&lt;/code&gt;. I much prefer &lt;a href=&quot;http://julialang.org&quot;&gt;Julia&lt;/a&gt; so I decided to recreate some of the results of the paper using it. My implementation is pretty fast, but I would gladly accept any PRs to improve it.&lt;/p&gt;
 &lt;h2 id=&quot;precision-recall-and-auc-calculation&quot;&gt;Precision, recall, and AUC calculation&lt;/h2&gt;
 &lt;figure class=&quot;highlight&quot;&gt;
@@ -458,7 +466,7 @@ trapezoidal estimator, which is more accurate for skewed datasets.
     &lt;span class=&quot;n&quot;&gt;auprc&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
-&lt;p&gt;##Plotting&lt;/p&gt;
+&lt;h2 id=&quot;plotting&quot;&gt;Plotting&lt;/h2&gt;
 &lt;p&gt;Then to recreate Figure 2:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;
 &lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Distributions&lt;/span&gt;
@@ -492,7 +500,7 @@ trapezoidal estimator, which is more accurate for skewed datasets.
 &lt;figure&gt;
 &lt;img src=&quot;/assets/images/pr-dists.svg&quot; alt=&quot;The artificial datasets with the positive distributions in blue and the negative ones in grey&quot; /&gt;&lt;figcaption&gt;The artificial datasets with the positive distributions in blue and the negative ones in grey&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;And now we’re ready for Figure 3:&lt;/p&gt;
+&lt;p&gt;And now we're ready for Figure 3:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;
 &lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;c&quot;&gt;# true precision, recall functions&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;recall&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdf&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
@@ -525,20 +533,20 @@ trapezoidal estimator, which is more accurate for skewed datasets.
 &lt;img src=&quot;/assets/images/precision-recall.svg&quot; alt=&quot;Precision-recall curves on highly skewed artificial datasets. 90% of the data is negative.&quot; /&gt;&lt;figcaption&gt;Precision-recall curves on highly skewed artificial datasets. 90% of the data is negative.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;script type=&quot;text/javascript&quot;
-src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
 &lt;h2 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h2&gt;
 &lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
 &lt;div id=&quot;ref-boyd_area_2013&quot;&gt;
 &lt;p&gt;Boyd, Kendrick, Kevin H. Eng, and C. David Page. 2013. “Area Under the Precision-Recall Curve: Point Estimates and Confidence Intervals.” In &lt;em&gt;Machine Learning and Knowledge Discovery in Databases&lt;/em&gt;, edited by Hendrik Blockeel, Kristian Kersting, Siegfried Nijssen, and Filip Železný, 451–66. Lecture Notes in Computer Science 8190. Springer Berlin Heidelberg. &lt;a href=&quot;http://link.springer.com/chapter/10.1007/978-3-642-40994-3_29&quot; class=&quot;uri&quot;&gt;http://link.springer.com/chapter/10.1007/978-3-642-40994-3_29&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&quot;ref-davis_relationship_2006&quot;&gt;
-&lt;p&gt;Davis, Jesse, and Mark Goadrich. 2006. “The Relationship Between Precision-Recall and ROC Curves.” In &lt;em&gt;Proceedings of the 23rd International Conference on Machine Learning&lt;/em&gt;, 233–40. ICML ’06. New York, NY, USA: ACM. &lt;a href=&quot;https://doi.org/10.1145/1143844.1143874&quot; class=&quot;uri&quot;&gt;https://doi.org/10.1145/1143844.1143874&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Davis, Jesse, and Mark Goadrich. 2006. “The Relationship Between Precision-Recall and ROC Curves.” In &lt;em&gt;Proceedings of the 23rd International Conference on Machine Learning&lt;/em&gt;, 233–40. ICML ’06. New York, NY, USA: ACM. doi:&lt;a href=&quot;https://doi.org/10.1145/1143844.1143874&quot;&gt;10.1145/1143844.1143874&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
-        <link>http://www.tamasnagy.com/blog/precision-recall-julia/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/precision-recall-julia/</guid>
+        <link>https://tamasnagy.com/blog/precision-recall-julia/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/precision-recall-julia/</guid>
         
         <category>julia</category>
         
@@ -551,7 +559,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
     
       <item>
         <title>Native MTP interconnect on Mac/Linux</title>
-        <description>&lt;p&gt;Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here’s how I got it working.&lt;/p&gt;
+        <description>&lt;p&gt;Connecting your phone to your computer via MTP isn't as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here's how I got it working.&lt;/p&gt;
 &lt;h2 id=&quot;linux-setup&quot;&gt;Linux setup&lt;/h2&gt;
 &lt;p&gt;On Debian (or Debian derivatives like Ubuntu):&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libfuse-dev android-tools-adb&lt;/code&gt;&lt;/pre&gt;
@@ -560,7 +568,7 @@ src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HT
 &lt;pre&gt;&lt;code&gt;brew update
 brew install android-platform-tools&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;clone-build-and-setup-adbfs&quot;&gt;Clone, build, and setup &lt;code&gt;adbfs&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;We’ll be using &lt;a href=&quot;https://github.com/spion/adbfs-rootless&quot;&gt;&lt;code&gt;adbfs&lt;/code&gt;&lt;/a&gt; to mount our Android phone:&lt;/p&gt;
+&lt;p&gt;We'll be using &lt;a href=&quot;https://github.com/spion/adbfs-rootless&quot;&gt;&lt;code&gt;adbfs&lt;/code&gt;&lt;/a&gt; to mount our Android phone:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone git://github.com/spion/adbfs-rootless.git
 cd adbfs-rootless    
 make&lt;/code&gt;&lt;/pre&gt;
@@ -568,14 +576,14 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;mkdir ~/phone&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Mount device as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;./adbfs ~/phone&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).&lt;/p&gt;
+&lt;p&gt;And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).&lt;/p&gt;
 &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
 &lt;p&gt;Try reseting and restarting &lt;code&gt;adb&lt;/code&gt; and the mount point&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;killall -9 adb; sudo umount -f ~/phone&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/mtp-interconnect-mac-linux/</guid>
+        <link>https://tamasnagy.com/blog/mtp-interconnect-mac-linux/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/mtp-interconnect-mac-linux/</guid>
         
         <category>linux</category>
         
@@ -592,7 +600,7 @@ make&lt;/code&gt;&lt;/pre&gt;
     
       <item>
         <title>Building this Jekyll site on Debian 8</title>
-        <description>&lt;p&gt;One of my goals with the redesign was to improve the portability of my site’s stack. It’s now pretty simple getting it to work on a fresh Linux install. For example, on &lt;a href=&quot;https://debian.org&quot;&gt;Debian Jessie&lt;/a&gt;, install the following packages:&lt;/p&gt;
+        <description>&lt;p&gt;One of my goals with the redesign was to improve the portability of my site's stack. It's now pretty simple getting it to work on a fresh Linux install. For example, on &lt;a href=&quot;https://debian.org&quot;&gt;Debian Jessie&lt;/a&gt;, install the following packages:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get install ruby ruby-dev git imagemagick libmagickwand-dev pandoc pandoc-citeproc&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;then install &lt;a href=&quot;http://bundler.io/&quot;&gt;bundler&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo gem install bundler&lt;/code&gt;&lt;/pre&gt;
@@ -606,8 +614,8 @@ cd tnsite&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Voilà&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 Jan 2016 00:00:00 -0800</pubDate>
-        <link>http://www.tamasnagy.com/blog/building-jekyll-site-debian/</link>
-        <guid isPermaLink="true">http://www.tamasnagy.com/blog/building-jekyll-site-debian/</guid>
+        <link>https://tamasnagy.com/blog/building-jekyll-site-debian/</link>
+        <guid isPermaLink="true">https://tamasnagy.com/blog/building-jekyll-site-debian/</guid>
         
         <category>meta</category>
         
