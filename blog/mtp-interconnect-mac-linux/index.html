@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Native MTP interconnect on Mac/Linux</title>
-    <meta name="description" content="Connecting your phone to your computer via MTP isn't as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native fi...">
+    <meta name="description" content="Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native fi...">
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -58,7 +58,7 @@
     </header>
 
     <article class="post-content">
-        <p>Connecting your phone to your computer via MTP isn't as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here's how I got it working.</p>
+        <p>Connecting your phone to your computer via MTP isn’t as easy as it should be: the Android File Transfer app is very lackluster and I wanted to have native file manager integration so that my phone would show up in either Nautilus on Debian or Finder on Mac. Here’s how I got it working.</p>
 <h2 id="linux-setup">Linux setup</h2>
 <p>On Debian (or Debian derivatives like Ubuntu):</p>
 <pre><code>sudo apt-get install libfuse-dev android-tools-adb</code></pre>
@@ -67,7 +67,7 @@
 <pre><code>brew update
 brew install android-platform-tools</code></pre>
 <h2 id="clone-build-and-setup-adbfs">Clone, build, and setup <code>adbfs</code></h2>
-<p>We'll be using <a href="https://github.com/spion/adbfs-rootless"><code>adbfs</code></a> to mount our Android phone:</p>
+<p>We’ll be using <a href="https://github.com/spion/adbfs-rootless"><code>adbfs</code></a> to mount our Android phone:</p>
 <pre><code>git clone git://github.com/spion/adbfs-rootless.git
 cd adbfs-rootless    
 make</code></pre>
@@ -75,7 +75,7 @@ make</code></pre>
 <pre><code>mkdir ~/phone</code></pre>
 <p>Mount device as follows:</p>
 <pre><code>./adbfs ~/phone</code></pre>
-<p>And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).</p>
+<p>And your phone should be mounted and visible the same way as any DAS device (e.g. External drives).</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Try reseting and restarting <code>adb</code> and the mount point</p>
 <pre><code>killall -9 adb; sudo umount -f ~/phone</code></pre>

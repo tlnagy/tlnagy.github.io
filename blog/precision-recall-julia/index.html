@@ -59,7 +59,7 @@
 
     <article class="post-content">
         <p>Precision-Recall (PR) curves are useful for evaluating the performance of a binary classifier on highly skewed datasets where one class is much more prevalent than the other. This situation is common in biology where most things have little to no effect and there is a small subset of things that have large effect. In contrast to ROC curves, PR curves do not overestimate performance in these cases <span class="citation" data-cites="davis_relationship_2006">(Davis and Goadrich 2006)</span>. The reason ROC curves are more sensitive to this issue is due to their reliance on the false positive rate (FPR), defined as <span class="math inline">\(\frac{FP}{FP + TN}\)</span> where <span class="math inline">\(FP\)</span> and <span class="math inline">\(TN\)</span> are the number of false positives and true negatives, respectively. Since <span class="math inline">\(TN &gt;&gt; FP\)</span> for skewed datasets, ROC curves are insensitive to the number of false positives, making them overly optimistic.</p>
-<p>PR curves, on the other hand, do not use <span class="math inline">\(TN\)</span> so they avoid this problem, since precision and recall are defined as <span class="math inline">\(\frac{TP}{TP+FP}\)</span> and <span class="math inline">\(\frac{TP}{TP+FN}\)</span>, respectively. Intuitively, precision measures what fraction of called positive hits are correct and recall measures how many of the actual positive hits did the algorithm call. Generating the curves is all very nice, but it is desirable to collapse this curve down into a single value when scanning through a large parameter space, which is often the area under the curve (AUC). However, unlike with ROC curves, there isn't a single accepted way of computing the AUC of a PR curve (AUPRC).</p>
+<p>PR curves, on the other hand, do not use <span class="math inline">\(TN\)</span> so they avoid this problem, since precision and recall are defined as <span class="math inline">\(\frac{TP}{TP+FP}\)</span> and <span class="math inline">\(\frac{TP}{TP+FN}\)</span>, respectively. Intuitively, precision measures what fraction of called positive hits are correct and recall measures how many of the actual positive hits did the algorithm call. Generating the curves is all very nice, but it is desirable to collapse this curve down into a single value when scanning through a large parameter space, which is often the area under the curve (AUC). However, unlike with ROC curves, there isn’t a single accepted way of computing the AUC of a PR curve (AUPRC).</p>
 <p>I recently found an interesting paper by <span class="citation" data-cites="boyd_area_2013">Boyd, Eng, and Page (2013)</span> that explored different ways of computing the AUPRC. They showed that there are some good and some very bad ways of computing this value and they generated some really nice figures in <code>R</code>. I much prefer <a href="http://julialang.org">Julia</a> so I decided to recreate some of the results of the paper using it. My implementation is pretty fast, but I would gladly accept any PRs to improve it.</p>
 <h2 id="precision-recall-and-auc-calculation">Precision, recall, and AUC calculation</h2>
 <figure class="highlight">
@@ -136,7 +136,7 @@ trapezoidal estimator, which is more accurate for skewed datasets.
     <span class="n">auprc</span><span class="x">,</span> <span class="n">p</span><span class="x">,</span> <span class="n">r</span>
 <span class="k">end</span></code></pre>
 </figure>
-<h2 id="plotting">Plotting</h2>
+<p>##Plotting</p>
 <p>Then to recreate Figure 2:</p>
 <figure class="highlight">
 <pre><code class="language-julia" data-lang="julia"><span class="n">using</span> <span class="n">Distributions</span>
@@ -170,7 +170,7 @@ trapezoidal estimator, which is more accurate for skewed datasets.
 <figure>
 <img src="/assets/images/pr-dists.svg" alt="The artificial datasets with the positive distributions in blue and the negative ones in grey" /><figcaption>The artificial datasets with the positive distributions in blue and the negative ones in grey</figcaption>
 </figure>
-<p>And now we're ready for Figure 3:</p>
+<p>And now we’re ready for Figure 3:</p>
 <figure class="highlight">
 <pre><code class="language-julia" data-lang="julia"><span class="c"># true precision, recall functions</span>
 <span class="n">recall</span><span class="x">(</span><span class="n">xs</span><span class="x">,</span> <span class="n">Y</span><span class="x">)</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">cdf</span><span class="x">(</span><span class="n">Y</span><span class="x">,</span> <span class="n">xs</span><span class="x">)</span>
@@ -210,7 +210,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLor
 <p>Boyd, Kendrick, Kevin H. Eng, and C. David Page. 2013. “Area Under the Precision-Recall Curve: Point Estimates and Confidence Intervals.” In <em>Machine Learning and Knowledge Discovery in Databases</em>, edited by Hendrik Blockeel, Kristian Kersting, Siegfried Nijssen, and Filip Železný, 451–66. Lecture Notes in Computer Science 8190. Springer Berlin Heidelberg. <a href="http://link.springer.com/chapter/10.1007/978-3-642-40994-3_29" class="uri">http://link.springer.com/chapter/10.1007/978-3-642-40994-3_29</a>.</p>
 </div>
 <div id="ref-davis_relationship_2006">
-<p>Davis, Jesse, and Mark Goadrich. 2006. “The Relationship Between Precision-Recall and ROC Curves.” In <em>Proceedings of the 23rd International Conference on Machine Learning</em>, 233–40. ICML ’06. New York, NY, USA: ACM. doi:<a href="https://doi.org/10.1145/1143844.1143874">10.1145/1143844.1143874</a>.</p>
+<p>Davis, Jesse, and Mark Goadrich. 2006. “The Relationship Between Precision-Recall and ROC Curves.” In <em>Proceedings of the 23rd International Conference on Machine Learning</em>, 233–40. ICML ’06. New York, NY, USA: ACM. <a href="https://doi.org/10.1145/1143844.1143874" class="uri">https://doi.org/10.1145/1143844.1143874</a>.</p>
 </div>
 </div>
 
