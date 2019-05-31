@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Embedding videos in Google Slides as GIFs</title>
-    <meta name="description" content="In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This ...">
+    <meta name="description" content="In my field, systems biology, it's pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This ...">
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -58,11 +58,11 @@
     </header>
 
     <article class="post-content">
-        <p>In my field, systems biology, it’s pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible’s comment on <a href="https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality">Stackoverflow</a>). First, make sure to install <code>libav</code> and <code>imagemagick</code>. On Debian-based systems, you can run</p>
+        <p>In my field, systems biology, it's pretty common to take time-lapse movies to get the dynamics of how the system behaves. And we like showing them off. This makes Google Slides<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> inability to embed videos (without uploading them to Youtube) pretty annoying and inconvenient. Slides does, on the other hand, have good support for embedding GIFs. I came up with the following pipeline (based on notedible's comment on <a href="https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality">Stackoverflow</a>). First, make sure to install <code>libav</code> and <code>imagemagick</code>. On Debian-based systems, you can run</p>
 <pre><code>sudo apt-get install libav-tools imagemagick</code></pre>
-<p>and on MacOS<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> the easiest way to install them is via <a href="http://brew.sh">homebrew</a>. Then I use the following command to create the GIF:</p>
+<p>and on MacOS<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> the easiest way to install them is via <a href="http://brew.sh">homebrew</a>. Then I use the following command to create the GIF:</p>
 <pre><code>cat some_movie.m4v | avconv -i pipe: -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - output.gif</code></pre>
-<p>where <code>some_movie.m4v</code> is the video file. This creates an optimized GIF version called <code>output.gif</code>, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it’s helpful to be able to stop/start the playback. Enter the <a href="https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/">Toggle Animated Gifs</a> extension for Firefox (I’m sure there’s something comparable for Chrome), which lets you do just that.</p>
+<p>where <code>some_movie.m4v</code> is the video file. This creates an optimized GIF version called <code>output.gif</code>, which you can then upload to Google Slides. The last niggle is that the GIFs play continuously and sometimes it's helpful to be able to stop/start the playback. Enter the <a href="https://addons.mozilla.org/en-US/firefox/addon/toggle-animated-gifs/">Toggle Animated Gifs</a> extension for Firefox (I'm sure there's something comparable for Chrome), which lets you do just that.</p>
 <h2 id="addendum-17-04-28">Addendum 17-04-28</h2>
 <p>If you get an error that looks like the following with some weirdly formatted <code>.mov</code> files:</p>
 <pre><code>avconv version 12, Copyright (c) 2000-2016 the Libav developers
@@ -91,9 +91,9 @@ convert: no images defined `gif:-&#39; @ error/convert.c/ConvertImageCommand/325
 convert: no decode delegate for this image format `&#39; @ error/constitute.c/ReadImage/509.
 convert: no images defined `output.gif&#39; @
 error/convert.c/ConvertImageCommand/3254. </code></pre>
-<p>Then installing the <code>qtfaststart</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Python package via <code>pip install qtfaststart</code> and then running</p>
+<p>Then installing the <code>qtfaststart</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> Python package via <code>pip install qtfaststart</code> and then running</p>
 <pre><code>qtfaststart bad_movie.mov good_movie.mov</code></pre>
-<p>should fix the problem and now you can use <code>good_movie.mov</code> with the previous commands to create all the gifs. So <a href="https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064">apparently</a> what is happening is that some recording software puts the <code>mdat</code> block prior to the <code>moov</code> block (the structural metadata). This is more convenient for recording since the structure isn’t known till the recording is finished, however for playback it isn’t as nice. <code>qtfaststart</code> fixes this by swapping the two blocks:</p>
+<p>should fix the problem and now you can use <code>good_movie.mov</code> with the previous commands to create all the gifs. So <a href="https://superuser.com/questions/479063/ffmpeg-pipe-input-error/479064#479064">apparently</a> what is happening is that some recording software puts the <code>mdat</code> block prior to the <code>moov</code> block (the structural metadata). This is more convenient for recording since the structure isn't known till the recording is finished, however for playback it isn't as nice. <code>qtfaststart</code> fixes this by swapping the two blocks:</p>
 <pre><code>$ qtfaststart -l bad_movie.mov
 ftyp (32 bytes)
 wide (8 bytes)
@@ -108,9 +108,9 @@ mdat (2448358 bytes)</code></pre>
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>OS X dammit<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>So apparently this Python package just repackages ffmpeg’s own qtfaststart.c file. Why ffmpeg can’t do this on its own? Who knows.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>I like Google Slides for a variety of reasons, but the main ones are its simplicity, portability, and collaboration features. Hard to beat for presentations.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>OS X dammit<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>So apparently this Python package just repackages ffmpeg's own qtfaststart.c file. Why ffmpeg can't do this on its own? Who knows.<a href="#fnref3">↩</a></p></li>
 </ol>
 </section>
 
