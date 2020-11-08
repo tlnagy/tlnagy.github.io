@@ -58,7 +58,7 @@
     </header>
 
     <article class="post-content">
-        <p>Last month, I gave a presentation to my chemistry seminar class on predicting the promiscuity of small-molecule drug candidates by comparing their structure to the sets of ligands that bind specific proteins. If a drug candidate strongly matches a set of ligands for a certain protein then there is a high probability that it will show off-target effects with that protein. Thus, if a candidate is compared against enough protein-ligand sets then it is likely that we can predict the side-effects of a drug before it enters clinical trials. Using this technique, Keiser et al. were able to identify potential reasons for side effects seen in commonly available drugs <span class="citation" data-cites="keiser_predicting_2009">(Keiser et al. 2009)</span>. For example, they noticed that Rescriptor, an HIV reverse transcriptase inhibitor, matched the ligand sets of histamine receptors, which could explain the skin rashes observed in patients who were on the drug. They used a variant of the <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a> known as the Tanimoto coefficient to calculate the similarity between pairs of compounds:</p>
+        <p>Last month, I gave a presentation to my chemistry seminar class on predicting the promiscuity of small-molecule drug candidates by comparing their structure to the sets of ligands that bind specific proteins. If a drug candidate strongly matches a set of ligands for a certain protein then there is a high probability that it will show off-target effects with that protein. Thus, if a candidate is compared against enough protein-ligand sets then it is likely that we can predict the side-effects of a drug before it enters clinical trials. Using this technique, Keiser et al. were able to identify potential reasons for side effects seen in commonly available drugs <span class="citation" data-cites="keiser_predicting_2009">(Keiser et al. 2009)</span>. For example, they noticed that Rescriptor, an HIV reverse transcriptase inhibitor, matched the ligand sets of histamine receptors, which could explain the skin rashes observed in patients who were on the drug. They used a variant of the <a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a> known as the Tanimoto coefficient to calculate the similarity between pairs of compounds:</p>
 <p><span class="math display">\[ T_c = \frac{\left| \chi_A \cap \chi_B \right|}{\left| \chi_A \cup \chi_B \right|}\]</span></p>
 <p>where <span class="math inline">\(\chi_A\)</span> and <span class="math inline">\(\chi_B\)</span> are sets of features that describe compound <span class="math inline">\(A\)</span> and compound <span class="math inline">\(B\)</span>, respectively. My understanding is that they compared the set of ligands for the known target of a drug compound to the all other protein-ligands sets. For each of these set comparisons they computed pairwise <span class="math inline">\(T_c\)</span> values for each ligand in the first set with each ligand in the second set. They then summed all the number of ligand pairs with <span class="math inline">\(T_c &gt; 0.57\)</span> yielding what they termed a <em>raw score</em> <span class="citation" data-cites="hert_quantifying_2008">(Hert et al. 2008)</span>. Now, this raw score is biased by the size of the sets and it does not account for randomness. The authors account for this by transforming the raw scores to Z-scores:</p>
 <p><span class="math display">\[ z = \frac{rs(S_1, S_2 - \mu(n(S_1, S_2)}{\sigma(n(S_1, S_2))}\]</span></p>
@@ -66,7 +66,7 @@
 <p><span class="math display">\[ P(Z&gt;z) = 1 - exp(-e^{-z\pi/\sqrt{6} - \gamma}) \]</span></p>
 <p>where <span class="math inline">\(\gamma\)</span> is the Euler-Mascheroni constant (<span class="math inline">\(\approx 0.5772156649\)</span>). The expectation values can then be found by</p>
 <p><span class="math display">\[ E(z) = P(z)N_db  \]</span></p>
-<p>where <span class="math inline">\(N_db\)</span> is the number of set comparisons made while searching the database. Keiser et al. could then compare these expectation values to find novel drug-target interactions across a large set of drugs and a large set of protein-ligand sets.</p>
+<p>where <span class="math inline">\(N_db\)</span> is the number of set comparisons made while searching the database. Keiser et al. could then compare these expectation values to find novel drug-target interactions across a large set of drugs and a large set of protein-ligand sets.</p>
 <p>The full presentation can be found below.</p>
 <div class="bigspacer">
 
@@ -80,13 +80,13 @@
 </div>
 <script type="text/javascript"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<h2 id="references" class="unnumbered">References</h2>
-<div id="refs" class="references">
+<h2 class="unnumbered" id="references">References</h2>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
 <div id="ref-hert_quantifying_2008">
-<p>Hert, Jérôme, Michael J. Keiser, John J. Irwin, Tudor I. Oprea, and Brian K. Shoichet. 2008. “Quantifying the Relationships Among Drug Classes.” <em>J. Chem. Inf. Model.</em> 48 (4): 755–65. doi:<a href="https://doi.org/10.1021/ci8000259">10.1021/ci8000259</a>.</p>
+<p>Hert, Jérôme, Michael J. Keiser, John J. Irwin, Tudor I. Oprea, and Brian K. Shoichet. 2008. “Quantifying the Relationships Among Drug Classes.” <em>J. Chem. Inf. Model.</em> 48 (4): 755–65. <a href="https://doi.org/10.1021/ci8000259">https://doi.org/10.1021/ci8000259</a>.</p>
 </div>
 <div id="ref-keiser_predicting_2009">
-<p>Keiser, Michael J., Vincent Setola, John J. Irwin, Christian Laggner, Atheir I. Abbas, Sandra J. Hufeisen, Niels H. Jensen, et al. 2009. “Predicting New Molecular Targets for Known Drugs.” <em>Nature</em> 462 (7270): 175–81. doi:<a href="https://doi.org/10.1038/nature08506">10.1038/nature08506</a>.</p>
+<p>Keiser, Michael J., Vincent Setola, John J. Irwin, Christian Laggner, Atheir I. Abbas, Sandra J. Hufeisen, Niels H. Jensen, et al. 2009. “Predicting New Molecular Targets for Known Drugs.” <em>Nature</em> 462 (7270): 175–81. <a href="https://doi.org/10.1038/nature08506">https://doi.org/10.1038/nature08506</a>.</p>
 </div>
 </div>
 

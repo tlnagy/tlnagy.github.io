@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>A deep dive into the Stellar public network (Part 1)</title>
-    <meta name="description" content="One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I'm pretty certain that most ...">
+    <meta name="description" content="One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I’m pretty certain that most ...">
 
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -58,29 +58,29 @@
     </header>
 
     <article class="post-content">
-        <p>One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I'm pretty certain that most cryptocurrencies will eventually adopt some type of zero-knowledge cryptography (e.g. <a href="https://z.cash/technology/zksnarks.html">zk-snarks</a>) that would make this sort of analysis impossible or much more difficult, many still have everything recorded in the clear, e.g. the <a href="https://stellar.org">Stellar network</a> and its corresponding currency, Lumens (XLM).</p>
-<p>Stellar is an interesting project because it does not rely on the extremely wasteful proof-of-work consensus method (used by Bitcoin and Ethereum). It instead uses the Stellar Consensus Protocol (SCP), which is a form of a federated Byzantine agreement. There's a <a href="https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949">technical summary</a> and a <a href="https://www.stellar.org/papers/stellar-consensus-protocol.pdf">white paper</a> that both explain how SCP works<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Its key benefits are that it is both fast (1000+ transactions per second) and environmentally friendly (extremely low energy costs).</p>
-<p><strong>Okay, so Stellar is cool, but how are people using it?</strong> This was the question that spawned this analysis. I wanted to see what I could find out from the Stellar's public blockchain about how people (and bots) were using it. This is part 1 of what I hope is a multipart dive into the Stellar network<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Some questions I hope to answer:</p>
+        <p>One of the basic tenets of public blockchains is that all account and transactional information is open to anyone to see. While I’m pretty certain that most cryptocurrencies will eventually adopt some type of zero-knowledge cryptography (e.g. <a href="https://z.cash/technology/zksnarks.html">zk-snarks</a>) that would make this sort of analysis impossible or much more difficult, many still have everything recorded in the clear, e.g. the <a href="https://stellar.org">Stellar network</a> and its corresponding currency, Lumens (XLM).</p>
+<p>Stellar is an interesting project because it does not rely on the extremely wasteful proof-of-work consensus method (used by Bitcoin and Ethereum). It instead uses the Stellar Consensus Protocol (SCP), which is a form of a federated Byzantine agreement. There’s a <a href="https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949">technical summary</a> and a <a href="https://www.stellar.org/papers/stellar-consensus-protocol.pdf">white paper</a> that both explain how SCP works<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Its key benefits are that it is both fast (1000+ transactions per second) and environmentally friendly (extremely low energy costs).</p>
+<p><strong>Okay, so Stellar is cool, but how are people using it?</strong> This was the question that spawned this analysis. I wanted to see what I could find out from the Stellar’s public blockchain about how people (and bots) were using it. This is part 1 of what I hope is a multipart dive into the Stellar network<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Some questions I hope to answer:</p>
 <ol type="1">
 <li><a href="#account-inflation-destination-distribution">What is the inflation destination distribution across accounts?</a></li>
 <li><a href="#correlation-between-account-balance-and-age">Is there a correlation between account balance and age?</a></li>
-<li>Are most accounts just holding<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> lumens or are they actually moving around?</li>
+<li>Are most accounts just holding<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> lumens or are they actually moving around?</li>
 <li>What is the topology of the transaction graph? Is it more hub-and-spoke or more Erdős-Rényi like?</li>
 <li>Can I detect when major giveaways and changes to the protocol happened?</li>
 </ol>
 <h2 id="getting-the-data">Getting the data</h2>
-<p>While Stellar's documentation is surprisingly good compared to other cryptoprojects, it took a bit of finagling to get everything to work, but that might be more indicative of my newness to the whole scene.</p>
-<p>The first step was actually getting the data. Stellar has a convenient RESTful API for many things via <a href="https://github.com/stellar/horizon">Horizon</a>, but that isn't <a href="https://stellar.stackexchange.com/questions/729/possible-to-get-a-list-of-account-holders-satisfying-certain-criteria-using-hori?noredirect=1#comment597_729">sufficient</a> for my needs so I needed to set up a full node locally.</p>
+<p>While Stellar’s documentation is surprisingly good compared to other cryptoprojects, it took a bit of finagling to get everything to work, but that might be more indicative of my newness to the whole scene.</p>
+<p>The first step was actually getting the data. Stellar has a convenient RESTful API for many things via <a href="https://github.com/stellar/horizon">Horizon</a>, but that isn’t <a href="https://stellar.stackexchange.com/questions/729/possible-to-get-a-list-of-account-holders-satisfying-certain-criteria-using-hori?noredirect=1#comment597_729">sufficient</a> for my needs so I needed to set up a full node locally.</p>
 <h3 id="setting-up-a-local-node">Setting up a local node</h3>
-<p>The easiest way to do this is via <a href="https://www.docker.com/"><code>Docker</code></a> and once you install it, provisioning a Stellar node is a easy<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> as running the following command in your terminal (don't type the preceding <code>$</code>):</p>
+<p>The easiest way to do this is via <a href="https://www.docker.com/"><code>Docker</code></a> and once you install it, provisioning a Stellar node is a easy<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> as running the following command in your terminal (don’t type the preceding <code>$</code>):</p>
 <pre><code>$ docker run --rm -it -p &quot;8000:8000&quot; -p &quot;5432:5432&quot; -v ~/Documents/stellar:/opt/stellar --name stellar stellar/quickstart --pubnet</code></pre>
-<p><strong>Make sure to enter a password in for the PostgreSQL database and that you write it down. You'll need it to connect to the database later.</strong></p>
-<p>The above command tells Docker to download the <a href="https://github.com/stellar/docker-stellar-core-horizon"><code>stellar/quickstart</code></a> Docker image and create a volume at <code>~/Documents/stellar</code> where the Stellar node will store all of its data. It will also expose the HTML and PostgreSQL ports locally too. We'll need the latter one to actually access the data. Finally, the <code>--pubnet</code> flag tells the node to use the public network (i.e. real lumens).</p>
-<p>Once you run this command you'll need to wait till the node is synchronized with the network. You can check its progress by connecting to the Docker container</p>
+<p><strong>Make sure to enter a password in for the PostgreSQL database and that you write it down. You’ll need it to connect to the database later.</strong></p>
+<p>The above command tells Docker to download the <a href="https://github.com/stellar/docker-stellar-core-horizon"><code>stellar/quickstart</code></a> Docker image and create a volume at <code>~/Documents/stellar</code> where the Stellar node will store all of its data. It will also expose the HTML and PostgreSQL ports locally too. We’ll need the latter one to actually access the data. Finally, the <code>--pubnet</code> flag tells the node to use the public network (i.e. real lumens).</p>
+<p>Once you run this command you’ll need to wait till the node is synchronized with the network. You can check its progress by connecting to the Docker container</p>
 <pre><code>$ docker exec -it stellar /bin/bash</code></pre>
-<p>which opens a connection to the container's shell. You can then run</p>
+<p>which opens a connection to the container’s shell. You can then run</p>
 <pre><code>$ stellar-core --c &#39;info&#39;</code></pre>
-<p>to ask query the state of your node. The key thing is to look at the <code>&quot;state&quot;</code> value below, it should eventually read <code>&quot;Synced!&quot;</code></p>
+<p>to ask query the state of your node. The key thing is to look at the <code>"state"</code> value below, it should eventually read <code>"Synced!"</code></p>
 <pre><code>Content-Length: 761
 Content-Type: application/json
 
@@ -116,10 +116,8 @@ Content-Type: application/json
 <p>The last ledger was <a href="https://stellarchain.io/ledger/16874860">16874860</a> when I shutdown my node to prevent the data from mutating during my analysis.</p>
 <h3 id="querying-the-data">Querying the data</h3>
 <p>I used <a href="https://eggerapps.at/postico/">Postico</a> to actually query the data, but any PostgreSQL client will work.</p>
-<figure>
-<img src="/assets/images/2018-03-18-stellar-network-analysis/f6930827.png" />
-</figure>
-<p>You'll need to tell it to connect to the PostgreSQL instance by telling it to connect to localhost on port 5432, with <code>stellar</code> as the username and the password you entered from above. The main database we'll be interacting with is <code>core</code>. You can then execute any SQL query against the database.</p>
+<p><img src="/assets/images/2018-03-18-stellar-network-analysis/f6930827.png" /></p>
+<p>You’ll need to tell it to connect to the PostgreSQL instance by telling it to connect to localhost on port 5432, with <code>stellar</code> as the username and the password you entered from above. The main database we’ll be interacting with is <code>core</code>. You can then execute any SQL query against the database.</p>
 <h2 id="analysis">Analysis</h2>
 <p>Now to the fun part, actually answering some questions! All my analysis was done in <a href="https://julialang.org">Julia</a> and my jupyter notebook is available <a href="https://gist.github.com/tlnagy/13c88fb4987ab4081cbc043b31a5e018">here</a>.</p>
 <h3 id="account-inflation-destination-distribution">Account inflation destination distribution</h3>
@@ -127,28 +125,24 @@ Content-Type: application/json
 <blockquote>
 <p>The Stellar distributed network has a built-in, fixed, nominal inflation mechanism. New lumens are added to the network at the rate of 1% each year. Each week, the protocol distributes these lumens to any account that gets over .05% of the “votes” from other accounts in the network.</p>
 </blockquote>
-<p>My understanding is that lumens that are distributed are both new lumens that are added (at the rate of 1% of each year) and the lumens collected from transaction fees<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. But...lumens are only distributed if an inflation destination is set. I wanted to look at the inflation destinations ordered by the total amount of XLM in the accounts pointed at each destination (on left) and the number of accounts pointed at each destination (on right).</p>
-<figure>
-<img src="/assets/images/2018-03-18-stellar-network-analysis/inflationdest.svg" />
-</figure>
-<p>First thing, there are a lot of accounts without a set inflation destination (i.e. a NULL destination). 6.7 billion lumens are not earning inflation, which works out to 37% of all distributed lumens. It's even worse if you look at the level of accounts. 76% percent of all accounts aren't earning any inflation! The biggest community pool (balance-wise) is <a href="https://lumenaut.net/">GCCD..NAUT</a>, which is one of the newer pools that has no fees. Pretty cool that it caught on so quick.</p>
-<p>I don't understand why manual setting of the inflation destination is necessary. Why can't the lumens be distributed to every account equally? I just find it unfortunate that the majority of accounts aren't taking advantage of the inflation payouts.</p>
+<p>My understanding is that lumens that are distributed are both new lumens that are added (at the rate of 1% of each year) and the lumens collected from transaction fees<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. But…lumens are only distributed if an inflation destination is set. I wanted to look at the inflation destinations ordered by the total amount of XLM in the accounts pointed at each destination (on left) and the number of accounts pointed at each destination (on right).</p>
+<p><img src="/assets/images/2018-03-18-stellar-network-analysis/inflationdest.svg" /></p>
+<p>First thing, there are a lot of accounts without a set inflation destination (i.e. a NULL destination). 6.7 billion lumens are not earning inflation, which works out to 37% of all distributed lumens. It’s even worse if you look at the level of accounts. 76% percent of all accounts aren’t earning any inflation! The biggest community pool (balance-wise) is <a href="https://lumenaut.net/">GCCD..NAUT</a>, which is one of the newer pools that has no fees. Pretty cool that it caught on so quick.</p>
+<p>I don’t understand why manual setting of the inflation destination is necessary. Why can’t the lumens be distributed to every account equally? I just find it unfortunate that the majority of accounts aren’t taking advantage of the inflation payouts.</p>
 <h3 id="correlation-between-account-balance-and-age">Correlation between account balance and age</h3>
 <p>Another thing I wanted to look at is if there was any correlation between the age of an account and the size of the balance. The account creation time is not stored, but there is a last modified time. Plotting the 2D histogram of the last modified time versus balance size gives this:</p>
-<figure>
-<img src="/assets/images/2018-03-18-stellar-network-analysis/balanceage.svg" />
-</figure>
+<p><img src="/assets/images/2018-03-18-stellar-network-analysis/balanceage.svg" /></p>
 <p>Couple interesting points. You can clearly see when the minimum account balance was lowered from 10 XLM to 0.5 XLM in <a href="https://github.com/stellar/docs/commit/9c0100d80d32dfff9d9d071b77def6bf8599b151#diff-fe29f1f4bf5e6ceed24a2a27a5d241c6">January</a>. There is also a strip around 5000 XLM, which are probably old accounts that received free lumens, but were forgotten.</p>
-<p>In the next part, I'll map transactions to each account so then I'll be able to find the oldest transaction for each account to determine its age instead of using the last modified time. I also hope to answer the rest of the questions outlined above.</p>
+<p>In the next part, I’ll map transactions to each account so then I’ll be able to find the oldest transaction for each account to determine its age instead of using the last modified time. I also hope to answer the rest of the questions outlined above.</p>
 <p>If you made it this far and have any more ideas for what I could look into, tweet at me (<a href="https://twitter.com/tlngy">@tlngy</a>).</p>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>I plan to write an intuitive description of how SCP works on this blog some time in the future. Hopefully, it will help me a better understanding of the limitations and weaknesses of the protocol design.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>That depends heavily on the amount of free time I have, heh.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>hodling<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>I originally tried setting up an instance by compiling stellar-core locally on my MacOS machine, but ran into issues with the <a href="https://stellar.stackexchange.com/questions/731/running-into-an-invalid-quorum-set-error-when-running-stellar-core?noredirect=1#comment594_731">config file</a>. Apparently, the default config file ships with a non-functional quorum-set (probably a good thing to make sure people actually think about which nodes they list here, heh).<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>In proof-of-work currencies, the transaction fees are much higher and paid to the miners.<a href="#fnref5">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>I plan to write an intuitive description of how SCP works on this blog some time in the future. Hopefully, it will help me a better understanding of the limitations and weaknesses of the protocol design.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>That depends heavily on the amount of free time I have, heh.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>hodling<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>I originally tried setting up an instance by compiling stellar-core locally on my MacOS machine, but ran into issues with the <a href="https://stellar.stackexchange.com/questions/731/running-into-an-invalid-quorum-set-error-when-running-stellar-core?noredirect=1#comment594_731">config file</a>. Apparently, the default config file ships with a non-functional quorum-set (probably a good thing to make sure people actually think about which nodes they list here, heh).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>In proof-of-work currencies, the transaction fees are much higher and paid to the miners.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
