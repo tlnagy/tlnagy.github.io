@@ -12,6 +12,7 @@ profile:
     <p>615 Charles E. Young Dr. S</p>
     <p>BSRB 454</p>
     <p>Los Angeles, CA 90095</p>
+    <p>USA</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
