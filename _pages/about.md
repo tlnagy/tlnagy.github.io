@@ -30,4 +30,6 @@ latest_posts:
 
 I am a Postdoctoral Scholar in [Thomas A Rando](https://randolab.healthsciences.ucla.edu/)'s group at UCLA working on muscle stem cell decision-making during regeneration. I am generally interested in how cellular collectives self-organize, how they break symmetry, and how they maintain homeostasis. I am particularly focused on how single cells "perceive" their neighbors and environment via signaling networks and how this perception manifests as tissue-scale behavior once many cells interact. My vision is that having a quantitative understanding of how cells make decisions in groups can help us understand how tissues break down in aging and disease. 
 
+During my PhD, I worked with [Orion Weiner](https://weinerlab.com) at UCSF on how immune cells manipulate their biophysical properties to enhance motility. Prior to that, I studied Applied Math and Chemistry as an undergraduate at the University of Kentucky.
+
 I primarily use timelapse microscopy to watch living systems adapt and evolve dynamically. I love microscopes and the related software and hardware challenges and maintain several microscopy-related software projects primarily in Julia.
