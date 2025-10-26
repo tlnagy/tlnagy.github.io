@@ -33,3 +33,8 @@ I am a Postdoctoral Scholar in [Thomas A Rando](https://randolab.healthsciences.
 During my PhD, I worked with [Orion Weiner](https://weinerlab.com) at UCSF on how immune cells manipulate their biophysical properties to enhance motility. Prior to that, I studied Applied Math and Chemistry as an undergraduate at the University of Kentucky.
 
 I primarily use timelapse microscopy to watch living systems adapt and evolve dynamically. I love microscopes and the related software and hardware challenges and maintain several microscopy-related software projects primarily in Julia.
+
+{% include video.liquid path="assets/video/climber.webm" class="img-fluid rounded z-depth-1" controls=false autoplay=true loop=true %}
+<div class="caption">
+    What is this stem cell perceiving as it pulls on the myotubes?
+</div>
