@@ -7,7 +7,7 @@ first_name: Tamas
 middle_name: L.
 last_name: Nagy
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email works best generally, Github for software-related inquiries
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -187,7 +187,6 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
   - readme_preview/
