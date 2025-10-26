@@ -6,7 +6,7 @@ subtitle: Biophysicist working on collective cellular intelligence
 
 profile:
   align: right
-  image: tlnagy.jpg
+  image: tlnagy.png
   image_circular: true # crops the image to make it circular
   more_info: >
     <p>615 Charles E. Young Dr. S</p>
