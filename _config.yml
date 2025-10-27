@@ -263,7 +263,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 
 scholar:
   last_name: [Nagy]
-  first_name: [Tamas, L.]
+  first_name: [Tamas, Tamas L.]
 
   style: apa
   locale: en
