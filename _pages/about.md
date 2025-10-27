@@ -35,7 +35,7 @@ During my PhD, I worked with [Orion Weiner](https://weinerlab.com) at UCSF on ho
 I primarily use timelapse microscopy to watch living systems adapt and evolve dynamically. I love microscopes and the related software and hardware challenges and maintain several microscopy-related software projects primarily in Julia.
 
 <div style="max-width: 600px">
-    {% include video.liquid path="assets/video/climber.webm" class="img-fluid rounded z-depth-1" controls=false autoplay=true loop=true %}
+    {% include video.liquid path="assets/video/climber.mp4" class="img-fluid rounded z-depth-1" controls=false autoplay=true loop=true playsinline=true muted=true %}
 </div>
 <div class="caption" style="max-width: 600px">
     What is this stem cell perceiving as it pulls on the myotubes?
