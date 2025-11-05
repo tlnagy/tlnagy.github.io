@@ -10,7 +10,7 @@ redirect_from: /blog/microtubule-vortices/
 Yesterday was the systems biology module of the iPQB bootcamp here at UCSF. I was in charge of the modeling section and I decided to try to get the students to model the relatively simple active matter system from @Sumino2012-dc since it was relatively straightforward, very visual, and shows complex emergent properties from simple rules (See Figure 1). Active matter systems are ubiquitous nonequilibrium condensed systems whose "unifying characteristic is that they are **composed of self-driven units, active particles, each capable of converting stored or ambient free energy into systematic movement**" [@Marchetti2013]. An *in vitro* microtubule and dynein system, like the one we're investigating here, is much more controlled and reproducible compared to the flocking of birds or fish and thus serves as a nice model system in which to study active matter.
 
 
-![Figure 1A-B from @Sumino2012-dc. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP](assets/img/2017-09-07-microtubule-vortices/0de43a55.png)
+{% include figure.liquid loading="eager" path="assets/img/2017-09-07-microtubule-vortices/0de43a55.png" class="img-fluid rounded z-depth-1" caption="Figure 1A-B from @Sumino2012-dc. Cy3 labeled microtubules form vortices when placed on dynein-c coated glass coverslips in the presence of ATP" %}
 
 The authors proposed a relatively simple model that could recapitulate this phenomenon. They modeled the behavior of the microtubules as a biased Ornstein–Uhlenbeck process where the microtubules moved at a constant velocity in a direction, $\theta_i$, that was updated by an angular velocity, $\omega_i$, at each time step. They added some normal brownian noise to $\omega_i$ with mean $\xi_{\mu}$ and standard deviation $\xi_{\sigma}$. They noticed that the microtubules had a slight clockwise curvature preference and that after relaxation time $\lambda$, the angular velocity $\omega_i$ would approach the preferred angular velocity, $\omega_0$.
 
@@ -28,9 +28,9 @@ $$
 
 I implemented the code using Python 3, NumPy, SciPy, and Matplotlib and it is available as a Jupyter Notebook in this gist: <https://gist.github.com/tlnagy/cba938ffd5c98236e90bfd1dc3d23d11>. The students found a quite few parameter combinations that yielded interesting results, most of which were highly unrealistic. I suspect this is due to the much lower "concentration" of microtubules that we used in our simulation to achieve interactivity, $N=1500$ instead of $N=2621440$. We were still able to get vortices to form:
 
-![Initially, microtubule movement looks pretty random.](assets/img/2017-09-07-microtubule-vortices/mt_initial.gif)
+{% include figure.liquid loading="eager" path="assets/img/2017-09-07-microtubule-vortices/mt_initial.gif" class="img-fluid rounded z-depth-1" caption="Initially, microtubule movement looks pretty random." %}
 
-![However, they start to coalesce into a grid of vortices](assets/img/2017-09-07-microtubule-vortices/mt_vortices.gif)
+{% include figure.liquid loading="eager" path="assets/img/2017-09-07-microtubule-vortices/mt_vortices.gif" class="img-fluid rounded z-depth-1" caption="However, they start to coalesce into a grid of vortices" %}
 
 <script type="text/javascript"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

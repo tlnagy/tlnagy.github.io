@@ -11,7 +11,7 @@ redirect_from: /blog/ile-rackbag/
 Cycling around San Francisco almost everyday for the past year and a half made
 me want to look for a better way to carry stuff with me.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0842.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0842.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 I tried the rear rack with baskets approach, but I kept clipping my heels on the
 baskets and having lots of weight in the back made my bike fish tail too much
@@ -24,7 +24,7 @@ and immediately preferred it to my old rear rack set up. However, I realized
 quickly that my bungee cord solution for attaching stuff to the front rack left
 a lot to be desired.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0836.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0836.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 After looking at a lot of different porteur bags, I ended up swinging by [Inside
 Lines Equipment](https://ilequipment.com/)'s shop over in Berkeley and played
@@ -36,7 +36,7 @@ very solid and holds its shape well, while also being lightweight. I had to get
 it and now that I've had it for about two weeks I thought I would give a quick
 review of what I like and what I don't.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0840.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0840.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 One of my favorite features are the two easily accessible pockets at the rear of
 the bag that face you while on the bike. These are great for storing things that
@@ -44,26 +44,26 @@ you need to be easily accessible on the go. I keep my Abus U-lock in one pocket
 and miscellaneous things I need in the other. They are quite large and you can
 easily fit even large snacks, smartphones, etc.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0864.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0864.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 It attaches via two easily adjustable straps on the bottom of the bag. Once you
 set them to work for your rack, you can attach it and go pretty quickly. I can
 attach it based on feel now so I don't need to squat down any more to attach it.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0866.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0866.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Let me go ahead and say that this bag is huge, it can expand to hold 42L of your
 stuff. You'll probably hit the weight limits of your front rack before filling
 this thing up. It has some straps hidden in the velco flap to strap on oversized
 items.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0865.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0865.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Like any porteur bag, it looks the most at home on the bike, but it can pass as
 a messenger bag whenever you need to leave the bike behind. The flat, rigid base
 makes it have unique profile that might not be for everyone.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0867.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0867.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 However, that leads me to probably my least favorite aspects of the bag: there
 isn't a good hand hold if the shoulder strap is attached. They include a nice
@@ -72,7 +72,7 @@ addition to. The only other complaint I have is that it would be nice to have
 some kind of organization inside the main pocket because everything just jostles
 in the same cavernous hole.
 
-![](assets/img/2018-10-13-ile-rackbag/IMG_0868.JPG)
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0868.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Overall, I'm very happy with my purchase. It very freeing to not have to put
 everything on my back while riding and I find that I much prefer having the
@@ -80,7 +80,7 @@ weight in the front. The ILE Porteur Rackbag is a high-quality, lightweight,
 versatile, and waterproof bag that I'm sure will last me a very long time.
 
 
-![](assets/images/2018-10-13-ile-rackbag/IMG_0841.JPG)
+{% include figure.liquid loading="eager" path="assets/images/2018-10-13-ile-rackbag/IMG_0841.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 
 [^1]: [Cetma Cargo](https://cetmacargo.com/pages/cetma-racks-info)'s reasons for preferring a front rack, in case the link goes down
