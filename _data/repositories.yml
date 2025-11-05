@@ -5,3 +5,7 @@ repo_description_lines_max: 2
 
 github_repos:
   - tlnagy/TiffImages.jl
+  - tlnagy/Crispulator.jl
+  - tlnagy/OMETIFF.jl
+  - tlnagy/FCSFiles.jl
+  - tlnagy/jekyll-lab-notebook
