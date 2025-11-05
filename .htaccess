@@ -1,0 +1,18 @@
+RewriteEngine On
+
+RedirectMatch 301 ^/blog/open/?$ /blog/2013/open
+RedirectMatch 301 ^/blog/scientific-writing-pandoc/?$ /blog/2014/scientific-writing-pandoc
+RedirectMatch 301 ^/blog/life-sans-facebook/?$ /blog/2014/life-sans-facebook
+RedirectMatch 301 ^/blog/predicting-drug-candidate-promiscuity/?$ /blog/2014/predicting-drug-candidate-promiscuity
+RedirectMatch 301 ^/blog/revamp/?$ /blog/2016/revamp
+RedirectMatch 301 ^/blog/building-jekyll-site-debian/?$ /blog/2016/building-jekyll-site-debian
+RedirectMatch 301 ^/blog/mtp-interconnect-mac-linux/?$ /blog/2016/mtp-interconnect-mac-linux
+RedirectMatch 301 ^/blog/precision-recall-julia/?$ /blog/2016/precision-recall-julia
+RedirectMatch 301 ^/blog/videos-in-google-slides-gifs/?$ /blog/2016/videos-in-google-slides-gifs
+RedirectMatch 301 ^/blog/grad-student-taxes/?$ /blog/2017/grad-student-taxes
+RedirectMatch 301 ^/blog/kings-canyon-trip-report/?$ /blog/2017/kings-canyon-trip-report
+RedirectMatch 301 ^/blog/microtubule-vortices/?$ /blog/2017/microtubule-vortices
+RedirectMatch 301 ^/blog/ucsf-sfbike-match/?$ /blog/2017/ucsf-sfbike-match
+RedirectMatch 301 ^/blog/reading-list/?$ /blog/2018/reading-list
+RedirectMatch 301 ^/blog/stellar-network-analysis/?$ /blog/2018/stellar-network-analysis
+RedirectMatch 301 ^/blog/ile-rackbag/?$ /blog/2018/ile-rackbag
