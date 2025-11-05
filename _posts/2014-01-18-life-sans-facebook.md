@@ -4,6 +4,7 @@ layout: post
 author: Tamas Nagy
 tags: [productivity, minimalism, social media]
 date: 2014-01-18 12:00:00
+redirect_from: /blog/life-sans-facebook/
 ---
 It has been around three months since, after much back and forth in my head, I decided to permanently delete my Facebook account. In that time, I've been asked several times why I left, so I opted to write this short post to spell out my thoughts in a more succinct and thorough manner.
 

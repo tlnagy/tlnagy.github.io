@@ -5,6 +5,7 @@ layout: post
 tags: [random]
 image:
 date: 2017-12-17 12:00:00
+redirect_from: /blog/ucsf-sfbike-match/
 ---
 
 Cycling is a great way to commute to work and to stay healthy. It is associated

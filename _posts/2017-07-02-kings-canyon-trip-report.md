@@ -3,8 +3,9 @@ title: "Copper Creek and Lower Paradise Valley Trip Report"
 author: Tamas Nagy
 layout: post
 tags: [trip report]
-image: 2017-07-02-kings-canyon-trip-report/IMG_20170625_134939.jpg
+image: assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170625_134939.jpg
 date: 2017-07-02 12:00:00
+redirect_from: /blog/kings-canyon-trip-report/
 ---
 
 > Nature is ever at work building and pulling down, creating and destroying, keeping everything whirling and flowing, allowing no rest but in rhythmical motion, chasing everything in endless song out of one beautiful form into another.
@@ -16,7 +17,7 @@ everything is melting and [flooding like crazy](http://www.latimes.com/local/lan
 The rivers are swollen and the falls are roaring so we thought we had to get out
 and experience it.
 
-![The view from Lower Paradise Valley, Kings Canyon NP](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134943.jpg)
+![The view from Lower Paradise Valley, Kings Canyon NP](assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134943.jpg)
 
 We left late last Friday night, June 23rd, at around 7pm from San Francisco. We
 picked up Alex and Leslie down in Burlingame and aimed the car towards the
@@ -49,7 +50,7 @@ massive granite piles peaking out from between the trees and rising thousands of
 feet vertically from the valley floor. But then, abruptly, we ran out of asphalt.
 We had reached the road's end.
 
-![At Road's End](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_095843.jpg)
+![At Road's End](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170624_095843.jpg)
 
 We had wanted to do part of the Rae Lakes Loop in Kings Canyon National Park, but
 after talking to the rangers we learned that the recent snowmelt had wrecked
@@ -63,7 +64,7 @@ beating down on us. The trail starts off at a breakneck pace upwards climbing
 did not provide us with much cover from the sun, but thankfully the clouds
 rolled in and cooled us off with some light showers.
 
-![Andrea and me; cloud worshippers](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_135938.jpg)
+![Andrea and me; cloud worshippers](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170624_135938.jpg)
 
 The heat, altitude (close to 8000 feet at this point), and lack of sleep got to
 us. We set up camp close to Lower Tent Meadow about 4 miles in and took a nap.
@@ -73,7 +74,7 @@ They turned back once they hit the snow line at 9500 feet. A ranger stopped by
 our campground and she said that a group further along the trail saw a mother
 bear and with some cubs and had to scare them off when they got too inquisitive.
 
-![Not the flattest campground](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170624_203101.jpg)
+![Not the flattest campground](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170624_203101.jpg)
 
 It was much cooler up here then down below so we slept much better. The next day,
 we decided to go back down to Road's End and do a short day hike up to Mist Falls
@@ -91,7 +92,7 @@ We tried to keep up the pace the whole time. We also ran into quite a few snakes
 including a juvenile rattler, likely ousted from their normal dwellings by the
 raging river.
 
-![The Kings River showed no mercy and neither did the mosquitoes](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_133449.jpg)
+![The Kings River showed no mercy and neither did the mosquitoes](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170625_133449.jpg)
 
 Once we made it out of the boggy parts of the trail, the landscape
 changed dramatically. Granite flows started to dominate and the mosquitoes wilted
@@ -100,11 +101,11 @@ views that I have ever experienced in the Sierras. We stretched out on the warm
 granite flows and soaked in the warm California sun while Mist Falls roared away
 behind us.
 
-![This view is priceless](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134939.jpg)
+![This view is priceless](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170625_134939.jpg)
 
 We even saw a hummingbird investigating some flowers near us. Paradise Valley, indeed.
 
-![Hummingbird in paradise](/assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_135724.jpg)
+![Hummingbird in paradise](assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170625_135724.jpg)
 
 We had to brave the bogs and mosquitoes on the way back too, but we were
 mentally prepared for it this time. We slogged through it again and made it back

@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [linux, mac, android, diy]
 date: 2016-02-17 12:00:00
+redirect_from: /blog/mtp-interconnect-mac-linux/
 ---
 
 Connecting your phone to your computer via MTP isn't as easy as it should

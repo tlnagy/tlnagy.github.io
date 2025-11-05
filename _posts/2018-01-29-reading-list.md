@@ -5,6 +5,7 @@ layout: post
 tags: [meta]
 image: IMG_20180129_192927.jpg
 date: 2018-01-29 12:00:00
+redirect_from: /blog/reading-list/
 ---
 
 ![](/assets/images/IMG_20180129_192927.jpg)

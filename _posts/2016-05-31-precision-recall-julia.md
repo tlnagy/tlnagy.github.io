@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [julia, science]
 date: 2016-05-31 12:00:00
+redirect_from: /blog/precision-recall-julia/
 ---
 
 Precision-Recall (PR) curves are useful for evaluating the performance of

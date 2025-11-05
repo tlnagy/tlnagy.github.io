@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [science, productivity]
 date: 2016-08-15 12:00:00
+redirect_from: /blog/videos-in-google-slides-gifs/
 ---
 
 In my field, systems biology, it's pretty common to take time-lapse movies

@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [meta, linux]
 date: 2016-01-23 12:00:00
+redirect_from: /blog/building-jekyll-site-debian/
 ---
 
 One of my goals with the redesign was to improve the portability of my

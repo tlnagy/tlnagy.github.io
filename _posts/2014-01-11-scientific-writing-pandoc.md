@@ -4,6 +4,7 @@ layout: post
 tags: [science, writing, markdown]
 author: Tamas Nagy
 date: 2014-01-11 12:00:00
+redirect_from: /blog/scientific-writing-pandoc/
 ---
 Scientific writing has come a long way since typewriters and stacks of handwritten reference cards. Robust reference managers, automatically generated bibliographies, and editable files are significant improvements. 
 However, we're saddled with a myriad of incompatible file formats that are ill-suited for scientific articles. If you're unlucky then your journal of choice only takes binary blobs with a .docx extension, but otherwise you essentially have two choices: MS Word and LaTeX. Both of which have their respective advantages. The former is better for collaboration, has a lower initial learning curve, and is widely adopted. The latter has superior typography, superior math support, a better file format, and it plays nicely with version control[^1]. 

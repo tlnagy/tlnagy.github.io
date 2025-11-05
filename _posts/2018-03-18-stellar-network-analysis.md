@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [crypto]
 date: 2018-03-18 12:00:00
+redirect_from: /blog/stellar-network-analysis/
 ---
 
 One of the basic tenets of public blockchains is that all account and
@@ -124,7 +125,7 @@ shutdown my node to prevent the data from mutating during my analysis.
 I used [Postico](https://eggerapps.at/postico/) to actually query the data, but
 any PostgreSQL client will work.
 
-![](/assets/images/2018-03-18-stellar-network-analysis/f6930827.png)
+![](assets/img/2018-03-18-stellar-network-analysis/f6930827.png)
 
 You'll need to tell it to connect to the PostgreSQL instance by telling it to
 connect to localhost on port 5432, with `stellar` as the username and the
@@ -149,7 +150,7 @@ destination is set. I wanted to look at the inflation destinations ordered by
 the total amount of XLM in the accounts pointed at each destination (on left)
 and the number of accounts pointed at each destination (on right).
 
-![](/assets/images/2018-03-18-stellar-network-analysis/inflationdest.svg)
+![](assets/img/2018-03-18-stellar-network-analysis/inflationdest.svg)
 
 First thing, there are a lot of accounts without a set inflation destination
 (i.e. a NULL destination). 6.7 billion lumens are not earning inflation, which
@@ -171,7 +172,7 @@ age of an account and the size of the balance. The account creation time is not
 stored, but there is a last modified time. Plotting the 2D histogram of the last
 modified time versus balance size gives this:
 
-![](/assets/images/2018-03-18-stellar-network-analysis/balanceage.svg)
+![](assets/img/2018-03-18-stellar-network-analysis/balanceage.svg)
 
 Couple interesting points. You can clearly see when the minimum account balance
 was lowered from 10 XLM to 0.5 XLM in [January](https://github.com/stellar/docs/commit/9c0100d80d32dfff9d9d071b77def6bf8599b151#diff-fe29f1f4bf5e6ceed24a2a27a5d241c6).

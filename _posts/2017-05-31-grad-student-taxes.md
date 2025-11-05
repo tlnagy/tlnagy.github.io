@@ -4,6 +4,7 @@ author: Tamas Nagy
 layout: post
 tags: [random]
 date: 2017-05-31 12:00:00
+redirect_from: /blog/grad-student-taxes/
 ---
 
 I'm currently a 2nd year graduate student in the quantitative biology program
