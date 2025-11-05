@@ -17,7 +17,7 @@ everything is melting and [flooding like crazy](http://www.latimes.com/local/lan
 The rivers are swollen and the falls are roaring so we thought we had to get out
 and experience it.
 
-{% include figure.liquid loading="eager" path="assets/images/2017-07-02-kings-canyon-trip-report/IMG_20170625_134943.jpg" class="img-fluid rounded z-depth-1" caption="The view from Lower Paradise Valley, Kings Canyon NP" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/2017-07-02-kings-canyon-trip-report/IMG_20170625_134943.jpg" class="img-fluid rounded z-depth-1" caption="The view from Lower Paradise Valley, Kings Canyon NP" zoomable=true %}
 
 We left late last Friday night, June 23rd, at around 7pm from San Francisco. We
 picked up Alex and Leslie down in Burlingame and aimed the car towards the

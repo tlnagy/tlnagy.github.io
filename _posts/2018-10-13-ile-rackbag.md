@@ -80,7 +80,7 @@ weight in the front. The ILE Porteur Rackbag is a high-quality, lightweight,
 versatile, and waterproof bag that I'm sure will last me a very long time.
 
 
-{% include figure.liquid loading="eager" path="assets/images/2018-10-13-ile-rackbag/IMG_0841.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/2018-10-13-ile-rackbag/IMG_0841.JPG" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 
 [^1]: [Cetma Cargo](https://cetmacargo.com/pages/cetma-racks-info)'s reasons for preferring a front rack, in case the link goes down
