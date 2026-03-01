@@ -1,5 +1,6 @@
 ---
 title: Backing up a TrueNAS App Pool to another pool
+description: How to set up a simple local replication task for the ix-apps dataset
 author: Tamas Nagy
 layout: post
 tags: truenas
