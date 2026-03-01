@@ -5,7 +5,6 @@ layout: post
 tags: truenas
 thumbnail: assets/img/2026-02-28-truenas-app-pool-replication-task/IMG_1470-1.jpg
 date: 2026-02-28 13:08:00
-redirect_from: ""
 ---
 
 I have been running the same TrueNAS machine for a decade plus and had my first major catastrophic hardware failure last week when the SSD that I use for the boot pool failed. I was not using any RAID[^1] for the boot pool so it meant that I completely lost the OS. Thankfully, the boot pool isn't very important and I could just reinstall the OS and all my data (which is protected by RAIDZ2) was safe. 
