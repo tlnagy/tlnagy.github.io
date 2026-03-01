@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/software/";
           },
-        },{id: "post-inside-lines-equipment-porteur-rackbag-review",
+        },{id: "post-backing-up-a-truenas-app-pool-to-another-pool",
+        
+          title: "Backing up a TrueNAS App Pool to another pool",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/truenas-app-pool-replication-task/";
+          
+        },
+      },{id: "post-inside-lines-equipment-porteur-rackbag-review",
         
           title: "Inside Lines Equipment Porteur Rackbag Review",
         
