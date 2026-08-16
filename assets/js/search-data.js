@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/software/";
           },
-        },{id: "post-backing-up-a-truenas-app-pool-to-another-pool",
+        },{id: "post-pixel-perfect-borderless-animations-in-napari",
+        
+          title: "Pixel perfect borderless animations in Napari",
+        
+        description: "How to record animations without borders and with proper scaling in Napari",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/napari-full-screen-movies/";
+          
+        },
+      },{id: "post-backing-up-a-truenas-app-pool-to-another-pool",
         
           title: "Backing up a TrueNAS App Pool to another pool",
         
